@@ -9,7 +9,7 @@ const Header = () => {
     <header className="site-header">
       <div className="header-inner">
         <a className="brand" href="#" aria-label="Deltaz Media home">
-          <img className="brand-logo" src="/deltaz-logo.png" alt="Deltaz Media" className="w-100" />
+          <img className="brand-logo" src="/deltaz-logo.png" alt="Deltaz Media" />
         </a>
 
         <button className="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded={open} onClick={() => setOpen(!open)}>
