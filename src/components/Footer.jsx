@@ -1,71 +1,266 @@
+import logo from "../assets/Logo.svg";
 
-const services = ['SEO Optimization', 'Google Ads (PPC)', 'Social Marketing', 'Content Strategy']
-const company = ['Case Studies', 'Our Methodology', 'Careers', 'Contact']
+import mailIcon from "../assets/MailIcon.png";
+import phoneIcon from "../assets/Phone Icon.png";
+import locationIcon from "../assets/Location icon.png";
 
-const ArrowIcon = () => (
-  <svg viewBox="0 0 24 24" aria-hidden="true">
-    <path d="M4 12h14M13 6l6 6-6 6" />
-  </svg>
-)
+import linkedinIcon from "../assets/Linked in.png";
+import instagramIcon from "../assets/Instagram.png";
+import facebookIcon from "../assets/Facebook.png";
+import twitterIcon from "../assets/Twitter.png";
 
-const ShareIcon = () => (
-  <svg viewBox="0 0 24 24" aria-hidden="true">
-    <circle cx="18" cy="5" r="2.25" /><circle cx="6" cy="12" r="2.25" /><circle cx="18" cy="19" r="2.25" />
-    <path d="m8 11 7.7-4.8M8 13l7.7 4.8" />
-  </svg>
-)
+const quickLinks = [
+  "Home",
+  "About Us",
+  "Our Services",
+  "How We Work",
+  "Case Studies",
+  "Blog",
+  "Contact",
+];
 
-const GlobeIcon = () => (
-  <svg viewBox="0 0 24 24" aria-hidden="true">
-    <circle cx="12" cy="12" r="8" /><path d="M4 12h16M12 4c2.2 2.2 3.2 5 3.2 8S14.2 17.8 12 20c-2.2-2.2-3.2-5-3.2-8S9.8 6.2 12 4Z" />
-  </svg>
-)
+const services = [
+  "SEO Optimization",
+  "Google Ads",
+  "Branding",
+  "Social Media Marketing",
+  "Content Marketing",
+  "Website Design & Development",
+];
 
-const BriefcaseIcon = () => (
-  <svg viewBox="0 0 24 24" aria-hidden="true">
-    <rect x="4" y="7" width="16" height="12" rx="1.5" /><path d="M9 7V5.7c0-.9.7-1.7 1.7-1.7h2.6c.9 0 1.7.8 1.7 1.7V7M4 11h16M10 12h4" />
-  </svg>
-)
+function Footer() {
+  return (
+    <footer className="site-footer">
 
-const Footer = () => (
-  <footer className="site-footer">
-    <div className="footer-main">
-      <section className="footer-intro" aria-label="Deltaz Media">
-        <a href="#" aria-label="Deltaz Media home"><img src="/deltaz-logo.png" alt="Deltaz Media" /></a>
-        <p>The growth partner for high-performance companies in Dubai. Data-driven, results-oriented, and strictly high-velocity.</p>
-        <div className="social-links" aria-label="Social links">
-          <a href="#" aria-label="Share"><ShareIcon /></a>
-          <a href="#" aria-label="Website"><GlobeIcon /></a>
-          <a href="#" aria-label="Portfolio"><BriefcaseIcon /></a>
+      <div className="footer-main">
+
+        {/* BRAND */}
+        <section className="footer-brand">
+
+          <a
+            href="/"
+            className="footer-logo"
+            aria-label="Deltaz Media home"
+          >
+            <img
+              src={logo}
+              alt="Deltaz Media"
+            />
+          </a>
+
+          <p className="footer-description">
+            We help ambitious brands grow through data-driven digital
+            marketing from search visibility to social reach and everything
+            in between.
+          </p>
+
+          {/* SOCIAL ICONS */}
+          <div className="footer-socials">
+
+            <a
+              href="#"
+              aria-label="LinkedIn"
+            >
+              <img
+                src={linkedinIcon}
+                alt=""
+              />
+            </a>
+
+            <a
+              href="#"
+              aria-label="Instagram"
+            >
+              <img
+                src={instagramIcon}
+                alt=""
+              />
+            </a>
+
+            <a
+              href="#"
+              aria-label="Facebook"
+            >
+              <img
+                src={facebookIcon}
+                alt=""
+              />
+            </a>
+
+            <a
+              href="#"
+              aria-label="Twitter"
+            >
+              <img
+                src={twitterIcon}
+                alt=""
+              />
+            </a>
+
+          </div>
+
+        </section>
+
+
+        {/* QUICK LINKS */}
+        <section className="footer-column">
+
+          <h2>Quick Links</h2>
+
+          <nav aria-label="Footer quick links">
+
+            {quickLinks.map((item) => (
+              <a
+                href="#"
+                key={item}
+              >
+                {item}
+              </a>
+            ))}
+
+          </nav>
+
+        </section>
+
+
+        {/* SERVICES */}
+        <section className="footer-column">
+
+          <h2>Services</h2>
+
+          <nav aria-label="Footer services">
+
+            {services.map((item) => (
+              <a
+                href="#services"
+                key={item}
+              >
+                {item}
+              </a>
+            ))}
+
+          </nav>
+
+        </section>
+
+
+        {/* CONTACT */}
+        <section className="footer-contact">
+
+          <h2>Contact</h2>
+
+
+          {/* EMAIL */}
+          <a
+            href="mailto:hello@deltazmedia.com"
+            className="contact-item"
+          >
+
+            <span className="contact-icon">
+              <img
+                src={mailIcon}
+                alt=""
+              />
+            </span>
+
+            <span>
+              hello@deltazmedia.com
+            </span>
+
+          </a>
+
+
+          {/* PHONE */}
+          <a
+            href="tel:+97141234567"
+            className="contact-item"
+          >
+
+            <span className="contact-icon">
+              <img
+                src={phoneIcon}
+                alt=""
+              />
+            </span>
+
+            <span>
+              +971 4 123 4567
+            </span>
+
+          </a>
+
+
+          {/* LOCATION */}
+          <div className="contact-item">
+
+            <span className="contact-icon">
+              <img
+                src={locationIcon}
+                alt=""
+              />
+            </span>
+
+            <span>
+              Dubai, United Arab Emirates
+            </span>
+
+          </div>
+
+
+          {/* SUBSCRIBE */}
+          <form className="footer-subscribe">
+
+            <label
+              htmlFor="footer-email"
+              className="sr-only"
+            >
+              Email address
+            </label>
+
+            <input
+              id="footer-email"
+              type="email"
+              placeholder="email address"
+            />
+
+            <button type="submit">
+              Enter
+            </button>
+
+          </form>
+
+        </section>
+
+      </div>
+
+
+      {/* FOOTER BOTTOM */}
+      <div className="footer-bottom">
+
+        <p>
+          © 2026 Deltaz Media. All rights reserved.
+        </p>
+
+        <div className="footer-legal">
+
+          <a href="#privacy">
+            Privacy Policy
+          </a>
+
+          <a href="#terms">
+            Terms &amp; Conditions
+          </a>
+
+          <a href="#cookies">
+            Cookie Policy
+          </a>
+
         </div>
-      </section>
 
-      <section className="footer-links" aria-labelledby="services-title">
-        <h2 id="services-title">Services</h2>
-        {services.map((item) => <a href="#services" key={item}>{item}</a>)}
-      </section>
+      </div>
 
-      <section className="footer-links" aria-labelledby="company-title">
-        <h2 id="company-title">Company</h2>
-        {company.map((item) => <a href="#company" key={item}>{item}</a>)}
-      </section>
+    </footer>
+  );
+}
 
-      <section className="footer-newsletter" aria-labelledby="insights-title">
-        <h2 id="insights-title">Weekly Insights</h2>
-        <p>Get our latest growth playbooks delivered directly to your inbox.</p>
-        <form className="newsletter-form">
-          <label className="sr-only" htmlFor="email">Email address</label>
-          <input id="email" type="email" placeholder="Email address" />
-          <button type="submit" aria-label="Subscribe"><ArrowIcon /></button>
-        </form>
-      </section>
-    </div>
-
-    <div className="footer-bottom">
-      <p>© 2026 Deltaz Digital Inc. All rights reserved.</p>
-      <div><a href="#privacy">Privacy Policy</a><a href="#terms">Terms of Service</a></div>
-    </div>
-  </footer>
-)
-
-export default Footer
+export default Footer;

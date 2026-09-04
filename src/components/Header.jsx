@@ -1,29 +1,70 @@
-import { useState } from 'react'
+import { useState } from "react";
+import logo from "../assets/Logo.svg";
 
-const links = ['Home', 'About Us', 'Services', 'How We Work', 'Projects', 'Contact']
-
-const Header = () => {
-  const [open, setOpen] = useState(false)
+function Header() {
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <header className="site-header">
       <div className="header-inner">
-        <a className="brand" href="#" aria-label="Deltaz Media home">
-          <img className="brand-logo" src="/deltaz-logo.png" alt="Deltaz Media" />
+
+        <a href="/" className="logo" aria-label="Deltaz Media home">
+          <img src={logo} alt="Deltaz Media" />
         </a>
 
-        <button className="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded={open} onClick={() => setOpen(!open)}>
-          <span /><span /><span />
-        </button>
+        <nav
+          className={`main-nav ${menuOpen ? "open" : ""}`}
+          aria-label="Main navigation"
+        >
+          <a href="/" className="active">
+            Home
+          </a>
 
-        <nav className={`main-nav ${open ? 'is-open' : ''}`} aria-label="Main navigation">
-          {links.map((link) => <a key={link} href={`#${link.toLowerCase().replace(' ', '-')}`} onClick={() => setOpen(false)}>{link}</a>)}
+          <a href="/about">
+            About
+          </a>
+
+          <a href="#services">
+            Our Services
+          </a>
+
+          <a href="#how-we-work">
+            How We Work
+          </a>
+
+          <a href="#project">
+            Our Project
+          </a>
+
+          <a href="#courses">
+            Courses
+          </a>
+
+          <a href="/contact">
+            Contact Us
+          </a>
         </nav>
 
-        <a className="audit-button" href="#contact">Book Your Free Audit</a>
+        <a href="/contact" className="header-cta">
+          <span>Book Your Free Audit</span>
+          <strong>↗</strong>
+        </a>
+
+        <button
+          type="button"
+          className="mobile-menu-button"
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle navigation"
+          aria-expanded={menuOpen}
+        >
+          <span />
+          <span />
+          <span />
+        </button>
+
       </div>
     </header>
-  )
+  );
 }
 
-export default Header
+export default Header;
