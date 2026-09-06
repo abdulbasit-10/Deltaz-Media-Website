@@ -4,7 +4,7 @@ import Footer from "./components/Footer";
 
 function App() {
   return (
-    <div className="site-shell">
+    <div className="min-h-screen overflow-x-hidden bg-[#071F22]">
       <Header />
       <Home />
       <Footer />

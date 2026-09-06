@@ -1,266 +1,433 @@
-import logo from "../assets/Logo.svg";
+import React from "react";
+
+// ===== Assets =====
+import deltazLogo from "../assets/Deltaz Logo.svg";
+
+import facebookIcon from "../assets/Facebook.png";
+import instagramIcon from "../assets/Instagram.png";
+import linkedinIcon from "../assets/Linked in.png";
+import twitterIcon from "../assets/Twitter.png";
 
 import mailIcon from "../assets/MailIcon.png";
 import phoneIcon from "../assets/Phone Icon.png";
 import locationIcon from "../assets/Location icon.png";
 
-import linkedinIcon from "../assets/Linked in.png";
-import instagramIcon from "../assets/Instagram.png";
-import facebookIcon from "../assets/Facebook.png";
-import twitterIcon from "../assets/Twitter.png";
-
-const quickLinks = [
-  "Home",
-  "About Us",
-  "Our Services",
-  "How We Work",
-  "Case Studies",
-  "Blog",
-  "Contact",
-];
-
-const services = [
-  "SEO Optimization",
-  "Google Ads",
-  "Branding",
-  "Social Media Marketing",
-  "Content Marketing",
-  "Website Design & Development",
-];
-
-function Footer() {
+const Footer = () => {
   return (
-    <footer className="site-footer">
+    <footer className="w-full bg-[#032428] text-white">
 
-      <div className="footer-main">
+      {/* ================= MAIN FOOTER ================= */}
+      <div className="w-full px-[5%] pt-[38px] pb-[55px]">
+        <div
+          className="
+            mx-auto
+            grid
+            max-w-[1440px]
+            grid-cols-1
+            gap-[45px]
+            md:grid-cols-2
+            lg:grid-cols-[1.45fr_0.72fr_1.12fr_1fr]
+            lg:gap-[75px]
+          "
+        >
 
-        {/* BRAND */}
-        <section className="footer-brand">
-
-          <a
-            href="/"
-            className="footer-logo"
-            aria-label="Deltaz Media home"
-          >
+          {/* ================= COLUMN 1 ================= */}
+          <div>
+            {/* Logo */}
             <img
-              src={logo}
+              src={deltazLogo}
               alt="Deltaz Media"
+              className="mb-[26px] h-auto w-[150px] object-contain"
             />
-          </a>
 
-          <p className="footer-description">
-            We help ambitious brands grow through data-driven digital
-            marketing from search visibility to social reach and everything
-            in between.
-          </p>
-
-          {/* SOCIAL ICONS */}
-          <div className="footer-socials">
-
-            <a
-              href="#"
-              aria-label="LinkedIn"
+            {/* Description */}
+            <p
+              className="
+                max-w-[315px]
+                text-[14px]
+                font-normal
+                leading-[1.65]
+                text-[#8FA6A8]
+              "
             >
-              <img
-                src={linkedinIcon}
-                alt=""
-              />
-            </a>
+              We help ambitious brands grow through
+              <br className="hidden xl:block" />
+              data-driven digital marketing from search
+              <br className="hidden xl:block" />
+              visibility to social reach and everything in
+              <br className="hidden xl:block" />
+              between.
+            </p>
 
-            <a
-              href="#"
-              aria-label="Instagram"
-            >
-              <img
-                src={instagramIcon}
-                alt=""
-              />
-            </a>
+            {/* Social Icons */}
+            <div className="mt-[24px] flex items-center gap-[13px]">
 
-            <a
-              href="#"
-              aria-label="Facebook"
-            >
-              <img
-                src={facebookIcon}
-                alt=""
-              />
-            </a>
-
-            <a
-              href="#"
-              aria-label="Twitter"
-            >
-              <img
-                src={twitterIcon}
-                alt=""
-              />
-            </a>
-
-          </div>
-
-        </section>
-
-
-        {/* QUICK LINKS */}
-        <section className="footer-column">
-
-          <h2>Quick Links</h2>
-
-          <nav aria-label="Footer quick links">
-
-            {quickLinks.map((item) => (
               <a
                 href="#"
-                key={item}
+                aria-label="LinkedIn"
+                className="transition-transform duration-300 hover:-translate-y-[3px]"
               >
-                {item}
+                <img
+                  src={linkedinIcon}
+                  alt="LinkedIn"
+                  className="h-[43px] w-[43px] object-contain"
+                />
               </a>
-            ))}
 
-          </nav>
-
-        </section>
-
-
-        {/* SERVICES */}
-        <section className="footer-column">
-
-          <h2>Services</h2>
-
-          <nav aria-label="Footer services">
-
-            {services.map((item) => (
               <a
-                href="#services"
-                key={item}
+                href="#"
+                aria-label="Instagram"
+                className="transition-transform duration-300 hover:-translate-y-[3px]"
               >
-                {item}
+                <img
+                  src={instagramIcon}
+                  alt="Instagram"
+                  className="h-[43px] w-[43px] object-contain"
+                />
               </a>
-            ))}
 
-          </nav>
+              <a
+                href="#"
+                aria-label="Facebook"
+                className="transition-transform duration-300 hover:-translate-y-[3px]"
+              >
+                <img
+                  src={facebookIcon}
+                  alt="Facebook"
+                  className="h-[43px] w-[43px] object-contain"
+                />
+              </a>
 
-        </section>
+              <a
+                href="#"
+                aria-label="Twitter"
+                className="transition-transform duration-300 hover:-translate-y-[3px]"
+              >
+                <img
+                  src={twitterIcon}
+                  alt="Twitter"
+                  className="h-[43px] w-[43px] object-contain"
+                />
+              </a>
 
-
-        {/* CONTACT */}
-        <section className="footer-contact">
-
-          <h2>Contact</h2>
-
-
-          {/* EMAIL */}
-          <a
-            href="mailto:hello@deltazmedia.com"
-            className="contact-item"
-          >
-
-            <span className="contact-icon">
-              <img
-                src={mailIcon}
-                alt=""
-              />
-            </span>
-
-            <span>
-              hello@deltazmedia.com
-            </span>
-
-          </a>
-
-
-          {/* PHONE */}
-          <a
-            href="tel:+97141234567"
-            className="contact-item"
-          >
-
-            <span className="contact-icon">
-              <img
-                src={phoneIcon}
-                alt=""
-              />
-            </span>
-
-            <span>
-              +971 4 123 4567
-            </span>
-
-          </a>
-
-
-          {/* LOCATION */}
-          <div className="contact-item">
-
-            <span className="contact-icon">
-              <img
-                src={locationIcon}
-                alt=""
-              />
-            </span>
-
-            <span>
-              Dubai, United Arab Emirates
-            </span>
-
+            </div>
           </div>
 
-
-          {/* SUBSCRIBE */}
-          <form className="footer-subscribe">
-
-            <label
-              htmlFor="footer-email"
-              className="sr-only"
+          {/* ================= QUICK LINKS ================= */}
+          <div>
+            <h3
+              className="
+                mb-[21px]
+                text-[16px]
+                font-semibold
+                text-[#F4F8F8]
+              "
             >
-              Email address
-            </label>
+              Quick Links
+            </h3>
 
-            <input
-              id="footer-email"
-              type="email"
-              placeholder="email address"
-            />
+            <ul className="space-y-[14px]">
+              {[
+                "Home",
+                "About Us",
+                "Our Services",
+                "How We Work",
+                "Case Studies",
+                "Blog",
+                "Contact",
+              ].map((item) => (
+                <li key={item}>
+                  <a
+                    href="#"
+                    className="
+                      text-[13px]
+                      font-normal
+                      text-[#A9BABC]
+                      transition-colors
+                      duration-200
+                      hover:text-[#20B9C2]
+                    "
+                  >
+                    {item}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-            <button type="submit">
-              Enter
-            </button>
+          {/* ================= SERVICES ================= */}
+          <div>
+            <h3
+              className="
+                mb-[21px]
+                text-[16px]
+                font-semibold
+                text-[#F4F8F8]
+              "
+            >
+              Services
+            </h3>
 
-          </form>
+            <ul className="space-y-[14px]">
+              {[
+                "SEO Optimization",
+                "Google Ads",
+                "Branding",
+                "Social Media Marketing",
+                "Content Marketing",
+                "Website Design & Development",
+              ].map((item) => (
+                <li key={item}>
+                  <a
+                    href="#"
+                    className="
+                      text-[13px]
+                      font-normal
+                      text-[#A9BABC]
+                      transition-colors
+                      duration-200
+                      hover:text-[#20B9C2]
+                    "
+                  >
+                    {item}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-        </section>
+          {/* ================= CONTACT ================= */}
+          <div>
+            <h3
+              className="
+                mb-[19px]
+                text-[16px]
+                font-semibold
+                text-[#F4F8F8]
+              "
+            >
+              Contact
+            </h3>
 
-      </div>
+            <div className="space-y-[14px]">
 
+              {/* Email */}
+              <a
+                href="mailto:hello@deltazmedia.com"
+                className="group flex items-center gap-[15px]"
+              >
+                <img
+                  src={mailIcon}
+                  alt="Email"
+                  className="
+                    h-[40px]
+                    w-[40px]
+                    shrink-0
+                    object-contain
+                    transition-transform
+                    duration-300
+                    group-hover:scale-105
+                  "
+                />
 
-      {/* FOOTER BOTTOM */}
-      <div className="footer-bottom">
+                <span
+                  className="
+                    text-[13px]
+                    text-[#A9BABC]
+                    transition-colors
+                    duration-200
+                    group-hover:text-white
+                  "
+                >
+                  hello@deltazmedia.com
+                </span>
+              </a>
 
-        <p>
-          © 2026 Deltaz Media. All rights reserved.
-        </p>
+              {/* Phone */}
+              <a
+                href="tel:+97141234567"
+                className="group flex items-center gap-[15px]"
+              >
+                <img
+                  src={phoneIcon}
+                  alt="Phone"
+                  className="
+                    h-[40px]
+                    w-[40px]
+                    shrink-0
+                    object-contain
+                    transition-transform
+                    duration-300
+                    group-hover:scale-105
+                  "
+                />
 
-        <div className="footer-legal">
+                <span
+                  className="
+                    text-[13px]
+                    text-[#A9BABC]
+                    transition-colors
+                    duration-200
+                    group-hover:text-white
+                  "
+                >
+                  +971 4 123 4567
+                </span>
+              </a>
 
-          <a href="#privacy">
-            Privacy Policy
-          </a>
+              {/* Location */}
+              <div className="flex items-center gap-[15px]">
+                <img
+                  src={locationIcon}
+                  alt="Location"
+                  className="
+                    h-[40px]
+                    w-[40px]
+                    shrink-0
+                    object-contain
+                  "
+                />
 
-          <a href="#terms">
-            Terms &amp; Conditions
-          </a>
+                <span className="text-[13px] text-[#A9BABC]">
+                  Dubai, United Arab Emirates
+                </span>
+              </div>
 
-          <a href="#cookies">
-            Cookie Policy
-          </a>
+            </div>
+
+            {/* ================= NEWSLETTER ================= */}
+            <form
+              onSubmit={(e) => e.preventDefault()}
+              className="
+                mt-[20px]
+                flex
+                w-full
+                max-w-[320px]
+                items-stretch
+                gap-[5px]
+              "
+            >
+              <input
+                type="email"
+                placeholder="email address"
+                className="
+                  h-[43px]
+                  min-w-0
+                  flex-1
+                  rounded-[5px]
+                  border
+                  border-[#08616A]
+                  bg-transparent
+                  px-[15px]
+                  text-[12px]
+                  text-white
+                  outline-none
+                  transition-all
+                  duration-200
+                  placeholder:text-[#72898C]
+                  focus:border-[#00A5AF]
+                "
+              />
+
+              <button
+                type="submit"
+                className="
+                  h-[43px]
+                  rounded-[5px]
+                  bg-[#138F99]
+                  px-[15px]
+                  text-[12px]
+                  font-medium
+                  text-white
+                  transition-all
+                  duration-200
+                  hover:bg-[#10A8B3]
+                "
+              >
+                Enter
+              </button>
+            </form>
+          </div>
 
         </div>
+      </div>
 
+      {/* ================= DIVIDER ================= */}
+      <div className="h-px w-full bg-[#174348]" />
+
+      {/* ================= BOTTOM FOOTER ================= */}
+      <div className="px-[5%]">
+        <div
+          className="
+            mx-auto
+            flex
+            max-w-[1440px]
+            flex-col
+            gap-[15px]
+            py-[20px]
+            sm:flex-row
+            sm:items-center
+            sm:justify-between
+          "
+        >
+
+          {/* Copyright */}
+          <p className="text-[11px] text-[#80989B]">
+            © 2026 Deltaz Media. All rights reserved.
+          </p>
+
+          {/* Policies */}
+          <div
+            className="
+              flex
+              flex-wrap
+              items-center
+              gap-x-[20px]
+              gap-y-[8px]
+            "
+          >
+            <a
+              href="#"
+              className="
+                text-[10px]
+                text-[#80989B]
+                transition-colors
+                hover:text-white
+              "
+            >
+              Privacy Policy
+            </a>
+
+            <a
+              href="#"
+              className="
+                text-[10px]
+                text-[#80989B]
+                transition-colors
+                hover:text-white
+              "
+            >
+              Terms & Conditions
+            </a>
+
+            <a
+              href="#"
+              className="
+                text-[10px]
+                text-[#80989B]
+                transition-colors
+                hover:text-white
+              "
+            >
+              Cookie Policy
+            </a>
+          </div>
+
+        </div>
       </div>
 
     </footer>
   );
-}
+};
 
 export default Footer;
