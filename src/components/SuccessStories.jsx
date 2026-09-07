@@ -287,7 +287,7 @@ function SuccessStories() {
                 text-[8px]
                 font-semibold
                 leading-none
-                !text-black
+                !text-[#0B8995]
                 transition-all
                 duration-200
                 hover:bg-[#18D0E4]
@@ -400,7 +400,7 @@ function SuccessStories() {
               text-[9px]
               font-semibold
               leading-none
-              !text-black
+              !text-[#0B8995]
               transition-all
               duration-200
               hover:bg-[#18D0E4]
@@ -659,7 +659,7 @@ function SuccessStories() {
                 text-[8px]
                 font-semibold
                 leading-none
-                !text-black
+                !text-[#0B8995]
                 transition-all
                 duration-200
                 hover:bg-[#18D0E4]

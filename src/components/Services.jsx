@@ -2,6 +2,7 @@ import seoImage from "../assets/Seo Optimization.png";
 import socialMediaImage from "../assets/Social Media Marketing.png";
 import contentMarketingImage from "../assets/Content Marketing.png";
 import arrowIcon from "../assets/Icon to attach with images.svg";
+import servicesWaves from "../assets/Waves for Our services.png";
 
 const services = [
   {
@@ -42,54 +43,24 @@ function Services() {
         sm:px-[32px]
       "
     >
-      {/* Background decorative curves */}
-      <div
-        aria-hidden="true"
-        className="
-          pointer-events-none
-          absolute
-          bottom-[-290px]
-          right-[-80px]
-          h-[600px]
-          w-[900px]
-          rounded-[50%]
-          border
-          border-[#19757C]/25
-          rotate-[-18deg]
-        "
-      />
-
-      <div
-        aria-hidden="true"
-        className="
-          pointer-events-none
-          absolute
-          bottom-[-315px]
-          right-[-50px]
-          h-[600px]
-          w-[900px]
-          rounded-[50%]
-          border
-          border-[#19757C]/18
-          rotate-[-18deg]
-        "
-      />
-
-      <div
-        aria-hidden="true"
-        className="
-          pointer-events-none
-          absolute
-          bottom-[-340px]
-          right-[-20px]
-          h-[600px]
-          w-[900px]
-          rounded-[50%]
-          border
-          border-[#19757C]/12
-          rotate-[-18deg]
-        "
-      />
+      {/* Background decorative waves — supplied Figma asset */}
+      <img
+  src={servicesWaves}
+  alt=""
+  aria-hidden="true"
+  className="
+    pointer-events-none
+    absolute
+    right-0
+    bottom-0
+    z-0
+    h-auto
+    w-[1010px]
+    max-w-none
+    object-contain
+    opacity-65
+  "
+/>
 
       {/* Decorative dots */}
       <span
@@ -235,54 +206,54 @@ function Services() {
         </div>
 
         {/* Explore All Services */}
-<a
-  href="#services"
-  className="
-    group
-    mt-[44px]
-    inline-flex
-    h-[34px]
-    items-center
-    justify-center
-    gap-[8px]
-    rounded-full
-    border
-    border-[#18D0E4]
-    bg-transparent
-    px-[19px]
-    font-['Inter']
-    text-[9px]
-    font-semibold
-    leading-none
-    text-white
-    transition-all
-    duration-200
-    ease-out
-    hover:border-[#18D0E4]
-    hover:bg-[#18D0E4]
-    hover:shadow-[0_0_18px_rgba(32,185,68,0.28)]
-  "
->
-  <span className="text-white group-hover:text-black">
-    Explore All Services
-  </span>
+        <a
+          href="#services"
+          className="
+            group
+            mt-[44px]
+            inline-flex
+            h-[34px]
+            items-center
+            justify-center
+            gap-[8px]
+            rounded-full
+            border
+            border-[#18D0E4]
+            bg-transparent
+            px-[19px]
+            font-['Inter']
+            text-[9px]
+            font-semibold
+            leading-none
+            text-white
+            transition-all
+            duration-200
+            ease-out
+            hover:border-[#18D0E4]
+            hover:bg-[#18D0E4]
+            hover:shadow-[0_0_18px_rgba(32,185,68,0.28)]
+          "
+        >
+          <span className="text-white group-hover:text-black">
+            Explore All Services
+          </span>
 
-  <img
-    src={arrowIcon}
-    alt=""
-    aria-hidden="true"
-    className="
-      block
-      h-[17px]
-      w-[17px]
-      object-contain
-      transition-transform
-      duration-200
-      group-hover:translate-x-[2px]
-      group-hover:-translate-y-[2px]
-    "
-  />
-</a>
+          <img
+            src={arrowIcon}
+            alt=""
+            aria-hidden="true"
+            className="
+              block
+              h-[17px]
+              w-[17px]
+              object-contain
+              transition-transform
+              duration-200
+              group-hover:translate-x-[2px]
+              group-hover:-translate-y-[2px]
+            "
+          />
+        </a>
       </div>
     </section>
   );
@@ -387,7 +358,7 @@ function ServiceCard({ service }) {
           "
         />
 
-        {/* Complete supplied icon — NO extra circle */}
+        {/* Complete supplied icon — 48px */}
         <a
           href="#project"
           aria-label={`View ${service.title}`}
@@ -407,8 +378,8 @@ function ServiceCard({ service }) {
             aria-hidden="true"
             className="
               block
-              h-[42px]
-              w-[42px]
+              h-[48px]
+              w-[48px]
               object-contain
             "
           />

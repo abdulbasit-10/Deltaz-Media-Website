@@ -6,42 +6,43 @@ function Hero() {
     <section
       className="
         relative
-        h-[620px]
+        h-[656px]
         w-full
         overflow-hidden
         bg-[#08272A]
       "
     >
       {/* =========================================================
-          FIGMA WAVE ARTWORK
-          ========================================================= */}
-      <div
-        className="
-          pointer-events-none
-          absolute
-          inset-x-0
-          top-[126px]
-          z-0
-          h-[330px]
-          overflow-hidden
-        "
-      >
-        <img
-          src={heroWaves}
-          alt=""
-          aria-hidden="true"
-          className="
-            absolute
-            left-1/2
-            top-0
-            h-full
-            w-full
-            min-w-[1000px]
-            -translate-x-1/2
-            object-fill
-          "
-        />
-      </div>
+    FIGMA WAVE ARTWORK
+    ========================================================= */}
+<div
+  className="
+    pointer-events-none
+    absolute
+    left-1/2
+    top-[-35px]
+    z-0
+    w-full
+    -translate-x-1/2
+    opacity-65
+  "
+>
+  <img
+    src={heroWaves}
+    alt=""
+    aria-hidden="true"
+    className="
+      absolute
+      left-1/2
+      top-0
+      h-auto
+      w-[100vw]
+      max-w-none
+      -translate-x-1/2
+      object-contain
+    "
+  />
+</div>
 
       {/* =========================================================
           DOT GRID
@@ -143,23 +144,23 @@ function Hero() {
         <div
           className="
             inline-flex
-            h-[23px]
+            h-[27px]
             items-center
             justify-center
-            gap-[6px]
+            gap-[7px]
             rounded-full
             border
             border-[#1596A4]/45
             bg-[#073B3F]
-            px-[10px]
+            px-[13px]
             font-['Inter']
-            text-[8px]
+            text-[10px]
             font-medium
             leading-none
             text-[#20C7D9]
           "
         >
-          <span className="text-[8px]">◈</span>
+          <span className="text-[10px]">◈</span>
 
           <span>
             Trusted Digital Growth Partner
@@ -171,19 +172,19 @@ function Hero() {
             MANROPE
             ======================================================= */}
         <h1
-          className="
-            mt-[22px]
-            max-w-[850px]
-            font-['Manrope']
-            text-[43px]
-            font-bold
-            leading-[1.12]
-            tracking-[-1.7px]
-            text-[#F5F8F8]
-            sm:text-[47px]
-            lg:text-[48px]
-          "
-        >
+  className="
+    mt-[23px]
+    max-w-[950px]
+    font-['Manrope']
+    text-[48px]
+    font-extrabold
+    leading-[1.1]
+    tracking-[-2px]
+    text-[#F5F8F8]
+    sm:text-[53px]
+    lg:text-[56px]
+  "
+>
           Your Business Needs Demand,
           <br />
           Influence{" "}
@@ -198,14 +199,14 @@ function Hero() {
             ======================================================= */}
         <p
           className="
-            mt-[13px]
-            max-w-[500px]
+            mt-[15px]
+            max-w-[600px]
             font-['Inter']
-            text-[9px]
+            text-[11px]
             font-normal
-            leading-[1.45]
+            leading-[1.5]
             text-[#9DAFB0]
-            sm:text-[10px]
+            sm:text-[12px]
           "
         >
           We combine strategy, creativity, and digital expertise to help
@@ -219,38 +220,32 @@ function Hero() {
             ======================================================= */}
         <div
           className="
-            mt-[24px]
+            mt-[27px]
             flex
             items-center
             justify-center
-            gap-[10px]
+            gap-[12px]
           "
         >
           {/* =====================================================
               BUILD YOUR GROWTH
-
-              DEFAULT:
-              Transparent
-
-              HOVER:
-              Green
               ===================================================== */}
           <a
             href="#contact"
             className="
               group
               inline-flex
-              h-[36px]
+              h-[42px]
               items-center
               justify-center
-              gap-[8px]
+              gap-[9px]
               rounded-full
               border
               border-[#20C9D9]
               bg-transparent
-              px-[16px]
+              px-[19px]
               font-['Plus_Jakarta_Sans']
-              text-[9px]
+              text-[11px]
               font-semibold
               leading-none
               text-white
@@ -271,8 +266,8 @@ function Hero() {
               alt=""
               aria-hidden="true"
               className="
-                h-[13px]
-                w-[13px]
+                h-[15px]
+                w-[15px]
                 object-contain
                 transition-transform
                 duration-200
@@ -284,30 +279,24 @@ function Hero() {
 
           {/* =====================================================
               SEE OUR WORK
-
-              DEFAULT:
-              Transparent
-
-              HOVER:
-              Green
               ===================================================== */}
           <a
             href="#project"
             className="
               group
               inline-flex
-              h-[36px]
-              min-w-[132px]
+              h-[42px]
+              min-w-[148px]
               items-center
               justify-center
-              gap-[8px]
+              gap-[9px]
               rounded-full
               border
               border-[#20C9D9]
               bg-transparent
-              px-[16px]
+              px-[19px]
               font-['Plus_Jakarta_Sans']
-              text-[9px]
+              text-[11px]
               font-semibold
               leading-none
               text-white
@@ -328,8 +317,8 @@ function Hero() {
               alt=""
               aria-hidden="true"
               className="
-                h-[13px]
-                w-[13px]
+                h-[15px]
+                w-[15px]
                 object-contain
                 transition-transform
                 duration-200
@@ -345,12 +334,12 @@ function Hero() {
             ======================================================= */}
         <div
           className="
-            mt-[50px]
+            mt-[53px]
             grid
             w-full
-            max-w-[606px]
+            max-w-[660px]
             grid-cols-1
-            gap-[13px]
+            gap-[14px]
             sm:grid-cols-3
           "
         >
@@ -379,7 +368,7 @@ function StatCard({ number, label }) {
     <div
       className="
         flex
-        h-[99px]
+        h-[108px]
         flex-col
         items-center
         justify-center
@@ -392,10 +381,10 @@ function StatCard({ number, label }) {
       <strong
         className="
           font-['Manrope']
-          text-[31px]
+          text-[36px]
           font-bold
           leading-none
-          tracking-[-0.8px]
+          tracking-[-1px]
           text-[#F5F8F8]
         "
       >
@@ -404,9 +393,9 @@ function StatCard({ number, label }) {
 
       <span
         className="
-          mt-[11px]
+          mt-[12px]
           font-['Inter']
-          text-[12px]
+          text-[13px]
           font-normal
           leading-none
           text-[#A9BCBD]

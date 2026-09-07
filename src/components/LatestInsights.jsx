@@ -1,8 +1,8 @@
-import seoImage from "../assets/SEO Optimization.png";
+import seoImage from "../assets/SEO.png";
 import socialMediaImage from "../assets/Social Media.png";
 import contentMarketingImage from "../assets/Content Marketing (2) for insights.png";
 import readIcon from "../assets/Read icon.png";
-import arrowIcon from "../assets/meteor-icons_arrow-up-right.png";
+import arrowIcon from "../assets/meteor-icons arrow-up-right (green).png";
 
 const articles = [
   {
@@ -37,6 +37,7 @@ function LatestInsights() {
       id="insights"
       className="
         relative
+        min-h-[730px]
         w-full
         overflow-hidden
         bg-[#071F22]
@@ -154,7 +155,7 @@ function LatestInsights() {
           mt-[32px]
           grid
           w-full
-          max-w-[1180px]
+          max-w-[1080px]
           grid-cols-1
           gap-[14px]
           sm:mt-[36px]
@@ -189,10 +190,10 @@ function LatestInsights() {
             bg-[#18D0E4]
             px-[18px]
             font-['Inter']
-            text-[9px]
-            font-semibold
+            text-[11px]
+            font-bold
             leading-none
-            !text-black
+            !text-[#075F68]
             transition-all
             duration-200
             ease-out
@@ -202,7 +203,7 @@ function LatestInsights() {
             hover:shadow-[0_0_20px_rgba(32,185,68,0.25)]
           "
         >
-          <span className="text-black">View All Blogs</span>
+          <span className="">View All Blogs</span>
 
           <img
             src={arrowIcon}
@@ -211,10 +212,11 @@ function LatestInsights() {
             className="
               block
               h-[13px]
-              w-[13px]
+              w-[15px]
               object-contain
               transition-transform
               duration-200
+              ease-out
               group-hover:translate-x-[2px]
               group-hover:-translate-y-[2px]
             "
@@ -248,22 +250,22 @@ function InsightCard({ article }) {
         hover:border-[#208B93]
         hover:bg-[#0E4145]
         sm:min-h-[390px]
-        lg:min-h-[385px]
+        lg:min-h-[390px]
       "
     >
       {/* =====================================================
-          IMAGE — TALLER
+          IMAGE — INCREASED HEIGHT
       ====================================================== */}
       <div
         className="
           relative
-          h-[180px]
+          h-[230px]
           w-full
           shrink-0
           overflow-hidden
           rounded-[5px]
-          sm:h-[185px]
-          lg:h-[180px]
+          sm:h-[235px]
+          lg:h-[190px]
         "
       >
         <img

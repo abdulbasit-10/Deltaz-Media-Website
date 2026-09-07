@@ -21,9 +21,7 @@ const LastCard = () => {
           bg-[#0b747d]
         "
       >
-        {/* =========================
-            WAVES
-        ========================== */}
+        {/* WAVES */}
         <img
           src={lastCardWaves}
           alt=""
@@ -36,13 +34,11 @@ const LastCard = () => {
             w-full
             object-cover
             object-center
-            opacity-40
+            opacity-75
           "
         />
 
-        {/* =========================
-            CONTENT
-        ========================== */}
+        {/* CONTENT */}
         <div
           className="
             relative
@@ -106,9 +102,7 @@ const LastCard = () => {
               gap-[9px]
             "
           >
-            {/* =========================
-                BUTTON 1
-            ========================== */}
+            {/* BUTTON 1 */}
             <a
               href="#contact"
               className="
@@ -130,32 +124,53 @@ const LastCard = () => {
                 duration-300
                 ease-out
                 hover:bg-white
-                hover:text-[#08747d]
+                hover:!text-[#0B8995]
               "
             >
               <span>
                 Book Your Free Audit
               </span>
 
-              <img
-                src={arrowIcon}
-                alt=""
-                className="
-                  h-[12px]
-                  w-[12px]
-                  object-contain
-                  brightness-0
-                  invert
-                  transition-all
-                  duration-300
-                  group-hover:invert-0
-                "
-              />
+              {/* ICON */}
+              <span className="relative h-[12px] w-[12px]">
+                {/* Normal: white */}
+                <img
+                  src={arrowIcon}
+                  alt=""
+                  className="
+                    absolute
+                    inset-0
+                    h-[12px]
+                    w-[12px]
+                    object-contain
+                    brightness-0
+                    invert
+                    transition-opacity
+                    duration-300
+                    group-hover:opacity-0
+                  "
+                />
+
+                {/* Hover: original green asset */}
+                <img
+                  src={arrowIcon}
+                  alt=""
+                  className="
+                    absolute
+                    inset-0
+                    h-[12px]
+                    w-[12px]
+                    object-contain
+                    opacity-0
+                    transition-opacity
+                    duration-300
+                    group-hover:opacity-100
+                  "
+                />
+              </span>
             </a>
 
-            {/* =========================
-                BUTTON 2
-            ========================== */}
+            {/* BUTTON 2 */}
             <a
               href="#work"
               className="
@@ -175,7 +190,7 @@ const LastCard = () => {
                 duration-300
                 ease-out
                 hover:bg-white
-                hover:text-[#08747d]
+                hover:!text-[#0B8995]
               "
             >
               See What We've Achieved

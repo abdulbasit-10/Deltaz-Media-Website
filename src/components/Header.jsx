@@ -37,15 +37,15 @@ function Header() {
           aria-label="Main navigation"
           className="
             hidden
-            h-[35px]
+            h-[43px]
             items-center
-            gap-[2px]
-            rounded-[7px]
+            gap-[3px]
+            rounded-[9px]
             border
             border-[#147681]/45
             bg-[#082B2E]
-            p-[4px]
-            shadow-[inset_0_0_18px_rgba(21,174,187,0.05)]
+            p-[5px]
+            shadow-[0_3px_14px_rgba(0,0,0,0.22),inset_0_0_18px_rgba(21,174,187,0.05)]
             lg:flex
           "
         >
@@ -55,14 +55,14 @@ function Header() {
               href={item.href}
               className={`
                 flex
-                h-[27px]
+                h-[33px]
                 items-center
                 justify-center
                 whitespace-nowrap
-                rounded-[5px]
-                px-[10px]
+                rounded-[6px]
+                px-[15px]
                 font-['Inter']
-                text-[10px]
+                text-[12px]
                 font-normal
                 leading-none
                 transition-colors
