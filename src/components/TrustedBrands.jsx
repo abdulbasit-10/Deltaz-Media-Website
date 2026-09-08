@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 
 import devflowLogo from "../assets/Devflow.png";
 import godaddyLogo from "../assets/Godaddy.png";
@@ -29,185 +29,9 @@ const logos = [
 
 const BOX_WIDTH = 153;
 const BOX_HEIGHT = 60;
-
 const GAP = 7;
-const ROW_GAP = 7;
-
-const SPEED = 80;
-
-// Extra invisible area used for smooth row transitions
-const TRANSITION = BOX_WIDTH;
 
 function TrustedBrands() {
-  const containerRef = useRef(null);
-  const boxesRef = useRef([]);
-  const animationRef = useRef(null);
-
-  const distanceRef = useRef(0);
-  const lastTimeRef = useRef(null);
-  const widthRef = useRef(0);
-
-  useEffect(() => {
-    const container = containerRef.current;
-
-    if (!container) return;
-
-    const calculateLayout = () => {
-      widthRef.current = container.clientWidth;
-    };
-
-    const updatePositions = () => {
-      const width = widthRef.current;
-
-      if (!width) return;
-
-      const step = BOX_WIDTH + GAP;
-
-      /*
-        Each box travels through this complete cycle:
-
-        TOP ROW
-        ------------------------>
-                                  \
-                                   \
-        BOTTOM ROW
-        ------------------------>
-                                  \
-                                   \
-        TOP ROW again
-
-        The row change happens outside the visible screen.
-      */
-
-      const visibleWidth = width;
-
-      const cycleLength =
-        visibleWidth +
-        TRANSITION +
-        visibleWidth +
-        TRANSITION;
-
-      boxesRef.current.forEach((box, index) => {
-        if (!box) return;
-
-        let position =
-          index * step + distanceRef.current;
-
-        position = position % cycleLength;
-
-        let x;
-        let y;
-
-        /*
-          PHASE 1
-          Top row moving right
-        */
-        if (position < visibleWidth) {
-          x = position;
-          y = 0;
-        }
-
-        /*
-          PHASE 2
-          Top → Bottom transition
-          Completely outside the visible area
-        */
-        else if (position < visibleWidth + TRANSITION) {
-          const progress =
-            (position - visibleWidth) / TRANSITION;
-
-          x = visibleWidth + progress * BOX_WIDTH;
-          y = progress * (BOX_HEIGHT + ROW_GAP);
-        }
-
-        /*
-          PHASE 3
-          Bottom row moving right
-        */
-        else if (
-          position <
-          visibleWidth +
-            TRANSITION +
-            visibleWidth
-        ) {
-          const bottomPosition =
-            position -
-            visibleWidth -
-            TRANSITION;
-
-          x = bottomPosition;
-          y = BOX_HEIGHT + ROW_GAP;
-        }
-
-        /*
-          PHASE 4
-          Bottom → Top transition
-          Also completely outside the visible area
-        */
-        else {
-          const progress =
-            (position -
-              visibleWidth -
-              TRANSITION -
-              visibleWidth) /
-            TRANSITION;
-
-          x = visibleWidth + progress * BOX_WIDTH;
-          y =
-            BOX_HEIGHT +
-            ROW_GAP -
-            progress * (BOX_HEIGHT + ROW_GAP);
-        }
-
-        box.style.transform = `
-          translate3d(
-            ${x}px,
-            ${y}px,
-            0
-          )
-        `;
-      });
-    };
-
-    const animate = (time) => {
-      if (lastTimeRef.current === null) {
-        lastTimeRef.current = time;
-      }
-
-      const delta =
-        (time - lastTimeRef.current) / 1000;
-
-      lastTimeRef.current = time;
-
-      distanceRef.current += SPEED * delta;
-
-      updatePositions();
-
-      animationRef.current =
-        requestAnimationFrame(animate);
-    };
-
-    calculateLayout();
-    updatePositions();
-
-    const resizeObserver =
-      new ResizeObserver(() => {
-        calculateLayout();
-        updatePositions();
-      });
-
-    resizeObserver.observe(container);
-
-    animationRef.current =
-      requestAnimationFrame(animate);
-
-    return () => {
-      cancelAnimationFrame(animationRef.current);
-      resizeObserver.disconnect();
-      lastTimeRef.current = null;
-    };
-  }, []);
-
   return (
     <section
       id="partners"
@@ -219,6 +43,7 @@ function TrustedBrands() {
         bg-[#071F22]
       "
     >
+      {/* Heading */}
       <div
         className="
           relative
@@ -291,53 +116,107 @@ function TrustedBrands() {
         </p>
       </div>
 
+      {/* SINGLE LINE BRAND STRIP */}
       <div
-        ref={containerRef}
         className="
           absolute
           left-0
           right-0
           top-[242px]
           z-10
-          h-[134px]
           overflow-hidden
         "
       >
-        {logos.map((logo, index) => (
-          <div
-            key={`${logo.name}-${index}`}
-            ref={(el) => {
-              boxesRef.current[index] = el;
-            }}
-            className="
-              absolute
-              left-0
-              top-0
-              flex
-              h-[60px]
-              w-[153px]
-              items-center
-              justify-center
-              rounded-[6px]
-              border
-              border-[#8FCFD3]
-              bg-[#D7F0F1]
-              shadow-[0_1px_3px_rgba(0,0,0,0.18)]
-              will-change-transform
-            "
-          >
-            <img
-              src={logo.image}
-              alt={logo.name}
+        <div
+          className="
+            flex
+            w-max
+            items-center
+            gap-[7px]
+            animate-brands
+          "
+        >
+          {/* First set */}
+          {logos.map((logo, index) => (
+            <div
+              key={`first-${logo.name}-${index}`}
               className="
-                max-h-[44px]
-                max-w-[125px]
-                object-contain
+                flex
+                h-[60px]
+                w-[153px]
+                shrink-0
+                items-center
+                justify-center
+                rounded-[6px]
+                border
+                border-[#8FCFD3]
+                bg-[#D7F0F1]
+                shadow-[0_1px_3px_rgba(0,0,0,0.18)]
               "
-            />
-          </div>
-        ))}
+            >
+              <img
+                src={logo.image}
+                alt={logo.name}
+                className="
+                  max-h-[44px]
+                  max-w-[125px]
+                  object-contain
+                "
+              />
+            </div>
+          ))}
+
+          {/* Duplicate set for seamless loop */}
+          {logos.map((logo, index) => (
+            <div
+              key={`second-${logo.name}-${index}`}
+              className="
+                flex
+                h-[60px]
+                w-[153px]
+                shrink-0
+                items-center
+                justify-center
+                rounded-[6px]
+                border
+                border-[#8FCFD3]
+                bg-[#D7F0F1]
+                shadow-[0_1px_3px_rgba(0,0,0,0.18)]
+              "
+            >
+              <img
+                src={logo.image}
+                alt={logo.name}
+                className="
+                  max-h-[44px]
+                  max-w-[125px]
+                  object-contain
+                "
+              />
+            </div>
+          ))}
+        </div>
       </div>
+
+      {/* Animation */}
+      <style>{`
+        @keyframes brandsMove {
+          from {
+            transform: translateX(0);
+          }
+
+          to {
+            transform: translateX(
+              calc(-1 * (14 * 153px + 13 * 7px))
+            );
+          }
+        }
+
+        .animate-brands {
+          animation: brandsMove 28s linear infinite;
+          will-change: transform;
+        }
+      `}</style>
     </section>
   );
 }
