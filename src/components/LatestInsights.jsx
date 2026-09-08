@@ -3,6 +3,8 @@ import socialMediaImage from "../assets/Social Media.png";
 import contentMarketingImage from "../assets/Content Marketing (2) for insights.png";
 import readIcon from "../assets/Read icon.png";
 import arrowIcon from "../assets/meteor-icons arrow-up-right (green).png";
+import readArticleIcon from "../assets/meteor-icons_arrow-up-right (white).png";
+
 
 const articles = [
   {
@@ -211,14 +213,14 @@ function LatestInsights() {
             aria-hidden="true"
             className="
               block
-              h-[13px]
-              w-[15px]
+              h-[15px]
+              w-[16px]
               object-contain
               transition-transform
               duration-200
               ease-out
-              group-hover:translate-x-[2px]
-              group-hover:-translate-y-[2px]
+              group-hover:translate-x-[1px]
+              group-hover:-translate-y-[1px]
             "
           />
         </a>
@@ -396,12 +398,12 @@ function InsightCard({ article }) {
             <span>Read Articles</span>
 
             <img
-              src={arrowIcon}
+              src={readArticleIcon}
               alt=""
               aria-hidden="true"
               className="
-                h-[11px]
-                w-[11px]
+                h-[13px]
+                w-[13px]
                 object-contain
                 transition-transform
                 duration-200

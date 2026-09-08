@@ -284,8 +284,8 @@ function SuccessStories() {
                 bg-white
                 px-[14px]
                 font-['Manrope']
-                text-[8px]
-                font-semibold
+                text-[11px]
+                font-bold
                 leading-none
                 !text-[#0B8995]
                 transition-all
@@ -397,8 +397,8 @@ function SuccessStories() {
               bg-white
               px-[12px]
               font-['Manrope']
-              text-[9px]
-              font-semibold
+              text-[11px]
+              font-bold
               leading-none
               !text-[#0B8995]
               transition-all
@@ -413,8 +413,8 @@ function SuccessStories() {
               alt=""
               aria-hidden="true"
               className="
-                h-[12px]
-                w-[12px]
+                h-[14px]
+                w-[14px]
                 object-contain
                 transition-transform
                 duration-200
@@ -656,9 +656,8 @@ function SuccessStories() {
                 bg-white
                 px-[14px]
                 font-['Manrope']
-                text-[8px]
-                font-semibold
-                leading-none
+                text-[11px]
+                font-bold
                 !text-[#0B8995]
                 transition-all
                 duration-200
@@ -676,8 +675,8 @@ function SuccessStories() {
                 alt=""
                 aria-hidden="true"
                 className="
-                  h-[13px]
-                  w-[13px]
+                  h-[14px]
+                  w-[14px]
                   object-contain
                   transition-transform
                   duration-200

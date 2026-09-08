@@ -1,8 +1,13 @@
+import React from "react";
+
 import seoImage from "../assets/Seo Optimization.png";
 import socialMediaImage from "../assets/Social Media Marketing.png";
 import contentMarketingImage from "../assets/Content Marketing.png";
 import arrowIcon from "../assets/Icon to attach with images.svg";
 import servicesWaves from "../assets/Waves for Our services.png";
+
+import ExploreAllServicesIconWhite from "../assets/meteor-icons_arrow-up-right (white).png";
+import ExploreAllServicesIconBlack from "../assets/meteor-icons arrow-up-right (black).png";
 
 const services = [
   {
@@ -45,22 +50,22 @@ function Services() {
     >
       {/* Background decorative waves — supplied Figma asset */}
       <img
-  src={servicesWaves}
-  alt=""
-  aria-hidden="true"
-  className="
-    pointer-events-none
-    absolute
-    right-0
-    bottom-0
-    z-0
-    h-auto
-    w-[1010px]
-    max-w-none
-    object-contain
-    opacity-65
-  "
-/>
+        src={servicesWaves}
+        alt=""
+        aria-hidden="true"
+        className="
+          pointer-events-none
+          absolute
+          right-0
+          bottom-0
+          z-0
+          h-auto
+          w-[1010px]
+          max-w-none
+          object-contain
+          opacity-65
+        "
+      />
 
       {/* Decorative dots */}
       <span
@@ -238,8 +243,9 @@ function Services() {
             Explore All Services
           </span>
 
+          {/* White arrow - normal state */}
           <img
-            src={arrowIcon}
+            src={ExploreAllServicesIconWhite}
             alt=""
             aria-hidden="true"
             className="
@@ -247,8 +253,21 @@ function Services() {
               h-[17px]
               w-[17px]
               object-contain
-              transition-transform
-              duration-200
+              group-hover:hidden
+            "
+          />
+
+          {/* Black arrow - hover state */}
+          <img
+            src={ExploreAllServicesIconBlack}
+            alt=""
+            aria-hidden="true"
+            className="
+              hidden
+              h-[17px]
+              w-[17px]
+              object-contain
+              group-hover:block
               group-hover:translate-x-[2px]
               group-hover:-translate-y-[2px]
             "
