@@ -117,8 +117,8 @@ const LastCard = () => {
                 border-white
                 bg-transparent
                 px-[14px]
-                text-[9px]
-                font-medium
+                text-[11px]
+                font-bold
                 text-white
                 transition-all
                 duration-300
@@ -132,7 +132,7 @@ const LastCard = () => {
               </span>
 
               {/* ICON */}
-              <span className="relative h-[12px] w-[12px]">
+              <span className="relative h-[14px] w-[14px]">
                 {/* Normal: white */}
                 <img
                   src={arrowIcon}
@@ -140,8 +140,8 @@ const LastCard = () => {
                   className="
                     absolute
                     inset-0
-                    h-[12px]
-                    w-[12px]
+                    h-[14px]
+                    w-[14px]
                     object-contain
                     brightness-0
                     invert
@@ -158,8 +158,8 @@ const LastCard = () => {
                   className="
                     absolute
                     inset-0
-                    h-[12px]
-                    w-[12px]
+                    h-[13px]
+                    w-[13px]
                     object-contain
                     opacity-0
                     transition-opacity
@@ -183,8 +183,8 @@ const LastCard = () => {
                 border-white
                 bg-transparent
                 px-[16px]
-                text-[9px]
-                font-medium
+                text-[11px]
+                font-bold
                 text-white
                 transition-all
                 duration-300
