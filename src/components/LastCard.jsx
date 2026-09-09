@@ -2,6 +2,7 @@ import React from "react";
 
 import lastCardWaves from "../assets/Waves for last card.png";
 import arrowIcon from "../assets/meteor-icons arrow-up-right (green).png";
+import newarrowIcon from "../assets/meteor-icons_arrow-up-right (white).png";
 
 const LastCard = () => {
   return (
@@ -34,7 +35,7 @@ const LastCard = () => {
             w-full
             object-cover
             object-center
-            opacity-75
+            opacity-90
           "
         />
 
@@ -56,11 +57,12 @@ const LastCard = () => {
             className="
               max-w-[600px]
               text-[25px]
+              font-['Plus_Jakarta_Sans']
               font-bold
               leading-[1.18]
               tracking-[-0.7px]
               text-white
-              sm:text-[29px]
+              sm:text-[34px]
               md:text-[31px]
             "
           >
@@ -78,11 +80,11 @@ const LastCard = () => {
             className="
               mt-[9px]
               max-w-[560px]
-              text-[8.5px]
+              text-[9px]
               font-normal
               leading-[1.35]
               text-white/75
-              sm:text-[9px]
+              sm:text-[11px]
               md:text-[9.5px]
             "
           >
@@ -115,16 +117,16 @@ const LastCard = () => {
                 rounded-full
                 border
                 border-white
-                bg-transparent
+                bg-white
                 px-[14px]
-                text-[11px]
+                text-[12px]
                 font-bold
-                text-white
+                !text-[#0B8995]
                 transition-all
                 duration-300
                 ease-out
-                hover:bg-white
-                hover:!text-[#0B8995]
+                hover:bg-transparent
+                hover:!text-white
               "
             >
               <span>
@@ -133,33 +135,33 @@ const LastCard = () => {
 
               {/* ICON */}
               <span className="relative h-[14px] w-[14px]">
-                {/* Normal: white */}
+                {/* Normal: green */}
                 <img
                   src={arrowIcon}
                   alt=""
+                  aria-hidden="true"
                   className="
                     absolute
                     inset-0
                     h-[14px]
                     w-[14px]
                     object-contain
-                    brightness-0
-                    invert
                     transition-opacity
                     duration-300
                     group-hover:opacity-0
                   "
                 />
 
-                {/* Hover: original green asset */}
+                {/* Hover: white */}
                 <img
-                  src={arrowIcon}
+                  src={newarrowIcon}
                   alt=""
+                  aria-hidden="true"
                   className="
                     absolute
                     inset-0
-                    h-[13px]
-                    w-[13px]
+                    h-[14px]
+                    w-[14px]
                     object-contain
                     opacity-0
                     transition-opacity
@@ -183,7 +185,7 @@ const LastCard = () => {
                 border-white
                 bg-transparent
                 px-[16px]
-                text-[11px]
+                text-[12px]
                 font-bold
                 text-white
                 transition-all

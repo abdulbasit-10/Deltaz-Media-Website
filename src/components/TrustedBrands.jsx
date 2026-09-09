@@ -64,17 +64,12 @@ function TrustedBrands() {
             items-center
             gap-[7px]
             font-['Inter']
-            text-[10px]
+            text-[12px]
             font-medium
             leading-none
             text-[#C5D1D2]
           "
         >
-          <span className="flex items-center">
-            <span className="h-[13px] w-[13px] rounded-full bg-[#08737D]" />
-            <span className="-ml-[7px] h-[13px] w-[13px] rounded-full bg-[#1AA1AE]" />
-          </span>
-
           <span>Our Partners</span>
         </div>
 
@@ -82,7 +77,7 @@ function TrustedBrands() {
           className="
             mt-[20px]
             font-['Manrope']
-            text-[30px]
+            text-[35px]
             font-bold
             leading-[1.08]
             tracking-[-1.2px]
@@ -92,7 +87,7 @@ function TrustedBrands() {
           Trusted by Leading That
           <br />
           Drive Digital{" "}
-          <span className="text-[#18D0E4]">
+          <span className="font-['Plus_Jakarta_Sans'] text-[#18D0E4]">
             Brands
           </span>
         </h2>
@@ -100,9 +95,9 @@ function TrustedBrands() {
         <p
           className="
             mt-[19px]
-            max-w-[500px]
+            max-w-[700px]
             font-['Inter']
-            text-[9px]
+            text-[12px]
             font-normal
             leading-[1.35]
             text-[#8EA5A6]
@@ -110,8 +105,7 @@ function TrustedBrands() {
         >
           Lorem ipsum dolor sit amet, consectetur
           adipiscing elit. Sed do eiusmod tempor
-          incididunt ut labore
-          <br />
+          incididunt ut labore 
           et dolore magna aliqua.
         </p>
       </div>
@@ -122,7 +116,7 @@ function TrustedBrands() {
           absolute
           left-0
           right-0
-          top-[242px]
+          top-[272px]
           z-10
           overflow-hidden
         "

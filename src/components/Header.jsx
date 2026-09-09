@@ -62,7 +62,7 @@ function Header() {
                 rounded-[6px]
                 px-[15px]
                 font-['Inter']
-                text-[12px]
+                text-[13px]
                 font-normal
                 leading-none
                 transition-colors
@@ -93,9 +93,9 @@ function Header() {
             bg-[#10899A]
             px-[17px]
             font-['Inter']
-            text-[10px]
+            text-[14px]
             font-medium
-            leading-none
+            leading-[5]
             text-white
             transition-transform
             duration-200
@@ -110,7 +110,7 @@ function Header() {
             src={arrowIcon}
             alt=""
             aria-hidden="true"
-            className="h-[13px] w-[13px] object-contain"
+            className="h-[14px] w-[14px] object-contain"
           />
         </a>
 

@@ -1,48 +1,50 @@
+import { useEffect, useState } from "react";
 import heroWaves from "../assets/Waves for hero section.png";
 import arrowIcon from "../assets/meteor-icons_arrow-up-right (white).png";
+import RocketIcon from "../assets/Rocket shape icon.png";
 
 function Hero() {
   return (
     <section
       className="
         relative
-        h-[656px]
+        h-[570px]
         w-full
         overflow-hidden
         bg-[#08272A]
       "
     >
       {/* =========================================================
-    FIGMA WAVE ARTWORK
-    ========================================================= */}
-<div
-  className="
-    pointer-events-none
-    absolute
-    left-1/2
-    top-[-35px]
-    z-0
-    w-full
-    -translate-x-1/2
-    opacity-65
-  "
->
-  <img
-    src={heroWaves}
-    alt=""
-    aria-hidden="true"
-    className="
-      absolute
-      left-1/2
-      top-0
-      h-auto
-      w-[100vw]
-      max-w-none
-      -translate-x-1/2
-      object-contain
-    "
-  />
-</div>
+          FIGMA WAVE ARTWORK
+          ========================================================= */}
+      <div
+        className="
+          pointer-events-none
+          absolute
+          left-1/2
+          top-[-42px]
+          z-0
+          w-full
+          -translate-x-1/2
+          opacity-65
+        "
+      >
+        <img
+          src={heroWaves}
+          alt=""
+          aria-hidden="true"
+          className="
+            absolute
+            left-1/2
+            top-[-42px]
+            h-auto
+            w-[100vw]
+            max-w-none
+            -translate-x-1/2
+            object-contain
+          "
+        />
+      </div>
 
       {/* =========================================================
           DOT GRID
@@ -154,17 +156,21 @@ function Hero() {
             bg-[#073B3F]
             px-[13px]
             font-['Inter']
-            text-[10px]
-            font-medium
+            text-[12px]
+            font-semibold
             leading-none
             text-[#20C7D9]
           "
         >
-          <span className="text-[10px]">◈</span>
-
-          <span>
-            Trusted Digital Growth Partner
+          <span className="flex items-center justify-center">
+            <img
+              src={RocketIcon}
+              alt="Rocket"
+              className="h-[12px] w-[12px] object-contain"
+            />
           </span>
+
+          <span>Trusted Digital Growth Partner</span>
         </div>
 
         {/* =======================================================
@@ -172,37 +178,37 @@ function Hero() {
             MANROPE
             ======================================================= */}
         <h1
-  className="
-    mt-[23px]
-    max-w-[950px]
-    font-['Manrope']
-    text-[48px]
-    font-extrabold
-    leading-[1.1]
-    tracking-[-2px]
-    text-[#F5F8F8]
-    sm:text-[53px]
-    lg:text-[56px]
-  "
->
+          className="
+            mt-[23px]
+            max-w-[950px]
+            font-['Manrope']
+            text-[48px]
+            font-extrabold
+            leading-[1.1]
+            tracking-[-2px]
+            text-[#F5F8F8]
+            sm:text-[53px]
+            lg:text-[56px]
+          "
+        >
           Your Business Needs Demand,
           <br />
           Influence{" "}
-          <span className="text-[#18D0E4]">
+          <span className="font-['Plus_Jakarta_Sans'] text-[#18D0E4]">
             &amp; Growth
           </span>
         </h1>
 
         {/* =======================================================
             DESCRIPTION
-            INTER
+            PLUS JAKARTA SANS
             ======================================================= */}
         <p
           className="
             mt-[15px]
             max-w-[600px]
-            font-['Inter']
-            text-[11px]
+            font-['Plus Jakarta Sans']
+            text-[16px]
             font-normal
             leading-[1.5]
             text-[#9DAFB0]
@@ -244,8 +250,8 @@ function Hero() {
               border-[#20C9D9]
               bg-transparent
               px-[19px]
-              font-['Plus_Jakarta_Sans']
-              text-[11px]
+              font-['Inter']
+              text-[13px]
               font-semibold
               leading-none
               text-white
@@ -257,9 +263,7 @@ function Hero() {
               hover:shadow-[0_0_20px_rgba(32,185,68,0.24)]
             "
           >
-            <span>
-              Let's Build Your Growth
-            </span>
+            <span>Let's Build Your Growth</span>
 
             <img
               src={arrowIcon}
@@ -295,8 +299,8 @@ function Hero() {
               border-[#20C9D9]
               bg-transparent
               px-[19px]
-              font-['Plus_Jakarta_Sans']
-              text-[11px]
+              font-['Inter']
+              text-[14px]
               font-semibold
               leading-none
               text-white
@@ -308,24 +312,7 @@ function Hero() {
               hover:shadow-[0_0_20px_rgba(32,185,68,0.24)]
             "
           >
-            <span>
-              See Our Work
-            </span>
-
-            <img
-              src={arrowIcon}
-              alt=""
-              aria-hidden="true"
-              className="
-                h-[15px]
-                w-[15px]
-                object-contain
-                transition-transform
-                duration-200
-                group-hover:translate-x-[2px]
-                group-hover:-translate-y-[2px]
-              "
-            />
+            <span>See Our Work</span>
           </a>
         </div>
 
@@ -343,26 +330,77 @@ function Hero() {
             sm:grid-cols-3
           "
         >
-          <StatCard
-            number="200+"
-            label="Clients Served"
-          />
+          <StatCard number="200+" label="Clients Served" />
 
-          <StatCard
-            number="98%"
-            label="Retention Rate"
-          />
+          <StatCard number="98%" label="Retention Rate" />
 
-          <StatCard
-            number="$12M+"
-            label="Revenue Generated"
-          />
+          <StatCard number="$12M+" label="Revenue Generated" />
         </div>
       </div>
     </section>
   );
 }
 
+/* =========================================================
+   ANIMATED STAT NUMBER
+   ========================================================= */
+function AnimatedNumber({ value }) {
+  const [displayValue, setDisplayValue] = useState(value);
+
+  useEffect(() => {
+    let interval;
+    let startTime;
+
+    const duration = 1500; // total shuffle duration
+    const shuffleSpeed = 70; // slower number changes
+
+    const numericMatch = value.match(/[\d.]+/);
+    const prefix = value.startsWith("$") ? "$" : "";
+    const suffix = value.replace(/^\$?[\d.]+/, "");
+
+    const randomNumber = () => {
+      if (value.includes("M")) {
+        return Math.floor(Math.random() * 20) + 1;
+      }
+
+      if (value.includes("%")) {
+        return Math.floor(Math.random() * 100);
+      }
+
+      return Math.floor(Math.random() * 300);
+    };
+
+    const shuffle = () => {
+      setDisplayValue(`${prefix}${randomNumber()}${suffix}`);
+    };
+
+    // Start with a random number
+    shuffle();
+
+    startTime = Date.now();
+
+    interval = setInterval(() => {
+      const elapsed = Date.now() - startTime;
+
+      if (elapsed >= duration) {
+        clearInterval(interval);
+        setDisplayValue(value);
+      } else {
+        shuffle();
+      }
+    }, shuffleSpeed);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, [value]);
+
+  return <>{displayValue}</>;
+}
+
+/* =========================================================
+   STAT CARD
+   ========================================================= */
 function StatCard({ number, label }) {
   return (
     <div
@@ -388,7 +426,7 @@ function StatCard({ number, label }) {
           text-[#F5F8F8]
         "
       >
-        {number}
+        <AnimatedNumber value={number} />
       </strong>
 
       <span

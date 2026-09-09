@@ -5,6 +5,9 @@ import socialMediaImage from "../assets/Social Media Marketing.png";
 import contentMarketingImage from "../assets/Content Marketing.png";
 import arrowIcon from "../assets/Icon to attach with images.svg";
 import servicesWaves from "../assets/Waves for Our services.png";
+import SeoIcon from "../assets/Seo optimization icon.png";
+import SocialMediaIcon from "../assets/Social Media Icon.png";
+import ContentMarketingIcon from "../assets/Content Marketing icon.png";
 
 import ExploreAllServicesIconWhite from "../assets/meteor-icons_arrow-up-right (white).png";
 import ExploreAllServicesIconBlack from "../assets/meteor-icons arrow-up-right (black).png";
@@ -15,21 +18,21 @@ const services = [
     description:
       "Data-driven SEO strategies that improve search visibility, attract qualified traffic, and drive long-term growth.",
     image: seoImage,
-    icon: "search",
+    icon: SeoIcon,
   },
   {
     title: "Social Media Marketing",
     description:
       "Build a stronger social presence with creative campaigns that engage your audience and grow your brand.",
     image: socialMediaImage,
-    icon: "social",
+    icon: SocialMediaIcon,
   },
   {
     title: "Content Marketing",
     description:
       "Create valuable content that builds trust, connects with your audience, and turns attention into action.",
     image: contentMarketingImage,
-    icon: "document",
+    icon: ContentMarketingIcon,
   },
 ];
 
@@ -139,12 +142,6 @@ function Services() {
             text-[#C1CDCE]
           "
         >
-          <span className="flex items-center">
-            <span className="h-[13px] w-[13px] rounded-full bg-[#08737D]" />
-            <span className="-ml-[7px] h-[13px] w-[13px] rounded-full bg-[#0B818C]" />
-            <span className="-ml-[7px] h-[13px] w-[13px] rounded-full bg-[#0E929D]" />
-          </span>
-
           <span>Our Services</span>
         </div>
 
@@ -177,7 +174,7 @@ function Services() {
             max-w-[760px]
             text-center
             font-['Inter']
-            text-[10px]
+            text-[12px]
             font-normal
             leading-[1.4]
             text-[#91A9AA]
@@ -227,8 +224,8 @@ function Services() {
             bg-transparent
             px-[19px]
             font-['Inter']
-            text-[9px]
-            font-semibold
+            text-[11px]
+            font-bold
             leading-none
             text-white
             transition-all
@@ -268,8 +265,6 @@ function Services() {
               w-[17px]
               object-contain
               group-hover:block
-              group-hover:translate-x-[2px]
-              group-hover:-translate-y-[2px]
             "
           />
         </a>
@@ -319,7 +314,12 @@ function ServiceCard({ service }) {
           group-hover:bg-[#0C7079]
         "
       >
-        <ServiceIcon type={service.icon} />
+        <img
+          src={service.icon}
+          alt=""
+          aria-hidden="true"
+          className="h-[17px] w-[17px] object-contain"
+        />
       </div>
 
       {/* Title */}
@@ -327,7 +327,7 @@ function ServiceCard({ service }) {
         className="
           mt-[12px]
           font-['Inter']
-          text-[12px]
+          text-[14px]
           font-semibold
           leading-[1.2]
           text-[#EDF5F5]
@@ -343,7 +343,7 @@ function ServiceCard({ service }) {
           min-h-[43px]
           max-w-[380px]
           font-['Inter']
-          text-[9px]
+          text-[10px]
           font-normal
           leading-[1.45]
           text-[#9EB4B5]
@@ -405,59 +405,6 @@ function ServiceCard({ service }) {
         </a>
       </div>
     </article>
-  );
-}
-
-function ServiceIcon({ type }) {
-  if (type === "search") {
-    return (
-      <svg
-        viewBox="0 0 24 24"
-        className="h-[17px] w-[17px]"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.8"
-      >
-        <circle cx="10.5" cy="10.5" r="5.5" />
-        <path d="m15 15 4 4" />
-      </svg>
-    );
-  }
-
-  if (type === "social") {
-    return (
-      <svg
-        viewBox="0 0 24 24"
-        className="h-[17px] w-[17px]"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.6"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d="M6 17.5c4.5 0 7.5-2.2 9.5-6.5" />
-        <path d="M9 17.5c2.5-1.2 4.2-3.1 5.2-5.4" />
-        <path d="M5 12.5c2.5 0 4.8-1 6.5-3" />
-        <path d="M13 6.5c2.8-.2 4.8.8 6 3" />
-      </svg>
-    );
-  }
-
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      className="h-[17px] w-[17px]"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.6"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <rect x="6" y="4" width="12" height="16" rx="2" />
-      <path d="M9 8h6" />
-      <path d="M9 12h6" />
-      <path d="M9 16h4" />
-    </svg>
   );
 }
 
