@@ -98,12 +98,7 @@ function WhyChooseUs() {
                 text-[#C0CDCE]
               "
             >
-              {/* Actual visual label */}
-              <span className="flex items-center">
-                <span className="h-[13px] w-[13px] rounded-full bg-[#08737D]" />
-                <span className="-ml-[6px] h-[13px] w-[13px] rounded-full bg-[#0B818C]" />
-                <span className="-ml-[6px] h-[13px] w-[13px] rounded-full bg-[#0E929D]" />
-              </span>
+              {/* Removed green circles */}
 
               <span>Why Choose Us</span>
             </div>
@@ -113,7 +108,7 @@ function WhyChooseUs() {
               className="
                 mt-[21px]
                 font-['Plus Jakarta Sans']
-                text-[36px]
+                text-[40px]
                 font-bold
                 leading-[1.08]
                 tracking-[-1.4px]
@@ -133,7 +128,7 @@ function WhyChooseUs() {
                 mt-[16px]
                 max-w-[500px]
                 font-['Inter']
-                text-[11px]
+                text-[13px]
                 font-normal
                 leading-[1.42]
                 text-[#A5B7B8]
@@ -182,7 +177,7 @@ function WhyChooseUs() {
                     <span
                       className="
                         font-['Inter']
-                        text-[10.5px]
+                        text-[12px]
                         font-medium
                         leading-[1.25]
                         text-[#E0EAEA]
@@ -195,9 +190,9 @@ function WhyChooseUs() {
                       className="
                         mt-[4px]
                         font-['Inter']
-                        text-[9.5px]
+                        text-[10.5px]
                         font-normal
-                        leading-[1.25]
+                        leading-[1.3]
                         text-[#96AAAB]
                       "
                     >
@@ -212,7 +207,9 @@ function WhyChooseUs() {
           {/* RIGHT IMAGE */}
           <div
             className="
+              flex
               w-full
+              justify-center
               lg:w-[480px]
               lg:shrink-0
             "
@@ -226,6 +223,7 @@ function WhyChooseUs() {
                 bg-[#082B2E]
                 p-[6px]
                 shadow-[0_0_20px_rgba(0,0,0,0.08)]
+                lg:w-[410px]
               "
             >
               <img
@@ -234,7 +232,7 @@ function WhyChooseUs() {
                 className="
                   block
                   h-auto
-                  max-h-[445px]
+                  max-h-[380px]
                   w-full
                   rounded-[12px]
                   object-cover

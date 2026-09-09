@@ -2,7 +2,7 @@ import seoImage from "../assets/SEO.png";
 import socialMediaImage from "../assets/Social Media.png";
 import contentMarketingImage from "../assets/Content Marketing (2) for insights.png";
 import readIcon from "../assets/Read icon.png";
-import arrowIcon from "../assets/meteor-icons arrow-up-right (green).png";
+import arrowIcon from "../assets/meteor-icons arrow-up-right (black).png";
 import readArticleIcon from "../assets/meteor-icons_arrow-up-right (white).png";
 
 
@@ -94,12 +94,10 @@ function LatestInsights() {
             font-medium
             leading-none
             text-[#C5D1D2]
-            sm:text-[10px]
+            sm:text-[11px]
           "
         >
           <span className="flex items-center">
-            <span className="h-[13px] w-[13px] rounded-full bg-[#08737D]" />
-            <span className="-ml-[6px] h-[13px] w-[13px] rounded-full bg-[#1AA1AE]" />
           </span>
 
           <span>Latest Insights</span>
@@ -111,20 +109,20 @@ function LatestInsights() {
             mt-[18px]
             max-w-[700px]
             font-['Manrope']
-            text-[29px]
+            text-[33px]
             font-bold
             leading-[1.08]
             tracking-[-1.25px]
             text-[#F3F7F7]
             sm:text-[33px]
             sm:tracking-[-1.5px]
-            lg:text-[34px]
+            lg:text-[37px]
             lg:tracking-[-1.6px]
           "
         >
           Ideas, Insights &amp; Strategies for
           <br />
-          <span className="text-[#18D0E4]">Business Growth</span>
+          <span className="font-['Plus_Jakarta_Sans'] text-[#18D0E4]">Business Growth</span>
         </h2>
 
         {/* Description — INTER */}
@@ -132,12 +130,12 @@ function LatestInsights() {
           className="
             mt-[16px]
             max-w-[700px]
-            font-['Inter']
-            text-[8px]
+            font-['Plus_Jakarta_Sans']
+            text-[10px]
             font-normal
             leading-[1.45]
             text-[#8EA5A6]
-            sm:text-[9px]
+            sm:text-[11px]
           "
         >
           Discover practical marketing insights, proven strategies, and fresh
@@ -188,40 +186,57 @@ function LatestInsights() {
             gap-[7px]
             rounded-full
             border
-            border-[#18D0E4]
-            bg-[#18D0E4]
+            border-white
+            bg-transparent
             px-[18px]
             font-['Inter']
-            text-[11px]
+            text-[12px]
             font-bold
             leading-none
-            !text-[#075F68]
+            !text-[white]
             transition-all
             duration-200
             ease-out
-            hover:border-[#ffffff]
-            hover:bg-[#ffffff]
+            hover:border-[#18D0E4]
+            hover:bg-[#18D0E4]
             hover:!text-black
             hover:shadow-[0_0_20px_rgba(32,185,68,0.25)]
           "
         >
           <span className="">View All Blogs</span>
 
-          <img
-            src={arrowIcon}
-            alt=""
-            aria-hidden="true"
-            className="
-              block
-              h-[15px]
-              w-[16px]
-              object-contain
-              transition-transform
-              duration-200
-              ease-out
-              group-hover:translate-x-[1px]
+                   <img 
+            src={readArticleIcon} 
+            alt="" 
+            aria-hidden="true" 
+            className=" 
+              block 
+              h-[15px] 
+              w-[16px] 
+              object-contain 
+              transition-transform 
+              duration-200 
+              ease-out 
+              group-hover:hidden
+            " 
+          />
+
+          <img 
+            src={arrowIcon} 
+            alt="" 
+            aria-hidden="true" 
+            className=" 
+              hidden 
+              h-[15px] 
+              w-[16px] 
+              object-contain 
+              transition-transform 
+              duration-200 
+              ease-out 
+              group-hover:block
+              group-hover:translate-x-[1px] 
               group-hover:-translate-y-[1px]
-            "
+            " 
           />
         </a>
       </div>
@@ -360,7 +375,7 @@ function InsightCard({ article }) {
             mt-[11px]
             max-w-[350px]
             font-['Inter']
-            text-[8px]
+            text-[10px]
             font-normal
             leading-[1.45]
             text-[#8EA7A8]
@@ -384,7 +399,7 @@ function InsightCard({ article }) {
               bg-[#0B8995]
               px-[11px]
               font-['Inter']
-              text-[8px]
+              text-[9.5px]
               font-medium
               leading-none
               text-white
@@ -402,8 +417,8 @@ function InsightCard({ article }) {
               alt=""
               aria-hidden="true"
               className="
-                h-[13px]
-                w-[13px]
+                h-[12px]
+                w-[12px]
                 object-contain
                 transition-transform
                 duration-200

@@ -1,8 +1,59 @@
+import { useEffect, useState } from "react";
+
 import successImage from "../assets/image for strategy.png";
 import wavesImage from "../assets/Waves for success stories.png";
+import smallBoxWaves from "../assets/Waves for small box.png";
+import marketingBoxWaves from "../assets/Waves for marketing box.png";
 import searchIcon from "../assets/icon.png";
 import arrowIcon from "../assets/meteor-icons arrow-up-right (green).png";
+import blackArrowIcon from "../assets/meteor-icons arrow-up-right (black).png";
 import growthArrow from "../assets/Arrow with bar upward.png";
+
+function AnimatedNumber({ target }) {
+  const [displayNumber, setDisplayNumber] = useState(1);
+
+  useEffect(() => {
+    let interval;
+    let startTime;
+
+    const duration = 1400;
+    const shuffleSpeed = 70;
+
+    // Always start from 1
+    setDisplayNumber(1);
+
+    // Small delay so 1+ is visible before shuffling starts
+    const startTimer = setTimeout(() => {
+      startTime = Date.now();
+
+      interval = setInterval(() => {
+        const elapsed = Date.now() - startTime;
+
+        if (elapsed >= duration) {
+          clearInterval(interval);
+          setDisplayNumber(target);
+        } else {
+          const randomNumber =
+            Math.floor(Math.random() * target) + 1;
+
+          setDisplayNumber(randomNumber);
+        }
+      }, shuffleSpeed);
+    }, 150);
+
+    return () => {
+      clearTimeout(startTimer);
+      clearInterval(interval);
+    };
+  }, [target]);
+
+  return (
+    <>
+      {displayNumber}
+      <span>+</span>
+    </>
+  );
+}
 
 function SuccessStories() {
   return (
@@ -75,38 +126,14 @@ function SuccessStories() {
             items-center
             gap-[7px]
             font-['Inter']
-            text-[9px]
+            text-[12px]
             font-medium
             leading-none
             text-[#C5D1D2]
-            sm:text-[10px]
-            lg:text-[11px]
+            sm:text-[12px]
+            lg:text-[12px]
           "
         >
-          <span className="flex items-center">
-            <span
-              className="
-                h-[12px]
-                w-[12px]
-                rounded-full
-                bg-[#08737D]
-                sm:h-[14px]
-                sm:w-[14px]
-              "
-            />
-            <span
-              className="
-                -ml-[6px]
-                h-[12px]
-                w-[12px]
-                rounded-full
-                bg-[#1AA1AE]
-                sm:h-[14px]
-                sm:w-[14px]
-              "
-            />
-          </span>
-
           <span>Success Stories</span>
         </div>
 
@@ -115,20 +142,22 @@ function SuccessStories() {
           className="
             mt-[18px]
             font-['Manrope']
-            text-[29px]
+            text-[32px]
             font-bold
             leading-[1.08]
             tracking-[-1.2px]
             text-[#F3F7F7]
             sm:text-[34px]
             sm:tracking-[-1.5px]
-            lg:text-[38px]
+            lg:text-[39px]
             lg:tracking-[-1.7px]
           "
         >
           Turn Your Marketing Into Real
           <br />
-          <span className="text-[#18D0E4]">Business Growth</span>
+          <span className="font-['Plus Jakarta Sans'] text-[#18D0E4]">
+            Business Growth
+          </span>
         </h2>
 
         {/* Description */}
@@ -137,12 +166,12 @@ function SuccessStories() {
             mt-[14px]
             max-w-[620px]
             font-['Inter']
-            text-[9px]
+            text-[11px]
             font-normal
             leading-[1.5]
             text-[#8EA5A6]
             sm:mt-[16px]
-            sm:text-[10px]
+            sm:text-[12px]
           "
         >
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
@@ -152,7 +181,7 @@ function SuccessStories() {
 
       {/* =========================================================
           CARDS
-          
+
           MOBILE:
           One clean vertical column.
 
@@ -283,7 +312,7 @@ function SuccessStories() {
                 rounded-full
                 bg-white
                 px-[14px]
-                font-['Manrope']
+                font-['Inter']
                 text-[11px]
                 font-bold
                 leading-none
@@ -291,10 +320,11 @@ function SuccessStories() {
                 transition-all
                 duration-200
                 hover:bg-[#18D0E4]
+                hover:!text-black
                 sm:mt-[17px]
                 sm:h-[35px]
                 sm:px-[15px]
-                sm:text-[9px]
+                sm:text-[10px]
               "
             >
               <span>Explore Our Results</span>
@@ -304,11 +334,28 @@ function SuccessStories() {
                 alt=""
                 aria-hidden="true"
                 className="
+                  block
+                  h-[14px]
+                  w-[14x]
+                  object-contain
+                  transition-transform
+                  duration-200
+                  group-hover:hidden
+                "
+              />
+
+              <img
+                src={blackArrowIcon}
+                alt=""
+                aria-hidden="true"
+                className="
+                  hidden
                   h-[13px]
                   w-[13px]
                   object-contain
                   transition-transform
                   duration-200
+                  group-hover:block
                   group-hover:translate-x-[2px]
                   group-hover:-translate-y-[2px]
                 "
@@ -370,8 +417,8 @@ function SuccessStories() {
             className="
               mt-[10px]
               max-w-[430px]
-              font-['Inter']
-              text-[9px]
+              font-['Manrope']
+              text-[11px]
               font-normal
               leading-[1.5]
               text-[#91AAAB]
@@ -395,7 +442,7 @@ function SuccessStories() {
               gap-[6px]
               rounded-full
               bg-white
-              px-[12px]
+              px-[10px]
               font-['Manrope']
               text-[11px]
               font-bold
@@ -404,6 +451,7 @@ function SuccessStories() {
               transition-all
               duration-200
               hover:bg-[#18D0E4]
+              hover:!text-black
             "
           >
             <span>View Results</span>
@@ -413,11 +461,28 @@ function SuccessStories() {
               alt=""
               aria-hidden="true"
               className="
+                block
                 h-[14px]
                 w-[14px]
                 object-contain
                 transition-transform
                 duration-200
+                group-hover:hidden
+              "
+            />
+
+            <img
+              src={blackArrowIcon}
+              alt=""
+              aria-hidden="true"
+              className="
+                hidden
+                h-[14px]
+                w-[14px]
+                object-contain
+                transition-transform
+                duration-200
+                group-hover:block
                 group-hover:translate-x-[1px]
                 group-hover:-translate-y-[1px]
               "
@@ -448,6 +513,31 @@ function SuccessStories() {
             lg:w-[220px]
           "
         >
+          {/* Waves for small statistics box */}
+          <img
+            src={smallBoxWaves}
+            alt=""
+            aria-hidden="true"
+            className="
+              pointer-events-none
+              absolute
+              bottom-[-25px]
+              right-[-25px]
+              z-0
+              h-[180px]
+              w-[250px]
+              object-contain
+              opacity-95
+              sm:right-[-20px]
+              sm:h-[185px]
+              sm:w-[205px]
+              lg:right-[-20px]
+              lg:bottom-[-33px]
+              lg:h-[200px]
+              lg:w-[390px]
+            "
+          />
+
           {/* Soft glow */}
           <div
             aria-hidden="true"
@@ -476,17 +566,17 @@ function SuccessStories() {
                 sm:text-[48px]
               "
             >
-              450<span>+</span>
+              <AnimatedNumber target={450} />
             </div>
 
             <p
               className="
                 mt-[8px]
                 font-['Inter']
-                text-[9px]
-                font-normal
+                text-[11px]
+                font-semibold
                 text-[#8EA5A6]
-                sm:text-[10px]
+                sm:text-[12px]
               "
             >
               Live Websites Launched
@@ -513,17 +603,17 @@ function SuccessStories() {
                 sm:text-[48px]
               "
             >
-              120<span>+</span>
+              <AnimatedNumber target={120} />
             </div>
 
             <p
               className="
                 mt-[8px]
                 font-['Inter']
-                text-[9px]
-                font-normal
+                text-[11px]
+                font-semibold
                 text-[#8EA5A6]
-                sm:text-[10px]
+                sm:text-[12px]
               "
             >
               Brands Supported
@@ -559,7 +649,7 @@ function SuccessStories() {
               WAVES INSIDE GREEN CARD
           ===================================================== */}
           <img
-            src={wavesImage}
+            src={marketingBoxWaves}
             alt=""
             aria-hidden="true"
             className="
@@ -571,36 +661,14 @@ function SuccessStories() {
               h-[235px]
               w-[330px]
               object-contain
-              opacity-75
+              opacity-90
               sm:right-[-25px]
               sm:h-[255px]
               sm:w-[370px]
               lg:right-[-5px]
-              lg:bottom-[-58px]
+              lg:bottom-[-18px]
               lg:h-[250px]
-              lg:w-[365px]
-            "
-          />
-
-          {/* Extra wave layer */}
-          <img
-            src={wavesImage}
-            alt=""
-            aria-hidden="true"
-            className="
-              pointer-events-none
-              absolute
-              bottom-[-30px]
-              right-[-5px]
-              z-[1]
-              h-[190px]
-              w-[280px]
-              object-contain
-              opacity-30
-              sm:right-[15px]
-              lg:right-[25px]
-              lg:h-[205px]
-              lg:w-[300px]
+              lg:w-[375px]
             "
           />
 
@@ -630,8 +698,8 @@ function SuccessStories() {
               className="
                 mt-[13px]
                 max-w-[300px]
-                font-['Inter']
-                text-[9px]
+                font-['Manrope']
+                text-[11px]
                 font-normal
                 leading-[1.5]
                 text-[#C9E7E8]
@@ -656,16 +724,18 @@ function SuccessStories() {
                 bg-white
                 px-[14px]
                 font-['Manrope']
-                text-[11px]
+                text-[12px]
                 font-bold
+                leading-none
                 !text-[#0B8995]
                 transition-all
                 duration-200
                 hover:bg-[#18D0E4]
+                hover:!text-black
                 sm:mt-[19px]
                 sm:h-[34px]
                 sm:px-[15px]
-                sm:text-[9px]
+                sm:text-[11px]
               "
             >
               <span>View Success Stories</span>
@@ -675,11 +745,28 @@ function SuccessStories() {
                 alt=""
                 aria-hidden="true"
                 className="
+                  block
                   h-[14px]
                   w-[14px]
                   object-contain
                   transition-transform
                   duration-200
+                  group-hover:hidden
+                "
+              />
+
+              <img
+                src={blackArrowIcon}
+                alt=""
+                aria-hidden="true"
+                className="
+                  hidden
+                  h-[14px]
+                  w-[14px]
+                  object-contain
+                  transition-transform
+                  duration-200
+                  group-hover:block
                   group-hover:translate-x-[2px]
                   group-hover:-translate-y-[2px]
                 "
