@@ -9,43 +9,33 @@ import arrowIcon from "../assets/meteor-icons arrow-up-right (green).png";
 import blackArrowIcon from "../assets/meteor-icons arrow-up-right (black).png";
 import growthArrow from "../assets/Arrow with bar upward.png";
 
-function AnimatedNumber({ target }) {
+/* =========================================================
+   ANIMATED NUMBER
+   Counts normally from 1 to target
+   Each box can have its own speed
+========================================================= */
+function AnimatedNumber({ target, speed = 40 }) {
   const [displayNumber, setDisplayNumber] = useState(1);
 
   useEffect(() => {
-    let interval;
-    let startTime;
-
-    const duration = 1400;
-    const shuffleSpeed = 70;
+    let currentNumber = 1;
 
     // Always start from 1
     setDisplayNumber(1);
 
-    // Small delay so 1+ is visible before shuffling starts
-    const startTimer = setTimeout(() => {
-      startTime = Date.now();
+    const interval = setInterval(() => {
+      currentNumber += 1;
 
-      interval = setInterval(() => {
-        const elapsed = Date.now() - startTime;
+      if (currentNumber >= target) {
+        clearInterval(interval);
+        setDisplayNumber(target);
+      } else {
+        setDisplayNumber(currentNumber);
+      }
+    }, speed);
 
-        if (elapsed >= duration) {
-          clearInterval(interval);
-          setDisplayNumber(target);
-        } else {
-          const randomNumber =
-            Math.floor(Math.random() * target) + 1;
-
-          setDisplayNumber(randomNumber);
-        }
-      }, shuffleSpeed);
-    }, 150);
-
-    return () => {
-      clearTimeout(startTimer);
-      clearInterval(interval);
-    };
-  }, [target]);
+    return () => clearInterval(interval);
+  }, [target, speed]);
 
   return (
     <>
@@ -366,8 +356,6 @@ function SuccessStories() {
 
         {/* =======================================================
             RIGHT TOP AREA
-
-            On mobile these are separate full-width cards.
         ======================================================= */}
         <article
           className="
@@ -555,6 +543,10 @@ function SuccessStories() {
           />
 
           <div className="relative z-10">
+            {/* =================================================
+                FIRST NUMBER
+                FASTER SPEED
+            ================================================= */}
             <div
               className="
                 font-['DM_Serif_Display']
@@ -566,7 +558,10 @@ function SuccessStories() {
                 sm:text-[48px]
               "
             >
-              <AnimatedNumber target={450} />
+              <AnimatedNumber
+                target={450}
+                speed={8}
+              />
             </div>
 
             <p
@@ -591,6 +586,10 @@ function SuccessStories() {
               "
             />
 
+            {/* =================================================
+                SECOND NUMBER
+                SLOWER SPEED
+            ================================================= */}
             <div
               className="
                 mt-[14px]
@@ -603,7 +602,10 @@ function SuccessStories() {
                 sm:text-[48px]
               "
             >
-              <AnimatedNumber target={120} />
+              <AnimatedNumber
+                target={120}
+                speed={20}
+              />
             </div>
 
             <p
