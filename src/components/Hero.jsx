@@ -330,11 +330,26 @@ function Hero() {
             sm:grid-cols-3
           "
         >
-          <StatCard number="200+" label="Clients Served" />
+          {/* FASTEST */}
+          <StatCard
+            number="200+"
+            label="Clients Served"
+            speed={10}
+          />
 
-          <StatCard number="98%" label="Retention Rate" />
+          {/* MEDIUM */}
+          <StatCard
+            number="98%"
+            label="Retention Rate"
+            speed={22}
+          />
 
-          <StatCard number="$12M+" label="Revenue Generated" />
+          {/* SLOWEST */}
+          <StatCard
+            number="$12M+"
+            label="Revenue Generated"
+            speed={80}
+          />
         </div>
       </div>
     </section>
@@ -344,56 +359,41 @@ function Hero() {
 /* =========================================================
    ANIMATED STAT NUMBER
    ========================================================= */
-function AnimatedNumber({ value }) {
-  const [displayValue, setDisplayValue] = useState(value);
+function AnimatedNumber({ value, speed = 45 }) {
+  const [displayValue, setDisplayValue] = useState("1");
 
   useEffect(() => {
-    let interval;
-    let startTime;
-
-    const duration = 1500; // total shuffle duration
-    const shuffleSpeed = 70; // slower number changes
-
     const numericMatch = value.match(/[\d.]+/);
+
+    if (!numericMatch) {
+      setDisplayValue(value);
+      return;
+    }
+
+    const finalNumber = parseFloat(numericMatch[0]);
+
     const prefix = value.startsWith("$") ? "$" : "";
     const suffix = value.replace(/^\$?[\d.]+/, "");
 
-    const randomNumber = () => {
-      if (value.includes("M")) {
-        return Math.floor(Math.random() * 20) + 1;
-      }
+    let currentNumber = 1;
 
-      if (value.includes("%")) {
-        return Math.floor(Math.random() * 100);
-      }
+    // Start clearly at 1
+    setDisplayValue(`${prefix}1${suffix}`);
 
-      return Math.floor(Math.random() * 300);
-    };
+    // Use the individual speed for each number
+    const interval = setInterval(() => {
+      currentNumber += 1;
 
-    const shuffle = () => {
-      setDisplayValue(`${prefix}${randomNumber()}${suffix}`);
-    };
-
-    // Start with a random number
-    shuffle();
-
-    startTime = Date.now();
-
-    interval = setInterval(() => {
-      const elapsed = Date.now() - startTime;
-
-      if (elapsed >= duration) {
+      if (currentNumber >= finalNumber) {
         clearInterval(interval);
         setDisplayValue(value);
       } else {
-        shuffle();
+        setDisplayValue(`${prefix}${currentNumber}${suffix}`);
       }
-    }, shuffleSpeed);
+    }, speed);
 
-    return () => {
-      clearInterval(interval);
-    };
-  }, [value]);
+    return () => clearInterval(interval);
+  }, [value, speed]);
 
   return <>{displayValue}</>;
 }
@@ -401,7 +401,7 @@ function AnimatedNumber({ value }) {
 /* =========================================================
    STAT CARD
    ========================================================= */
-function StatCard({ number, label }) {
+function StatCard({ number, label, speed }) {
   return (
     <div
       className="
@@ -426,7 +426,10 @@ function StatCard({ number, label }) {
           text-[#F5F8F8]
         "
       >
-        <AnimatedNumber value={number} />
+        <AnimatedNumber
+          value={number}
+          speed={speed}
+        />
       </strong>
 
       <span
