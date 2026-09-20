@@ -76,48 +76,92 @@ const Footer = () => {
                 <a
                   href="#"
                   aria-label="LinkedIn"
-                  className="transition-transform duration-300 hover:-translate-y-[3px]"
+                  className="
+                    flex
+                    h-[43px]
+                    w-[43px]
+                    items-center
+                    justify-center
+                    rounded-[5px]
+                    bg-[#00666C]
+                    transition-transform
+                    duration-300
+                    hover:-translate-y-[3px]
+                  "
                 >
                   <img
                     src={linkedinIcon}
                     alt="LinkedIn"
-                    className="h-[43px] w-[43px] object-contain"
+                    className="h-[19px] w-[19px] object-contain"
                   />
                 </a>
 
                 <a
                   href="#"
                   aria-label="Instagram"
-                  className="transition-transform duration-300 hover:-translate-y-[3px]"
+                  className="
+                    flex
+                    h-[43px]
+                    w-[43px]
+                    items-center
+                    justify-center
+                    rounded-[5px]
+                    bg-[#00666C]
+                    transition-transform
+                    duration-300
+                    hover:-translate-y-[3px]
+                  "
                 >
                   <img
                     src={instagramIcon}
                     alt="Instagram"
-                    className="h-[43px] w-[43px] object-contain"
+                    className="h-[19px] w-[19px] object-contain"
                   />
                 </a>
 
                 <a
                   href="#"
                   aria-label="Facebook"
-                  className="transition-transform duration-300 hover:-translate-y-[3px]"
+                  className="
+                    flex
+                    h-[43px]
+                    w-[43px]
+                    items-center
+                    justify-center
+                    rounded-[5px]
+                    bg-[#00666C]
+                    transition-transform
+                    duration-300
+                    hover:-translate-y-[3px]
+                  "
                 >
                   <img
                     src={facebookIcon}
                     alt="Facebook"
-                    className="h-[43px] w-[43px] object-contain"
+                    className="h-[19px] w-[19px] object-contain"
                   />
                 </a>
 
                 <a
                   href="#"
                   aria-label="Twitter"
-                  className="transition-transform duration-300 hover:-translate-y-[3px]"
+                  className="
+                    flex
+                    h-[43px]
+                    w-[43px]
+                    items-center
+                    justify-center
+                    rounded-[5px]
+                    bg-[#00666C]
+                    transition-transform
+                    duration-300
+                    hover:-translate-y-[3px]
+                  "
                 >
                   <img
                     src={twitterIcon}
                     alt="Twitter"
-                    className="h-[43px] w-[43px] object-contain"
+                    className="h-[19px] w-[19px] object-contain"
                   />
                 </a>
 
@@ -227,19 +271,31 @@ const Footer = () => {
                   href="mailto:hello@deltazmedia.com"
                   className="group flex items-center gap-[15px]"
                 >
-                  <img
-                    src={mailIcon}
-                    alt="Email"
+                  <div
                     className="
+                      flex
                       h-[40px]
                       w-[40px]
                       shrink-0
-                      object-contain
-                      transition-transform
-                      duration-300
-                      group-hover:scale-105
+                      items-center
+                      justify-center
+                      rounded-full
+                      bg-[#00666C]
                     "
-                  />
+                  >
+                    <img
+                      src={mailIcon}
+                      alt="Email"
+                      className="
+                        h-[19px]
+                        w-[19px]
+                        object-contain
+                        transition-transform
+                        duration-300
+                        group-hover:scale-105
+                      "
+                    />
+                  </div>
 
                   <span
                     className="
@@ -259,19 +315,31 @@ const Footer = () => {
                   href="tel:+97141234567"
                   className="group flex items-center gap-[15px]"
                 >
-                  <img
-                    src={phoneIcon}
-                    alt="Phone"
+                  <div
                     className="
+                      flex
                       h-[40px]
                       w-[40px]
                       shrink-0
-                      object-contain
-                      transition-transform
-                      duration-300
-                      group-hover:scale-105
+                      items-center
+                      justify-center
+                      rounded-full
+                      bg-[#00666C]
                     "
-                  />
+                  >
+                    <img
+                      src={phoneIcon}
+                      alt="Phone"
+                      className="
+                        h-[19px]
+                        w-[19px]
+                        object-contain
+                        transition-transform
+                        duration-300
+                        group-hover:scale-105
+                      "
+                    />
+                  </div>
 
                   <span
                     className="
@@ -288,16 +356,28 @@ const Footer = () => {
 
                 {/* Location */}
                 <div className="flex items-center gap-[15px]">
-                  <img
-                    src={locationIcon}
-                    alt="Location"
+                  <div
                     className="
+                      flex
                       h-[40px]
                       w-[40px]
                       shrink-0
-                      object-contain
+                      items-center
+                      justify-center
+                      rounded-full
+                      bg-[#00666C]
                     "
-                  />
+                  >
+                    <img
+                      src={locationIcon}
+                      alt="Location"
+                      className="
+                        h-[19px]
+                        w-[19px]
+                        object-contain
+                      "
+                    />
+                  </div>
 
                   <span className="text-[13px] text-[#A9BABC]">
                     Dubai, United Arab Emirates
