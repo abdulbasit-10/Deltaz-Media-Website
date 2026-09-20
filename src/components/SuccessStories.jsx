@@ -9,18 +9,12 @@ import arrowIcon from "../assets/meteor-icons arrow-up-right (green).png";
 import blackArrowIcon from "../assets/meteor-icons arrow-up-right (black).png";
 import growthArrow from "../assets/Arrow with bar upward.png";
 
-/* =========================================================
-   ANIMATED NUMBER
-   Counts normally from 1 to target
-   Each box can have its own speed
-========================================================= */
 function AnimatedNumber({ target, speed = 40 }) {
   const [displayNumber, setDisplayNumber] = useState(1);
 
   useEffect(() => {
     let currentNumber = 1;
 
-    // Always start from 1
     setDisplayNumber(1);
 
     const interval = setInterval(() => {
@@ -63,9 +57,6 @@ function SuccessStories() {
         lg:py-0
       "
     >
-      {/* =========================================================
-          MAIN BACKGROUND WAVES
-      ========================================================= */}
       <img
         src={wavesImage}
         alt=""
@@ -92,9 +83,6 @@ function SuccessStories() {
         "
       />
 
-      {/* =========================================================
-          HEADING
-      ========================================================= */}
       <div
         className="
           relative
@@ -109,7 +97,6 @@ function SuccessStories() {
           lg:pt-[52px]
         "
       >
-        {/* Label */}
         <div
           className="
             flex
@@ -127,7 +114,6 @@ function SuccessStories() {
           <span>Success Stories</span>
         </div>
 
-        {/* Heading */}
         <h2
           className="
             mt-[18px]
@@ -150,7 +136,6 @@ function SuccessStories() {
           </span>
         </h2>
 
-        {/* Description */}
         <p
           className="
             mt-[14px]
@@ -169,15 +154,6 @@ function SuccessStories() {
         </p>
       </div>
 
-      {/* =========================================================
-          CARDS
-
-          MOBILE:
-          One clean vertical column.
-
-          DESKTOP:
-          Original 3-column Figma composition.
-      ========================================================= */}
       <div
         className="
           relative
@@ -198,9 +174,6 @@ function SuccessStories() {
           lg:gap-[11px]
         "
       >
-        {/* =======================================================
-            STRATEGY IMAGE
-        ======================================================= */}
         <article
           className="
             relative
@@ -214,7 +187,6 @@ function SuccessStories() {
             lg:w-[420px]
           "
         >
-          {/* Image itself is the frame */}
           <img
             src={successImage}
             alt="Marketing team working together"
@@ -230,7 +202,6 @@ function SuccessStories() {
             "
           />
 
-          {/* Gradient */}
           <div
             className="
               pointer-events-none
@@ -244,7 +215,6 @@ function SuccessStories() {
             "
           />
 
-          {/* Content */}
           <div
             className="
               absolute
@@ -354,9 +324,6 @@ function SuccessStories() {
           </div>
         </article>
 
-        {/* =======================================================
-            RIGHT TOP AREA
-        ======================================================= */}
         <article
           className="
             relative
@@ -375,18 +342,28 @@ function SuccessStories() {
             lg:w-[265px]
           "
         >
-          {/* Supplied complete icon */}
-          <img
-            src={searchIcon}
-            alt=""
-            aria-hidden="true"
+          <div
             className="
-              block
+              flex
               h-[40px]
               w-[40px]
-              object-contain
+              items-center
+              justify-center
+              rounded-[5px]
+              bg-white
             "
-          />
+          >
+            <img
+              src={searchIcon}
+              alt=""
+              aria-hidden="true"
+              className="
+                h-[20px]
+                w-[20px]
+                object-contain
+              "
+            />
+          </div>
 
           <h3
             className="
@@ -478,9 +455,6 @@ function SuccessStories() {
           </a>
         </article>
 
-        {/* =======================================================
-            STATISTICS
-        ======================================================= */}
         <article
           className="
             relative
@@ -501,7 +475,6 @@ function SuccessStories() {
             lg:w-[220px]
           "
         >
-          {/* Waves for small statistics box */}
           <img
             src={smallBoxWaves}
             alt=""
@@ -526,7 +499,6 @@ function SuccessStories() {
             "
           />
 
-          {/* Soft glow */}
           <div
             aria-hidden="true"
             className="
@@ -543,10 +515,6 @@ function SuccessStories() {
           />
 
           <div className="relative z-10">
-            {/* =================================================
-                FIRST NUMBER
-                FASTER SPEED
-            ================================================= */}
             <div
               className="
                 font-['DM_Serif_Display']
@@ -586,10 +554,6 @@ function SuccessStories() {
               "
             />
 
-            {/* =================================================
-                SECOND NUMBER
-                SLOWER SPEED
-            ================================================= */}
             <div
               className="
                 mt-[14px]
@@ -623,9 +587,6 @@ function SuccessStories() {
           </div>
         </article>
 
-        {/* =======================================================
-            MARKETING RESULTS
-        ======================================================= */}
         <article
           className="
             relative
@@ -647,9 +608,6 @@ function SuccessStories() {
             lg:w-[496px]
           "
         >
-          {/* =====================================================
-              WAVES INSIDE GREEN CARD
-          ===================================================== */}
           <img
             src={marketingBoxWaves}
             alt=""
@@ -674,7 +632,6 @@ function SuccessStories() {
             "
           />
 
-          {/* Content */}
           <div
             className="
               relative
@@ -776,7 +733,6 @@ function SuccessStories() {
             </a>
           </div>
 
-          {/* Actual supplied growth graphic */}
           <img
             src={growthArrow}
             alt=""
