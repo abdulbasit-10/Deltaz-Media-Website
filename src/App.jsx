@@ -1,7 +1,7 @@
 import Header from "./components/Header";
 import Home from "./pages/Home";
 import Footer from "./components/Footer";
-import { useTheme } from "./context/ThemeContext";
+import { useTheme } from "./context/useTheme";
 
 function App() {
   const { theme } = useTheme();
@@ -16,7 +16,9 @@ function App() {
       }`}
     >
       <Header />
-      <Home />
+      <main className="pt-[69px]">
+        <Home />
+      </main>
       <Footer />
     </div>
   );

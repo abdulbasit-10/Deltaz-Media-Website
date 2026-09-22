@@ -1,7 +1,8 @@
 import { useState } from "react";
 import logo from "../assets/Deltaz Logo.svg";
+import logoLight from "../assets/Deltaz logo light.png";
 import arrowIcon from "../assets/meteor-icons_arrow-up-right (white).png";
-import { useTheme } from "../context/ThemeContext";
+import { useTheme } from "../context/useTheme";
 
 const navItems = [
   { label: "Home", href: "/" },
@@ -18,14 +19,6 @@ function Header() {
   const { theme, toggleTheme } = useTheme();
   const isLight = theme === "light";
 
-  function handleHeaderClick(event) {
-    if (event.target.closest("a, button")) {
-      return;
-    }
-
-    toggleTheme();
-  }
-
   const headerClasses = isLight
     ? "border-[#E4EEEE] bg-white"
     : "border-[#1C5559]/50 bg-[#061F21]";
@@ -40,8 +33,7 @@ function Header() {
 
   return (
     <header
-      onClick={handleHeaderClick}
-      className={`relative z-50 h-[69px] w-full cursor-pointer border-b transition-colors duration-300 ${headerClasses}`}
+      className={`fixed z-50 h-[69px] w-full border-b transition-colors duration-300 ${headerClasses}`}
     >
       <div className="mx-auto flex h-full w-full max-w-[1440px] items-center justify-between px-[24px] sm:px-[32px] lg:px-[38px]">
         <a
@@ -50,7 +42,7 @@ function Header() {
           className="flex w-[125px] shrink-0 items-center"
         >
           <img
-            src={logo}
+            src={isLight ? logoLight : logo}
             alt="Deltaz Media"
             className="h-auto w-[104px]"
           />
@@ -79,45 +71,40 @@ function Header() {
           ))}
         </nav>
 
-        <a
-          href="/contact"
-          className="hidden h-[37px] min-w-[151px] items-center justify-center gap-[8px] rounded-full bg-[#007982] px-[17px] font-['Inter'] text-[14px] font-medium leading-[5] text-white transition-transform duration-200 hover:-translate-y-[1px] hover:bg-[#006B73] lg:inline-flex"
-        >
-          <span className="text-white">Book Your Free Audit</span>
+        <div className="hidden items-center gap-[10px] lg:flex">
+          <ThemeToggle isLight={isLight} onClick={toggleTheme} />
 
-          <img
-            src={arrowIcon}
-            alt=""
-            aria-hidden="true"
-            className="h-[14px] w-[14px] object-contain"
-          />
-        </a>
+          <a
+            href="/contact"
+            className="inline-flex h-[37px] min-w-[151px] items-center justify-center gap-[8px] rounded-full bg-[#007982] px-[17px] font-['Inter'] text-[14px] font-medium leading-[5] text-white transition-transform duration-200 hover:-translate-y-[1px] hover:bg-[#006B73]"
+          >
+            <span className="text-white">Book Your Free Audit</span>
+            <img
+              src={arrowIcon}
+              alt=""
+              aria-hidden="true"
+              className="h-[14px] w-[14px] object-contain"
+            />
+          </a>
+        </div>
 
-        <button
-          type="button"
-          onClick={() => setMenuOpen((value) => !value)}
-          aria-label="Toggle navigation"
-          aria-expanded={menuOpen}
-          className="flex h-[40px] w-[40px] items-center justify-center lg:hidden"
-        >
-          <span className="flex w-[23px] flex-col gap-[5px]">
-            <span
-              className={`h-[2px] w-full rounded-full ${
-                isLight ? "bg-[#123B3E]" : "bg-white"
-              }`}
-            />
-            <span
-              className={`h-[2px] w-full rounded-full ${
-                isLight ? "bg-[#123B3E]" : "bg-white"
-              }`}
-            />
-            <span
-              className={`h-[2px] w-full rounded-full ${
-                isLight ? "bg-[#123B3E]" : "bg-white"
-              }`}
-            />
-          </span>
-        </button>
+        <div className="flex items-center gap-[8px] lg:hidden">
+          <ThemeToggle isLight={isLight} onClick={toggleTheme} />
+
+          <button
+            type="button"
+            onClick={() => setMenuOpen((value) => !value)}
+            aria-label="Toggle navigation"
+            aria-expanded={menuOpen}
+            className="flex h-[40px] w-[40px] items-center justify-center"
+          >
+            <span className="flex w-[23px] flex-col gap-[5px]">
+              <span className={`h-[2px] w-full rounded-full ${isLight ? "bg-[#123B3E]" : "bg-white"}`} />
+              <span className={`h-[2px] w-full rounded-full ${isLight ? "bg-[#123B3E]" : "bg-white"}`} />
+              <span className={`h-[2px] w-full rounded-full ${isLight ? "bg-[#123B3E]" : "bg-white"}`} />
+            </span>
+          </button>
+        </div>
       </div>
 
       {menuOpen && (
@@ -161,6 +148,33 @@ function Header() {
         </nav>
       )}
     </header>
+  );
+}
+
+function ThemeToggle({ isLight, onClick }) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-label={isLight ? "Switch to dark theme" : "Switch to light theme"}
+      title={isLight ? "Switch to dark theme" : "Switch to light theme"}
+      className={`flex h-[37px] w-[37px] items-center justify-center rounded-full border transition-all duration-200 hover:-translate-y-[1px] ${
+        isLight
+          ? "border-[#BBDDE0] bg-[#F0FAFA] text-[#007982] hover:bg-[#E2F4F4]"
+          : "border-[#2A6E73] bg-[#0B3538] text-[#D8F5F6] hover:bg-[#124A4E]"
+      }`}
+    >
+      {isLight ? (
+        <svg viewBox="0 0 24 24" aria-hidden="true" className="h-[17px] w-[17px] fill-none stroke-current stroke-[1.9]">
+          <path d="M20.6 14.8A8.4 8.4 0 0 1 9.2 3.4 8.5 8.5 0 1 0 20.6 14.8Z" />
+        </svg>
+      ) : (
+        <svg viewBox="0 0 24 24" aria-hidden="true" className="h-[17px] w-[17px] fill-none stroke-current stroke-[1.9]">
+          <circle cx="12" cy="12" r="4" />
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+        </svg>
+      )}
+    </button>
   );
 }
 

@@ -9,7 +9,7 @@ import transparentReportingLightIcon from "../assets/transparent-reporting-light
 import fullFunnelLightIcon from "../assets/full-funnel-light.svg";
 
 import whyChooseUsImage from "../assets/Image for why choose us.png";
-import { useTheme } from "../context/ThemeContext";
+import { useTheme } from "../context/useTheme";
 
 const reasons = [
   {
@@ -46,19 +46,19 @@ function WhyChooseUs() {
   return (
     <section
       id="why-choose-us"
-      className={`w-full px-[30px] py-[65px] transition-colors duration-300 sm:px-[40px] lg:px-[60px] xl:px-[65px] ${
+      className={`w-full px-[30px] py-[44px] transition-colors duration-300 sm:px-[40px] lg:px-[60px] xl:px-[65px] ${
         isLight ? "bg-white" : "bg-[#061F21]"
       }`}
     >
       <div
-        className={`mx-auto flex min-h-[500px] w-full max-w-[1200px] overflow-hidden rounded-[17px] border px-[30px] py-[30px] transition-colors duration-300 sm:px-[35px] sm:py-[35px] lg:px-[40px] lg:py-[35px] ${
+        className={`mx-auto flex min-h-[405px] w-full max-w-[1060px] overflow-hidden rounded-[14px] border px-[23px] py-[23px] transition-colors duration-300 sm:px-[27px] sm:py-[27px] lg:px-[29px] lg:py-[27px] ${
           isLight
             ? "border-[#B9DDE0] bg-white shadow-[0_8px_22px_rgba(16,63,67,0.10)]"
             : "border-[#1A6267]/65 bg-[#0D393D]"
         }`}
       >
-        <div className="flex w-full flex-col gap-[40px] lg:flex-row lg:items-center lg:justify-between lg:gap-[55px]">
-          <div className="flex w-full flex-col lg:max-w-[535px] lg:flex-1">
+        <div className="flex w-full flex-col gap-[30px] lg:flex-row lg:items-center lg:justify-between lg:gap-[38px]">
+          <div className="flex w-full flex-col lg:max-w-[455px] lg:flex-1">
             <div
               className={`font-['Inter'] text-[11px] font-medium leading-none ${
                 isLight ? "text-[#08737D]" : "text-[#C0CDCE]"
@@ -68,7 +68,7 @@ function WhyChooseUs() {
             </div>
 
             <h2
-              className={`mt-[21px] font-['Plus Jakarta Sans'] text-[40px] font-bold leading-[1.08] tracking-[-1.4px] sm:text-[39px] lg:text-[41px] ${
+              className={`mt-[15px] font-['Plus Jakarta Sans'] text-[32px] font-bold leading-[1.08] tracking-[-1.1px] sm:text-[33px] lg:text-[34px] ${
                 isLight ? "text-[#222629]" : "text-[#F4F8F8]"
               }`}
             >
@@ -80,7 +80,7 @@ function WhyChooseUs() {
             </h2>
 
             <p
-              className={`mt-[16px] max-w-[500px] font-['Inter'] text-[13px] font-normal leading-[1.42] ${
+              className={`mt-[12px] max-w-[430px] font-['Inter'] text-[11px] font-normal leading-[1.42] ${
                 isLight ? "text-[#283B3D]" : "text-[#A5B7B8]"
               }`}
             >
@@ -91,11 +91,11 @@ function WhyChooseUs() {
               long-term success.
             </p>
 
-            <div className="mt-[27px] flex w-full flex-col">
+            <div className="mt-[19px] flex w-full flex-col">
               {reasons.map((reason, index) => (
                 <article
                   key={reason.title}
-                  className={`group flex min-h-[61px] w-full items-center gap-[13px] px-[7px] transition-colors duration-300 ${
+                  className={`group flex min-h-[50px] w-full items-center gap-[10px] px-[6px] transition-colors duration-300 ${
                     index !== reasons.length - 1
                       ? isLight
                         ? "border-b border-[#E4EEEE]"
@@ -108,7 +108,7 @@ function WhyChooseUs() {
                   }`}
                 >
                   <div
-                    className={`flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-[5px] transition-colors duration-300 ${
+                    className={`flex h-[26px] w-[26px] shrink-0 items-center justify-center rounded-[5px] transition-colors duration-300 ${
                       isLight
                         ? "bg-[#EAF5F5] group-hover:bg-[#006F75]"
                         : "bg-[#18D0E4]"
@@ -118,7 +118,7 @@ function WhyChooseUs() {
                       src={isLight ? reason.lightIcon : reason.darkIcon}
                       alt=""
                       aria-hidden="true"
-                      className={`h-[17px] w-[17px] object-contain transition-[filter] duration-300 ${
+                      className={`h-[15px] w-[15px] object-contain transition-[filter] duration-300 ${
                         isLight
                           ? "group-hover:brightness-0 group-hover:invert"
                           : ""
@@ -128,7 +128,7 @@ function WhyChooseUs() {
 
                   <div className="flex flex-col">
                     <span
-                      className={`font-['Inter'] text-[12px] font-medium leading-[1.25] ${
+                      className={`font-['Inter'] text-[10.5px] font-medium leading-[1.25] ${
                         isLight ? "text-[#25393B]" : "text-[#E0EAEA]"
                       }`}
                     >
@@ -136,7 +136,7 @@ function WhyChooseUs() {
                     </span>
 
                     <span
-                      className={`mt-[4px] font-['Inter'] text-[10.5px] font-normal leading-[1.3] ${
+                      className={`mt-[3px] font-['Inter'] text-[9.25px] font-normal leading-[1.3] ${
                         isLight ? "text-[#35494B]" : "text-[#96AAAB]"
                       }`}
                     >
@@ -148,9 +148,9 @@ function WhyChooseUs() {
             </div>
           </div>
 
-          <div className="flex w-full justify-center lg:w-[480px] lg:shrink-0">
+          <div className="flex w-full justify-center lg:w-[412px] lg:shrink-0">
             <div
-              className={`overflow-hidden rounded-[17px] border p-[6px] transition-colors duration-300 lg:w-[410px] ${
+              className={`overflow-hidden rounded-[14px] border p-[5px] transition-colors duration-300 lg:w-[350px] ${
                 isLight
                   ? "border-[#D2E5E6] bg-[#F3F9F9] shadow-[0_3px_10px_rgba(14,69,73,0.12)]"
                   : "border-[#19737A]/60 bg-[#082B2E] shadow-[0_0_20px_rgba(0,0,0,0.08)]"
@@ -159,7 +159,7 @@ function WhyChooseUs() {
               <img
                 src={whyChooseUsImage}
                 alt="Deltaz Media team working together"
-                className="block h-auto max-h-[380px] w-full rounded-[12px] object-cover"
+                className="block h-auto max-h-[320px] w-full rounded-[10px] object-cover"
               />
             </div>
           </div>
