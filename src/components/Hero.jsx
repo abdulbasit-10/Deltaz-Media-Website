@@ -3,7 +3,7 @@ import heroWaves from "../assets/Waves for hero section.png";
 import arrowIcon from "../assets/meteor-icons_arrow-up-right (white).png";
 import arrowIconBlack from "../assets/meteor-icons arrow-up-right (black).png";
 import RocketIcon from "../assets/Rocket shape icon.png";
-import { useTheme } from "../context/ThemeContext";
+import { useTheme } from "../context/useTheme";
 
 function Hero() {
   const { theme } = useTheme();
@@ -115,27 +115,40 @@ function Hero() {
         <div className="mt-[27px] flex items-center justify-center gap-[12px]">
           <a
             href="#contact"
-            className={`group inline-flex h-[42px] items-center justify-center gap-[9px] rounded-full border px-[19px] font-['Inter'] text-[13px] font-semibold leading-none transition-all duration-200 ease-out ${
+            className={`group inline-flex h-[42px] items-center justify-center gap-[9px] rounded-full border px-[19px] font-['Inter'] text-[14px] font-semibold leading-none transition-all duration-200 ease-out ${
               isLight
-                ? "border-white bg-[linear-gradient(100deg,#B9F0F1_0%,#8EDDE1_52%,#69C8D0_100%)] text-[#07383B] shadow-[0_4px_12px_rgba(0,100,108,0.20)] hover:brightness-95"
+                ? "border-white bg-[linear-gradient(100deg,#B9F0F1_0%,#8EDDE1_52%,#69C8D0_100%)] text-[#07383B] shadow-[0_4px_12px_rgba(0,100,108,0.20)] hover:border-white hover:bg-none hover:bg-[#008E98] hover:!text-white"
                 : "border-[#20C9D9] bg-transparent text-white hover:border-[#ffffff] hover:bg-[#10899A] hover:shadow-[0_0_20px_rgba(32,185,68,0.24)]"
             }`}
           >
             <span>Let's Build Your Growth</span>
 
-            <img
-              src={isLight ? arrowIconBlack : arrowIcon}
-              alt=""
-              aria-hidden="true"
-              className="h-[15px] w-[15px] object-contain transition-transform duration-200 group-hover:translate-x-[2px] group-hover:-translate-y-[2px]"
-            />
+            <span className="relative h-[15px] w-[15px]">
+              <img
+                src={isLight ? arrowIconBlack : arrowIcon}
+                alt=""
+                aria-hidden="true"
+                className={`absolute inset-0 h-[15px] w-[15px] object-contain transition-all duration-200 group-hover:translate-x-[2px] group-hover:-translate-y-[2px] ${
+                  isLight ? "group-hover:opacity-0" : ""
+                }`}
+              />
+
+              {isLight && (
+                <img
+                  src={arrowIcon}
+                  alt=""
+                  aria-hidden="true"
+                  className="absolute inset-0 h-[15px] w-[15px] object-contain opacity-0 transition-all duration-200 group-hover:translate-x-[2px] group-hover:-translate-y-[2px] group-hover:opacity-100"
+                />
+              )}
+            </span>
           </a>
 
           <a
             href="#project"
             className={`group inline-flex h-[42px] min-w-[148px] items-center justify-center gap-[9px] rounded-full border px-[19px] font-['Inter'] text-[14px] font-semibold leading-none transition-all duration-200 ease-out ${
               isLight
-                ? "border-white bg-white/12 text-white hover:bg-white/25"
+                ? "border-white bg-white/12 text-white hover:border-white hover:bg-[#008E98] hover:!text-white"
                 : "border-[#20C9D9] bg-transparent text-white hover:border-[#ffffff] hover:bg-[#10899A] hover:shadow-[0_0_20px_rgba(32,185,68,0.24)]"
             }`}
           >
@@ -171,13 +184,23 @@ function Hero() {
 }
 
 function AnimatedNumber({ value, speed = 45 }) {
-  const [displayValue, setDisplayValue] = useState("1");
+  const [displayValue, setDisplayValue] = useState(() => {
+    const numericMatch = value.match(/[\d.]+/);
+
+    if (!numericMatch) {
+      return value;
+    }
+
+    const prefix = value.startsWith("$") ? "$" : "";
+    const suffix = value.replace(/^\$?[\d.]+/, "");
+
+    return `${prefix}1${suffix}`;
+  });
 
   useEffect(() => {
     const numericMatch = value.match(/[\d.]+/);
 
     if (!numericMatch) {
-      setDisplayValue(value);
       return;
     }
 
@@ -186,8 +209,6 @@ function AnimatedNumber({ value, speed = 45 }) {
     const suffix = value.replace(/^\$?[\d.]+/, "");
 
     let currentNumber = 1;
-
-    setDisplayValue(`${prefix}1${suffix}`);
 
     const interval = setInterval(() => {
       currentNumber += 1;

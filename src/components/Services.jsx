@@ -12,7 +12,7 @@ import blackArrow from "../assets/meteor-icons arrow-up-right (black).png";
 import exploreArrowWhite from "../assets/meteor-icons_arrow-up-right (white).png";
 
 import servicesWaves from "../assets/Waves for Our services.png";
-import { useTheme } from "../context/ThemeContext";
+import { useTheme } from "../context/useTheme";
 
 const services = [
   {
@@ -175,7 +175,7 @@ function Services() {
 function ServiceCard({ service, isLight }) {
   return (
     <article
-      className={`group relative flex h-[348px] w-[408px] shrink-0 flex-col overflow-hidden rounded-[9px] border p-[10px] transition-all duration-300 ${
+      className={`group relative flex h-[370px] w-[390px] shrink-0 flex-col overflow-hidden rounded-[9px] border p-[10px] transition-all duration-300 ${
         isLight
           ? "border-[#E0EEEE] bg-[#FCFEFE] shadow-[0_4px_12px_rgba(7,72,77,0.09)] hover:border-[#008E98] hover:bg-[linear-gradient(135deg,#00B9C6_0%,#008E98_100%)] hover:shadow-[0_10px_22px_rgba(0,101,108,0.28)]"
           : "border-[#1A6267]/75 bg-[#0D393D] hover:border-[#18C9D8] hover:bg-[#128995]"
@@ -224,7 +224,7 @@ function ServiceCard({ service, isLight }) {
       </h3>
 
       <p
-        className={`mt-[7px] min-h-[43px] max-w-[380px] font-['Inter'] text-[10px] font-normal leading-[1.45] transition-colors duration-300 ${
+        className={`mt-[7px] min-h-[43px] max-w-[370px] font-['Inter'] text-[10px] font-normal leading-[1.45] transition-colors duration-300 ${
           isLight
             ? "text-[#71888A] group-hover:text-[#E2F9FA]"
             : "text-[#9EB4B5] group-hover:text-[#D8EEEE]"
@@ -233,44 +233,44 @@ function ServiceCard({ service, isLight }) {
         {service.description}
       </p>
 
-      <div className="relative mt-auto h-[215px] w-full overflow-visible">
+      <div className="relative mt-auto h-[220px] w-full shrink-0 overflow-hidden rounded-[6px]">
         <img
           src={service.image}
           alt={service.title}
-          className="block h-[215px] w-full rounded-[6px] object-cover"
+          className="block h-full w-full object-cover"
         />
 
         {isLight ? (
-          <a
-            href="#project"
-            aria-label={`View ${service.title}`}
-            className="absolute bottom-[8px] right-[8px] z-10 flex h-[48px] w-[48px] items-center justify-center rounded-full bg-[radial-gradient(circle_at_35%_28%,#34E2E7_0%,#08C3CE_38%,#008D97_100%)] shadow-[0_0_0_3px_rgba(255,255,255,0.55),0_5px_14px_rgba(0,133,142,0.32)] transition-all duration-200 hover:scale-105 group-hover:bg-[radial-gradient(circle_at_35%_28%,#5AF0F2_0%,#20D7DF_38%,#00A4AE_100%)]"
-          >
-            <img
-              src={whiteArrow}
-              alt=""
-              aria-hidden="true"
-              className="block h-[18px] w-[18px] object-contain group-hover:hidden"
-            />
+<a
+  href="#project"
+  aria-label={`View ${service.title}`}
+  className="absolute bottom-4 right-0 z-10 flex h-[46.5px] w-[46.5px] items-center justify-center rounded-full bg-[radial-gradient(circle_at_35%_28%,#34E2E7_0%,#08C3CE_38%,#008D97_100%)] transition-all duration-200 hover:scale-105 group-hover:bg-[radial-gradient(circle_at_35%_28%,#72F5F7_0%,#24DDE4_42%,#00AAB5_100%)]"
+>
+  <img
+    src={whiteArrow}
+    alt=""
+    aria-hidden="true"
+    className="block h-[22px] w-[22px] object-contain group-hover:hidden"
+  />
 
-            <img
-              src={blackArrow}
-              alt=""
-              aria-hidden="true"
-              className="hidden h-[18px] w-[18px] object-contain group-hover:block"
-            />
-          </a>
+  <img
+    src={blackArrow}
+    alt=""
+    aria-hidden="true"
+    className="hidden h-[22px] w-[22px] object-contain group-hover:block"
+  />
+</a>
         ) : (
           <a
             href="#project"
             aria-label={`View ${service.title}`}
-            className="absolute bottom-[8px] right-[8px] z-10 transition-transform duration-200 hover:scale-105"
+            className="absolute bottom-4 right-0 z-10 transition-transform duration-200 hover:scale-105"
           >
             <img
               src={darkCardArrow}
               alt=""
               aria-hidden="true"
-              className="block h-[48px] w-[48px] object-contain"
+              className="block h-[45px] w-[45px] object-contain"
             />
           </a>
         )}
