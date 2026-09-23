@@ -6,6 +6,7 @@ import smallBoxWaves from "../assets/Waves for small box.png";
 import marketingBoxWaves from "../assets/Waves for marketing box.png";
 import searchIcon from "../assets/icon.png";
 import arrowIcon from "../assets/meteor-icons arrow-up-right (green).png";
+import blackArrowIcon from "../assets/meteor-icons arrow-up-right (black).png";
 import whiteArrowIcon from "../assets/meteor-icons_arrow-up-right (white).png";
 import growthArrow from "../assets/Arrow with bar upward.png";
 
@@ -173,11 +174,11 @@ function SuccessStories() {
               href="#services"
               className={`group mt-[15px] inline-flex h-[33px] items-center justify-center gap-[7px] rounded-full px-[14px] font-['Inter'] text-[11px] font-bold leading-none transition-all duration-200 sm:mt-[17px] sm:h-[35px] sm:px-[15px] sm:text-[10px] ${
                 isLight
-                  ? "bg-[#007E87] text-white hover:bg-[#00636A]"
+                  ? "bg-[#007E87] text-white hover:bg-transparent hover:border hover:border-black hover:text-black"
                   : "bg-white !text-[#0B8995] hover:bg-[#18D0E4] hover:!text-black"
               }`}
             >
-              <span className={isLight ? "text-white" : ""}>
+              <span className={isLight ? "text-white group-hover:text-black" : ""}>
                 Explore Our Results
               </span>
 
@@ -185,7 +186,7 @@ function SuccessStories() {
                 src={isLight ? whiteArrowIcon : arrowIcon}
                 alt=""
                 aria-hidden="true"
-                className="block h-[14px] w-[14px] object-contain transition-transform duration-200 group-hover:translate-x-[2px] group-hover:-translate-y-[2px]"
+                className="block h-[14px] w-[14px] object-contain transition-transform duration-200 group-hover:translate-x-[2px] group-hover:-translate-y-[2px] group-hover:brightness-0"
               />
             </a>
           </div>
@@ -219,15 +220,21 @@ function SuccessStories() {
 
           <a
             href="#services"
-            className="group mt-[13px] inline-flex h-[30px] items-center justify-center gap-[6px] rounded-full bg-white px-[10px] font-['Manrope'] text-[11px] font-bold leading-none !text-[#0B8995] transition-all duration-200 hover:bg-[#C8FAFB] hover:!text-[#06494F]"
+            className={`group mt-[13px] inline-flex h-[30px] items-center justify-center gap-[6px] rounded-full px-[10px] font-['Manrope'] text-[11px] font-bold leading-none transition-all duration-200 ${
+              isLight
+                ? "bg-white !text-[#0B8995] hover:bg-[#C8FAFB] hover:!text-[#06494F]"
+                : "bg-white !text-[#0B8995] hover:bg-[#18D0E4] hover:!text-black"
+            }`}
           >
-            <span>View Results</span>
+            <span className={isLight ? "" : "group-hover:text-black"}>View Results</span>
 
             <img
-              src={arrowIcon}
+              src={isLight ? arrowIcon : blackArrowIcon}
               alt=""
               aria-hidden="true"
-              className="block h-[14px] w-[14px] object-contain transition-transform duration-200 group-hover:translate-x-[1px] group-hover:-translate-y-[1px]"
+              className={`block h-[14px] w-[14px] object-contain transition-transform duration-200 group-hover:translate-x-[1px] group-hover:-translate-y-[1px] ${
+                isLight ? "" : "group-hover:brightness-0"
+              }`}
             />
           </a>
         </article>
@@ -300,15 +307,21 @@ function SuccessStories() {
 
             <a
               href="#success-stories"
-              className="group mt-[17px] inline-flex h-[33px] items-center justify-center gap-[7px] rounded-full bg-white px-[14px] font-['Manrope'] text-[12px] font-bold leading-none !text-[#0B8995] transition-all duration-200 hover:bg-[#C8FAFB] hover:!text-[#06494F] sm:mt-[19px] sm:h-[34px] sm:px-[15px] sm:text-[11px]"
+              className={`group mt-[17px] inline-flex h-[33px] items-center justify-center gap-[7px] rounded-full px-[14px] font-['Manrope'] text-[12px] font-bold leading-none transition-all duration-200 sm:mt-[19px] sm:h-[34px] sm:px-[15px] sm:text-[11px] ${
+                isLight
+                  ? "bg-white !text-[#0B8995] hover:bg-[#C8FAFB] hover:!text-[#06494F]"
+                  : "bg-white !text-[#0B8995] hover:bg-[#18D0E4] hover:!text-black"
+              }`}
             >
-              <span>View Success Stories</span>
+              <span className={isLight ? "" : "group-hover:text-black"}>View Success Stories</span>
 
               <img
-                src={arrowIcon}
+                src={isLight ? arrowIcon : blackArrowIcon}
                 alt=""
                 aria-hidden="true"
-                className="block h-[14px] w-[14px] object-contain transition-transform duration-200 group-hover:translate-x-[2px] group-hover:-translate-y-[2px]"
+                className={`block h-[14px] w-[14px] object-contain transition-transform duration-200 group-hover:translate-x-[2px] group-hover:-translate-y-[2px] ${
+                  isLight ? "" : "group-hover:brightness-0"
+                }`}
               />
             </a>
           </div>
