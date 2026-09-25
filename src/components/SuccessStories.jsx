@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import successImage from "../assets/image for strategy.png";
 import wavesImage from "../assets/Waves for success stories.png";
@@ -12,10 +12,14 @@ import growthArrow from "../assets/Arrow with bar upward.png";
 
 import { useTheme } from "../context/useTheme";
 
-function AnimatedNumber({ target, speed = 40 }) {
+function AnimatedNumber({ target, speed = 40, isActive }) {
   const [displayNumber, setDisplayNumber] = useState(1);
 
   useEffect(() => {
+    if (!isActive) {
+      return;
+    }
+
     let currentNumber = 1;
 
     const interval = setInterval(() => {
@@ -30,7 +34,7 @@ function AnimatedNumber({ target, speed = 40 }) {
     }, speed);
 
     return () => clearInterval(interval);
-  }, [target, speed]);
+  }, [target, speed, isActive]);
 
   return (
     <>
@@ -74,6 +78,26 @@ function DecorativeWave({ src, className, isLight, color = "#8AE4E4" }) {
 function SuccessStories() {
   const { theme } = useTheme();
   const isLight = theme === "light";
+  const statsCardRef = useRef(null);
+  const [startStatsAnimation, setStartStatsAnimation] = useState(
+    () => typeof IntersectionObserver === "undefined",
+  );
+
+  useEffect(() => {
+    const statsCard = statsCardRef.current;
+
+    if (!statsCard || typeof IntersectionObserver === "undefined") {
+      return;
+    }
+
+    const observer = new IntersectionObserver(([entry]) => {
+      setStartStatsAnimation(entry.isIntersecting);
+    }, { threshold: 0.25 });
+
+    observer.observe(statsCard);
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <section
@@ -240,6 +264,7 @@ function SuccessStories() {
         </article>
 
         <article
+          ref={statsCardRef}
           className={`relative min-h-[205px] w-full overflow-hidden rounded-[11px] border px-[18px] py-[20px] shadow-[0_8px_28px_rgba(0,0,0,0.20)] sm:min-h-[215px] sm:px-[20px] lg:h-[215px] lg:min-h-0 lg:w-[220px] ${
             isLight
               ? "border-[#149AA3]/35 bg-[linear-gradient(135deg,#075B63_0%,#087980_58%,#59A9AB_100%)]"
@@ -262,7 +287,12 @@ function SuccessStories() {
 
           <div className="relative z-10">
             <div className="font-['DM_Serif_Display'] text-[45px] font-normal leading-none tracking-[-1.4px] text-[#F4F8F8] sm:text-[48px]">
-              <AnimatedNumber target={450} speed={8} />
+              <AnimatedNumber
+                key={startStatsAnimation ? "active" : "idle"}
+                target={450}
+                speed={8}
+                isActive={startStatsAnimation}
+              />
             </div>
 
             <p className="mt-[8px] font-['Inter'] text-[11px] font-semibold text-[#D5F0F1] sm:text-[12px]">
@@ -272,7 +302,12 @@ function SuccessStories() {
             <div className="mt-[11px] h-px w-full bg-[#B6E4E5]/30" />
 
             <div className="mt-[14px] font-['DM_Serif_Display'] text-[45px] font-normal leading-none tracking-[-1.4px] text-[#F4F8F8] sm:text-[48px]">
-              <AnimatedNumber target={120} speed={20} />
+              <AnimatedNumber
+                key={startStatsAnimation ? "active" : "idle"}
+                target={120}
+                speed={20}
+                isActive={startStatsAnimation}
+              />
             </div>
 
             <p className="mt-[8px] font-['Inter'] text-[11px] font-semibold text-[#D5F0F1] sm:text-[12px]">

@@ -1,30 +1,19 @@
-import devflowLogo from "../assets/Devflow.png";
-import godaddyLogo from "../assets/Godaddy.png";
-import shahnawarLogo from "../assets/Shahnawar.png";
-import encovaLogo from "../assets/Encova Solutions.png";
-import hubspotLogo from "../assets/Hubspot.png";
-import metaLogo from "../assets/Meta.png";
-import shopifyLogo from "../assets/Shopify.png";
-import wordpressLogo from "../assets/Wordpress.png";
-import googleLogo from "../assets/Google.png";
+import shahnoorLogo from "../assets/Shahnoor.png";
+import jarvisLogo from "../assets/jarvis.png";
+import makaanLogo from "../assets/makaan.png";
+import saConsultantsLogo from "../assets/SA Consultants.png";
+import adlyticXLogo from "../assets/Adlytic X.png";
+import drGloriaLogo from "../assets/dr.gloria.png";
 
 import { useTheme } from "../context/useTheme";
 
 const logos = [
-  { name: "Devflow", image: devflowLogo },
-  { name: "GoDaddy", image: godaddyLogo },
-  { name: "WordPress", image: wordpressLogo },
-  { name: "Shahnawar", image: shahnawarLogo },
-  { name: "Encova Solutions", image: encovaLogo },
-  { name: "HubSpot", image: hubspotLogo },
-  { name: "Meta", image: metaLogo },
-  { name: "Shopify", image: shopifyLogo },
-  { name: "HubSpot", image: hubspotLogo },
-  { name: "Google", image: googleLogo },
-  { name: "Meta", image: metaLogo },
-  { name: "WordPress", image: wordpressLogo },
-  { name: "Google", image: googleLogo },
-  { name: "WordPress", image: wordpressLogo },
+  { name: "Shahnoor", image: shahnoorLogo },
+  { name: "Jarvis", image: jarvisLogo },
+  { name: "Makaan", image: makaanLogo },
+  { name: "SA Consultants", image: saConsultantsLogo },
+  { name: "Adlytic X", image: adlyticXLogo },
+  { name: "Dr. Gloria", image: drGloriaLogo },
 ];
 
 const BOX_WIDTH = 153;
@@ -35,8 +24,8 @@ function TrustedBrands() {
   const isLight = theme === "light";
 
   const logoCardClass = isLight
-    ? "border-[#D9E8E9] bg-white shadow-[0_2px_7px_rgba(19,83,88,0.07)]"
-    : "border-[#8FCFD3] bg-[#D7F0F1] shadow-[0_1px_3px_rgba(0,0,0,0.18)]";
+    ? "rounded-[6px] border border-[#D9E8E9] bg-white shadow-[0_2px_7px_rgba(19,83,88,0.07)]"
+    : "rounded-[6px] border border-[#8FCFD3] bg-[#D7F0F1] shadow-[0_1px_3px_rgba(0,0,0,0.18)]";
 
   return (
     <section
@@ -97,7 +86,7 @@ function TrustedBrands() {
           {logos.map((logo, index) => (
             <div
               key={`first-${logo.name}-${index}`}
-              className={`flex h-[60px] w-[153px] shrink-0 items-center justify-center rounded-[6px] border ${logoCardClass}`}
+              className={`flex h-[60px] w-[153px] shrink-0 items-center justify-center ${logoCardClass}`}
             >
               <img
                 src={logo.image}
@@ -110,7 +99,7 @@ function TrustedBrands() {
           {logos.map((logo, index) => (
             <div
               key={`second-${logo.name}-${index}`}
-              className={`flex h-[60px] w-[153px] shrink-0 items-center justify-center rounded-[6px] border ${logoCardClass}`}
+              className={`flex h-[60px] w-[153px] shrink-0 items-center justify-center ${logoCardClass}`}
             >
               <img
                 src={logo.image}
