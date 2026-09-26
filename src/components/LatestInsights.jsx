@@ -146,15 +146,15 @@ function InsightCard({ article, isLight }) {
     <article
       className={`group relative flex min-h-[385px] w-full flex-col overflow-hidden rounded-[8px] border p-[7px] transition-all duration-200 ease-out sm:min-h-[390px] lg:min-h-[390px] ${
         isLight
-          ? "border-[#E2EEEE] bg-[#FCFEFE] shadow-[0_4px_14px_rgba(11,82,87,0.08)] hover:-translate-y-[2px] hover:border-[#63BFC2] hover:shadow-[0_10px_24px_rgba(0,112,120,0.16)]"
-          : "border-[#1A5B60] bg-[#0C383C] hover:-translate-y-[2px] hover:border-[#208B93] hover:bg-[#0E4145]"
+          ? "border-[#E2EEEE] bg-[#FCFEFE] shadow-[0_4px_14px_rgba(11,82,87,0.08)] hover:border-[#63BFC2] hover:shadow-[0_10px_24px_rgba(0,112,120,0.16)]"
+          : "border-[#1A5B60] bg-[#0C383C] hover:border-[#208B93] hover:bg-[#0E4145]"
       }`}
     >
       <div className="relative h-[230px] w-full shrink-0 overflow-hidden rounded-[5px] sm:h-[235px] lg:h-[190px]">
         <img
           src={article.image}
           alt={article.title}
-          className="block h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.025]"
+          className="block h-full w-full object-cover"
         />
 
         <span

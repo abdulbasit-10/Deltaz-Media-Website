@@ -11,7 +11,7 @@ function Hero() {
 
   return (
     <section
-      className={`relative h-[570px] w-full overflow-hidden transition-colors duration-300 ${
+      className={`relative min-h-[calc(100svh-69px)] w-full overflow-hidden transition-colors duration-300 ${
         isLight
           ? "bg-[linear-gradient(to_bottom,#FCFDFD_0%,#F4FAFA_4%,#E1F0EF_11%,#B8DBD9_30%,#7AC4C5_51%,#35B1B7_74%,#079DA7_100%)]"
           : "bg-[#08272A]"
@@ -64,7 +64,7 @@ function Hero() {
         }`}
       />
 
-      <div className="relative z-10 mx-auto flex h-full w-full max-w-[1440px] flex-col items-center px-[20px] pt-[34px] text-center sm:px-[30px]">
+      <div className="relative z-10 mx-auto flex min-h-[calc(100svh-69px)] w-full max-w-[1440px] flex-col items-center justify-center px-[20px] py-[34px] text-center sm:px-[30px]">
         <div
           className={`inline-flex h-[27px] items-center justify-center gap-[7px] rounded-full border px-[13px] font-['Inter'] text-[12px] font-semibold leading-none ${
             isLight
