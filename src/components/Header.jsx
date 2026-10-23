@@ -1,131 +1,213 @@
 import { useState } from "react";
+
 import logo from "../assets/Deltaz Logo.svg";
-import logoLight from "../assets/Deltaz logo light.png";
 import arrowIcon from "../assets/meteor-icons_arrow-up-right (white).png";
-import { useTheme } from "../context/useTheme";
 
 const navItems = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
-  { label: "Our Services", href: "#services" },
-  { label: "How We Work", href: "#how-we-work" },
-  { label: "Our Project", href: "#project" },
-  { label: "Courses", href: "#courses" },
+  { label: "Our Services", href: "/services" },
+  { label: "Who We Help", href: "/#who-we-help" },
+  { label: "Case Studies", href: "/#success-stories" },
+  { label: "Insights", href: "/#insights" },
   { label: "Contact Us", href: "/contact" },
 ];
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const { theme, toggleTheme } = useTheme();
-  const isLight = theme === "light";
 
-  const headerClasses = isLight
-    ? "border-[#E4EEEE] bg-white"
-    : "border-[#1C5559]/50 bg-[#061F21]";
-
-  const navClasses = isLight
-    ? "border-[#E4EEEE] bg-white shadow-[0_4px_15px_rgba(12,58,62,0.18),inset_0_0_14px_rgba(23,157,166,0.06)]"
-    : "border-[#147681]/45 bg-[#082B2E] shadow-[0_3px_14px_rgba(0,0,0,0.22),inset_0_0_18px_rgba(21,174,187,0.05)]";
-
-  const mobileNavClasses = isLight
-    ? "border-[#D9E9EA] bg-white shadow-[0_15px_35px_rgba(0,83,89,0.16)]"
-    : "border-[#147681]/45 bg-[#072C2F] shadow-[0_15px_35px_rgba(0,0,0,0.35)]";
+  function closeMenuOnEscape(event) {
+    if (event.key === "Escape") {
+      setMenuOpen(false);
+    }
+  }
 
   return (
     <header
-      className={`fixed z-50 h-[69px] w-full border-b transition-colors duration-300 ${headerClasses}`}
+      className="
+        fixed inset-x-0 top-0 z-50
+        h-[69px]
+        border-b border-[#245055]/60
+        bg-[#032D31]
+      "
     >
-      <div className="mx-auto flex h-full w-full max-w-[1440px] items-center justify-between px-[24px] sm:px-[32px] lg:px-[38px]">
+      <div
+        className="
+          mx-auto flex h-full max-w-[1440px]
+          items-center justify-between
+          gap-4 px-5
+          sm:px-7
+        "
+      >
+        {/* Logo */}
         <a
           href="/"
           aria-label="Deltaz Media home"
-          className="flex w-[125px] shrink-0 items-center"
+          className="shrink-0"
         >
           <img
-            src={isLight ? logoLight : logo}
+            src={logo}
             alt="Deltaz Media"
             className="h-auto w-[104px]"
           />
         </a>
 
+        {/* Desktop navigation */}
         <nav
           aria-label="Main navigation"
-          className={`hidden h-[43px] items-center gap-[3px] rounded-[9px] border p-[5px] transition-colors duration-300 lg:flex ${navClasses}`}
+          className="
+            hidden items-center gap-[6px]
+            rounded-[10px]
+            border border-[#32818A]/60
+            bg-[#083439]
+            p-[7px]
+            shadow-[inset_0_0_10px_rgba(42,164,177,0.25)]
+            lg:flex
+          "
         >
-          {navItems.map((item, index) => (
+          {navItems.map((item) => (
             <a
               key={item.label}
               href={item.href}
-              className={`flex h-[33px] items-center justify-center whitespace-nowrap rounded-[6px] px-[15px] font-['Inter'] text-[13px] font-normal leading-none transition-colors duration-200 ${
-                index === 0
-                  ? isLight
-                    ? "bg-[#E2F4F4] text-[#007D87]"
-                    : "bg-[#08737D] text-white"
-                  : isLight
-                    ? "text-[#31494B] hover:bg-[#E8F5F5] hover:text-[#007D87]"
-                    : "text-[#9EAFB0] hover:bg-[#0B5055] hover:text-white"
-              }`}
+              aria-current={item.href === "/" ? "page" : undefined}
+              className={`
+                flex min-h-[34px] items-center justify-center
+                rounded-[6px]
+                px-[10px]
+                font-['Inter']
+                text-[12px]
+                whitespace-nowrap
+                transition-colors duration-200
+                xl:px-[14px]
+                xl:text-[13px]
+                ${
+                  item.href === "/"
+                    ? "bg-[#078894] text-white"
+                    : "text-[#B0C6C8] hover:bg-[#0B5055] hover:text-white"
+                }
+              `}
             >
               {item.label}
             </a>
           ))}
         </nav>
 
-        <div className="hidden items-center gap-[10px] lg:flex">
-          <ThemeToggle isLight={isLight} onClick={toggleTheme} />
+        {/* Desktop audit button */}
+        <a
+          href="/contact"
+          className="
+            group hidden min-h-[37px] shrink-0
+            items-center justify-center gap-2
+            rounded-full
+            bg-[#087F89]
+            px-[18px]
+            font-['Inter'] text-[12px] font-medium text-white
+            transition-all duration-200
+            hover:-translate-y-px hover:bg-[#006B73]
+            lg:inline-flex
+          "
+        >
+          <span>Book Your Free Audit</span>
 
-          <a
-            href="/contact"
-            className="inline-flex h-[37px] min-w-[151px] items-center justify-center gap-[8px] rounded-full bg-[#007982] px-[17px] font-['Inter'] text-[14px] font-medium leading-[5] text-white transition-transform duration-200 hover:-translate-y-[1px] hover:bg-[#006B73]"
+          <img
+            src={arrowIcon}
+            alt=""
+            aria-hidden="true"
+            className="
+              h-[14px] w-[14px] object-contain
+              transition-transform duration-200
+              group-hover:translate-x-[2px]
+              group-hover:-translate-y-[2px]
+            "
+          />
+        </a>
+
+        {/* Mobile menu button */}
+        <button
+          type="button"
+          aria-label={menuOpen ? "Close navigation" : "Open navigation"}
+          aria-expanded={menuOpen}
+          aria-controls="mobile-navigation"
+          onClick={() => setMenuOpen((open) => !open)}
+          onKeyDown={closeMenuOnEscape}
+          className="
+            flex h-11 w-11 shrink-0
+            items-center justify-center
+            rounded-lg
+            border border-[#28575C]
+            text-white
+            lg:hidden
+          "
+        >
+          <span
+            aria-hidden="true"
+            className="relative block h-5 w-6"
           >
-            <span className="text-white">Book Your Free Audit</span>
-            <img
-              src={arrowIcon}
-              alt=""
-              aria-hidden="true"
-              className="h-[14px] w-[14px] object-contain"
+            <span
+              className={`
+                absolute left-0 top-0
+                h-[2px] w-6 rounded bg-current
+                transition-transform duration-200
+                ${menuOpen ? "translate-y-[9px] rotate-45" : ""}
+              `}
             />
-          </a>
-        </div>
 
-        <div className="flex items-center gap-[8px] lg:hidden">
-          <ThemeToggle isLight={isLight} onClick={toggleTheme} />
+            <span
+              className={`
+                absolute left-0 top-[9px]
+                h-[2px] w-6 rounded bg-current
+                transition-opacity duration-200
+                ${menuOpen ? "opacity-0" : "opacity-100"}
+              `}
+            />
 
-          <button
-            type="button"
-            onClick={() => setMenuOpen((value) => !value)}
-            aria-label="Toggle navigation"
-            aria-expanded={menuOpen}
-            className="flex h-[40px] w-[40px] items-center justify-center"
-          >
-            <span className="flex w-[23px] flex-col gap-[5px]">
-              <span className={`h-[2px] w-full rounded-full ${isLight ? "bg-[#123B3E]" : "bg-white"}`} />
-              <span className={`h-[2px] w-full rounded-full ${isLight ? "bg-[#123B3E]" : "bg-white"}`} />
-              <span className={`h-[2px] w-full rounded-full ${isLight ? "bg-[#123B3E]" : "bg-white"}`} />
-            </span>
-          </button>
-        </div>
+            <span
+              className={`
+                absolute bottom-0 left-0
+                h-[2px] w-6 rounded bg-current
+                transition-transform duration-200
+                ${menuOpen ? "-translate-y-[9px] -rotate-45" : ""}
+              `}
+            />
+          </span>
+        </button>
       </div>
 
+      {/* Mobile navigation */}
       {menuOpen && (
         <nav
+          id="mobile-navigation"
           aria-label="Mobile navigation"
-          className={`absolute left-[16px] right-[16px] top-[69px] flex flex-col gap-[3px] rounded-[9px] border p-[9px] transition-colors duration-300 lg:hidden ${mobileNavClasses}`}
+          onKeyDown={closeMenuOnEscape}
+          className="
+            absolute inset-x-4 top-[77px]
+            max-h-[calc(100dvh-93px)]
+            overflow-y-auto
+            rounded-xl
+            border border-[#32818A]/60
+            bg-[#073438]
+            p-3
+            shadow-[inset_0_0_10px_rgba(42,164,177,0.25)]
+            lg:hidden
+          "
         >
-          {navItems.map((item, index) => (
+          {navItems.map((item) => (
             <a
               key={item.label}
               href={item.href}
+              aria-current={item.href === "/" ? "page" : undefined}
               onClick={() => setMenuOpen(false)}
-              className={`flex h-[38px] w-full items-center rounded-[6px] px-[13px] font-['Inter'] text-[11px] font-normal ${
-                index === 0
-                  ? isLight
-                    ? "bg-[#E2F4F4] text-[#007D87]"
-                    : "bg-[#08737D] text-white"
-                  : isLight
-                    ? "text-[#31494B] hover:bg-[#E8F5F5] hover:text-[#007D87]"
-                    : "text-[#A7B7B8] hover:bg-[#0B5055] hover:text-white"
-              }`}
+              className={`
+                flex min-h-11 items-center
+                rounded-lg px-4
+                text-sm
+                transition-colors duration-200
+                ${
+                  item.href === "/"
+                    ? "bg-[#078894] text-white"
+                    : "text-[#B0C6C8] hover:bg-[#0B5055] hover:text-white"
+                }
+              `}
             >
               {item.label}
             </a>
@@ -134,47 +216,34 @@ function Header() {
           <a
             href="/contact"
             onClick={() => setMenuOpen(false)}
-            className="mt-[3px] flex h-[40px] items-center justify-center gap-[8px] rounded-full bg-[#007982] font-['Inter'] text-[11px] font-medium text-white"
+            className="
+              group mt-3 flex min-h-11
+              items-center justify-center gap-2
+              rounded-full
+              bg-[#087F89]
+              px-4
+              text-sm font-medium text-white
+              transition-colors duration-200
+              hover:bg-[#006B73]
+            "
           >
-            <span className="text-white">Book Your Free Audit</span>
+            <span>Book Your Free Audit</span>
 
             <img
               src={arrowIcon}
               alt=""
               aria-hidden="true"
-              className="h-[13px] w-[13px] object-contain"
+              className="
+                h-[14px] w-[14px] object-contain
+                transition-transform duration-200
+                group-hover:translate-x-[2px]
+                group-hover:-translate-y-[2px]
+              "
             />
           </a>
         </nav>
       )}
     </header>
-  );
-}
-
-function ThemeToggle({ isLight, onClick }) {
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      aria-label={isLight ? "Switch to dark theme" : "Switch to light theme"}
-      title={isLight ? "Switch to dark theme" : "Switch to light theme"}
-      className={`flex h-[37px] w-[37px] items-center justify-center rounded-full border transition-all duration-200 hover:-translate-y-[1px] ${
-        isLight
-          ? "border-[#BBDDE0] bg-[#F0FAFA] text-[#007982] hover:bg-[#E2F4F4]"
-          : "border-[#2A6E73] bg-[#0B3538] text-[#D8F5F6] hover:bg-[#124A4E]"
-      }`}
-    >
-      {isLight ? (
-        <svg viewBox="0 0 24 24" aria-hidden="true" className="h-[17px] w-[17px] fill-none stroke-current stroke-[1.9]">
-          <path d="M20.6 14.8A8.4 8.4 0 0 1 9.2 3.4 8.5 8.5 0 1 0 20.6 14.8Z" />
-        </svg>
-      ) : (
-        <svg viewBox="0 0 24 24" aria-hidden="true" className="h-[17px] w-[17px] fill-none stroke-current stroke-[1.9]">
-          <circle cx="12" cy="12" r="4" />
-          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
-        </svg>
-      )}
-    </button>
   );
 }
 

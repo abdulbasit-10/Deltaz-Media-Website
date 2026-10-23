@@ -5,7 +5,6 @@ import saConsultantsLogo from "../assets/SA Consultants.png";
 import adlyticXLogo from "../assets/Adlytic X.png";
 import drGloriaLogo from "../assets/dr.gloria.png";
 
-import { useTheme } from "../context/useTheme";
 
 const logos = [
   { name: "Shahnoor", image: shahnoorLogo },
@@ -20,8 +19,8 @@ const BOX_WIDTH = 153;
 const GAP = 7;
 
 function TrustedBrands() {
-  const { theme } = useTheme();
-  const isLight = theme === "light";
+  // Fixed section appearance; no theme switching.
+  const isLight = true;
 
   const logoCardClass = isLight
     ? "rounded-[6px] border border-[#D9E8E9] bg-white shadow-[0_2px_7px_rgba(19,83,88,0.07)]"

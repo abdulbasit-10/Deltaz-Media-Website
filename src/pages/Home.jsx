@@ -1,22 +1,28 @@
 import Hero from "../components/Hero";
-import WhyChooseUs from "../components/WhyChooseUs";
+import OurProblem from "../components/OurProblem";
+import OurSolution from "../components/OurSolution";
 import Services from "../components/Services";
+import HowWeWork from "../components/HowWeWork";
+import SuccessStories1 from "../components/SuccessStories1";
+import SuccessStories2 from "../components/SuccessStories2";
 import TrustedBrands from "../components/TrustedBrands";
-import SuccessStories from "../components/SuccessStories";
 import LatestInsights from "../components/LatestInsights";
 import LastCard from "../components/LastCard";
 
 function Home() {
   return (
-    <main>
+    <>
       <Hero />
-      <WhyChooseUs />
+      <OurProblem />
+      <OurSolution />
       <Services />
+      <HowWeWork />
+      <SuccessStories1 />
+      <SuccessStories2 />
       <TrustedBrands />
-      <SuccessStories />
       <LatestInsights />
       <LastCard />
-    </main>
+    </>
   );
 }
 

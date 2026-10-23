@@ -5,7 +5,6 @@ import readIcon from "../assets/Read icon.png";
 import blackArrowIcon from "../assets/meteor-icons arrow-up-right (black).png";
 import whiteArrowIcon from "../assets/meteor-icons_arrow-up-right (white).png";
 
-import { useTheme } from "../context/useTheme";
 
 const articles = [
   {
@@ -35,8 +34,8 @@ const articles = [
 ];
 
 function LatestInsights() {
-  const { theme } = useTheme();
-  const isLight = theme === "light";
+  // Fixed section appearance; no theme switching.
+  const isLight = true;
 
   return (
     <section

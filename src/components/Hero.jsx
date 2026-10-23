@@ -1,257 +1,235 @@
-import { useEffect, useState } from "react";
-import heroWaves from "../assets/Waves for hero section.png";
 import arrowIcon from "../assets/meteor-icons_arrow-up-right (white).png";
-import arrowIconBlack from "../assets/meteor-icons arrow-up-right (black).png";
-import RocketIcon from "../assets/Rocket shape icon.png";
-import { useTheme } from "../context/useTheme";
+import rocketIcon from "../assets/Rocket shape icon.png";
 
 function Hero() {
-  const { theme } = useTheme();
-  const isLight = theme === "light";
-
   return (
     <section
-      className={`relative min-h-[calc(100svh-69px)] w-full overflow-hidden transition-colors duration-300 ${
-        isLight
-          ? "bg-[linear-gradient(to_bottom,#FCFDFD_0%,#F4FAFA_4%,#E1F0EF_11%,#B8DBD9_30%,#7AC4C5_51%,#35B1B7_74%,#079DA7_100%)]"
-          : "bg-[#08272A]"
-      }`}
+      aria-labelledby="hero-heading"
+      className="
+        relative isolate w-full overflow-hidden
+        bg-[#032D31]
+        font-['Plus_Jakarta_Sans']
+        text-white
+      "
     >
+      {/* Decorative dots */}
       <div
-        className={`pointer-events-none absolute left-1/2 top-[-42px] z-0 w-full -translate-x-1/2 ${
-          isLight ? "opacity-100" : "opacity-65"
-        }`}
+        aria-hidden="true"
+        className="
+          pointer-events-none absolute
+          left-5 top-8 -z-10
+          h-[70px] w-[90px]
+          opacity-65
+          [background-image:radial-gradient(circle,#238792_2px,transparent_3px)]
+          [background-size:15px_14px]
+          sm:left-6
+        "
+      />
+
+      {/* Small floating circle */}
+      <div
+        aria-hidden="true"
+        className="
+          pointer-events-none absolute
+          left-[17%] top-[34%] -z-10
+          h-2 w-2 rounded-full
+          bg-[#08737D]/70
+        "
+      />
+
+      {/* Blurred floating circle */}
+      <div
+        aria-hidden="true"
+        className="
+          pointer-events-none absolute
+          bottom-[110px] left-[6%] -z-10
+          h-[14px] w-[14px] rounded-full
+          bg-[#B5D8D6]/60
+          blur-[3px]
+        "
+      />
+
+      {/* Right floating circle */}
+      <div
+        aria-hidden="true"
+        className="
+          pointer-events-none absolute
+          bottom-[105px] right-[10%] -z-10
+          h-[14px] w-[14px] rounded-full
+          bg-[#08737D]/70
+        "
+      />
+
+      {/* Hero content */}
+      <div
+        className="
+          mx-auto flex w-full max-w-[1200px]
+          flex-col items-center
+          px-5 pb-12 pt-[60px]
+          text-center
+          sm:px-8 sm:pb-11 sm:pt-[44px]
+        "
       >
-        <img
-          src={heroWaves}
-          alt=""
-          aria-hidden="true"
-          className={`absolute left-1/2 top-[-42px] h-auto w-[100vw] max-w-none -translate-x-1/2 object-contain ${
-            isLight
-              ? "brightness-125 drop-shadow-[0_0_5px_rgba(255,255,255,0.40)]"
-              : ""
-          }`}
-        />
-      </div>
-
-      <div
-        aria-hidden="true"
-        className={`pointer-events-none absolute left-[20px] top-[30px] z-[1] h-[60px] w-[78px] ${
-          isLight
-            ? "opacity-100 [background-image:radial-gradient(circle,#FFFFFF_2px,transparent_2.5px)] [filter:drop-shadow(0_0_3px_rgba(255,255,255,0.45))]"
-            : "opacity-75 [background-image:radial-gradient(circle,#08737D_2px,transparent_2.5px)]"
-        } [background-size:14px_14px]`}
-      />
-
-      <div
-        aria-hidden="true"
-        className={`pointer-events-none absolute left-[53px] top-[337px] z-[2] h-[15px] w-[15px] rounded-full blur-[2px] ${
-          isLight ? "bg-white opacity-60" : "bg-[#D9E0E0] opacity-65"
-        }`}
-      />
-
-      <div
-        aria-hidden="true"
-        className={`pointer-events-none absolute left-1/2 top-[360px] z-[2] h-[8px] w-[8px] -translate-x-1/2 rounded-full ${
-          isLight ? "bg-[#007F88] opacity-70" : "bg-[#0C8995] opacity-80"
-        }`}
-      />
-
-      <div
-        aria-hidden="true"
-        className={`pointer-events-none absolute right-[89px] top-[349px] z-[2] h-[13px] w-[13px] rounded-full ${
-          isLight ? "bg-[#00737D] opacity-75" : "bg-[#087C88] opacity-80"
-        }`}
-      />
-
-      <div className="relative z-10 mx-auto flex min-h-[calc(100svh-69px)] w-full max-w-[1440px] flex-col items-center justify-center px-[20px] py-[34px] text-center sm:px-[30px]">
+        {/* Growth partner badge */}
         <div
-          className={`inline-flex h-[27px] items-center justify-center gap-[7px] rounded-full border px-[13px] font-['Inter'] text-[12px] font-semibold leading-none ${
-            isLight
-              ? "border-[#B9E6E8] bg-white/65 text-[#008B96] shadow-[0_2px_8px_rgba(0,111,120,0.08)]"
-              : "border-[#1596A4]/45 bg-[#073B3F] text-[#20C7D9]"
-          }`}
+          className="
+            inline-flex items-center justify-center
+            gap-[6px]
+            rounded-full
+            border border-[#28575C]
+            bg-[#0A363B]
+            px-[10px] py-[5px]
+            text-[9px] font-medium text-[#14B6C5]
+            shadow-[0_2px_7px_rgba(0,0,0,0.12)]
+          "
         >
-          <span className="flex items-center justify-center">
-            <img
-              src={RocketIcon}
-              alt="Rocket"
-              className="h-[12px] w-[12px] object-contain"
-            />
-          </span>
+          <img
+            src={rocketIcon}
+            alt=""
+            aria-hidden="true"
+            className="h-[11px] w-[11px] object-contain"
+          />
 
           <span>Trusted Digital Growth Partner</span>
         </div>
 
+        {/* Main heading */}
         <h1
-          className={`mt-[23px] max-w-[950px] font-['Manrope'] text-[48px] font-extrabold leading-[1.1] tracking-[-2px] sm:text-[53px] lg:text-[56px] ${
-            isLight ? "text-[#08272A]" : "text-[#F5F8F8]"
-          }`}
+          id="hero-heading"
+          className="
+            mt-5 max-w-[1000px]
+            text-[clamp(2rem,4.7vw,3.75rem)]
+            font-extrabold leading-[1.24]
+            tracking-[-0.04em]
+          "
         >
-          Your Business Needs Demand,
-          <br />
-          Influence{" "}
           <span
-            className={
-              isLight
-                ? "font-['Plus_Jakarta_Sans'] bg-[linear-gradient(100deg,#0A5961_0%,#075F86_44%,#0078B6_72%,#00A6D8_100%)] bg-clip-text text-transparent drop-shadow-[0_1px_5px_rgba(0,133,190,0.18)]"
-                : "font-['Plus_Jakarta_Sans'] text-[#18D0E4]"
-            }
+            className="
+              block
+              font-['Manrope']
+              text-white
+            "
           >
-            &amp; Growth
+            Your Business Doesn’t Need
+            <br
+              className="hidden md:block"
+            />{" "}
+            More Marketing Activity.
+          </span>
+
+          <span
+            className="
+              mt-1 block
+              font-['Plus_Jakarta_Sans']
+              text-[#0AA5B3]
+            "
+          >
+            It Needs More From Its
+            <br
+              className="hidden md:block"
+            />{" "}
+            Marketing.
           </span>
         </h1>
 
+        {/* First paragraph */}
         <p
-          className={`mt-[15px] max-w-[600px] font-['Plus Jakarta Sans'] text-[16px] font-normal leading-[1.5] sm:text-[12px] ${
-            isLight ? "text-[#294B4E]" : "text-[#9DAFB0]"
-          }`}
+          className="
+            mt-[14px] max-w-[590px]
+            text-[13px] leading-[1.5]
+            text-[#B3C7C9]
+            sm:text-[12px]
+          "
         >
-          We combine strategy, creativity, and digital expertise to help
-          businesses attract the right audience, build influence, and turn
-          attention into growth.
+          You’re already managing people, operations, clients, revenue, and
+          the hundred decisions that come with running a business. Your
+          marketing shouldn’t become another problem you have to manage.
         </p>
 
-        <div className="mt-[27px] flex items-center justify-center gap-[12px]">
+        {/* Second paragraph */}
+        <p
+          className="
+            mt-[10px] max-w-[550px]
+            text-[13px] leading-[1.5]
+            text-[#B3C7C9]
+            sm:text-[12px]
+          "
+        >
+          Deltaz Media helps ambitious businesses build visibility, earn
+          trust, generate demand, and turn digital attention into real growth.
+        </p>
+
+        {/* Action buttons */}
+        <div
+          className="
+            mt-[18px] flex w-full
+            flex-col items-center justify-center
+            gap-[10px]
+            sm:w-auto sm:flex-row
+          "
+        >
           <a
-            href="#contact"
-            className={`group inline-flex h-[42px] items-center justify-center gap-[9px] rounded-full border px-[19px] font-['Inter'] text-[14px] font-semibold leading-none transition-all duration-200 ease-out ${
-              isLight
-                ? "border-white bg-[linear-gradient(100deg,#B9F0F1_0%,#8EDDE1_52%,#69C8D0_100%)] text-[#07383B] shadow-[0_4px_12px_rgba(0,100,108,0.20)] hover:border-white hover:bg-none hover:bg-[#008E98] hover:!text-white"
-                : "border-[#20C9D9] bg-transparent text-white hover:border-[#ffffff] hover:bg-[#10899A] hover:shadow-[0_0_20px_rgba(32,185,68,0.24)]"
-            }`}
+            href="/contact"
+            className="
+              group inline-flex min-h-11
+              w-full max-w-[330px]
+              items-center justify-center gap-2
+              rounded-full
+              border border-[#0AA5B3]
+              bg-[#0AA5B3]
+              px-[18px] py-3
+              font-['Inter']
+              text-[12px] font-semibold text-white
+              shadow-[0_5px_12px_rgba(10,165,179,0.20)]
+              transition-all duration-200 ease-out
+              hover:border-white
+              hover:bg-[#10899A]
+              hover:shadow-[0_0_20px_rgba(32,185,68,0.24)]
+              sm:min-h-[40px] sm:w-auto
+              sm:max-w-none sm:py-2
+            "
           >
-            <span>Let's Build Your Growth</span>
+            <span>Let’s Build Your Growth Strategy</span>
 
-            <span className="relative h-[15px] w-[15px]">
-              <img
-                src={isLight ? arrowIconBlack : arrowIcon}
-                alt=""
-                aria-hidden="true"
-                className={`absolute inset-0 h-[15px] w-[15px] object-contain transition-all duration-200 group-hover:translate-x-[2px] group-hover:-translate-y-[2px] ${
-                  isLight ? "group-hover:opacity-0" : ""
-                }`}
-              />
-
-              {isLight && (
-                <img
-                  src={arrowIcon}
-                  alt=""
-                  aria-hidden="true"
-                  className="absolute inset-0 h-[15px] w-[15px] object-contain opacity-0 transition-all duration-200 group-hover:translate-x-[2px] group-hover:-translate-y-[2px] group-hover:opacity-100"
-                />
-              )}
-            </span>
+            <img
+              src={arrowIcon}
+              alt=""
+              aria-hidden="true"
+              className="
+                h-[15px] w-[15px] shrink-0
+                object-contain
+                transition-transform duration-200
+                group-hover:translate-x-[2px]
+                group-hover:-translate-y-[2px]
+              "
+            />
           </a>
 
           <a
-            href="#project"
-            className={`group inline-flex h-[42px] min-w-[148px] items-center justify-center gap-[9px] rounded-full border px-[19px] font-['Inter'] text-[14px] font-semibold leading-none transition-all duration-200 ease-out ${
-              isLight
-                ? "border-white bg-white/12 text-white hover:border-white hover:bg-[#008E98] hover:!text-white"
-                : "border-[#20C9D9] bg-transparent text-white hover:border-[#ffffff] hover:bg-[#10899A] hover:shadow-[0_0_20px_rgba(32,185,68,0.24)]"
-            }`}
+            href="#success-stories"
+            className="
+              inline-flex min-h-11
+              w-full max-w-[330px]
+              items-center justify-center
+              rounded-full
+              border border-white
+              bg-transparent
+              px-8 py-3
+              font-['Inter']
+              text-[12px] font-bold text-white
+              transition-all duration-200 ease-out
+              hover:border-white
+              hover:bg-[#10899A]
+              hover:shadow-[0_0_20px_rgba(32,185,68,0.24)]
+              sm:min-h-[40px] sm:w-auto
+              sm:min-w-[145px] sm:py-2
+            "
           >
-            <span>See Our Work</span>
+            See Our Work
           </a>
-        </div>
-
-        <div className="mt-[53px] grid w-full max-w-[660px] grid-cols-1 gap-[14px] sm:grid-cols-3">
-          <StatCard
-            number="200+"
-            label="Clients Served"
-            speed={10}
-            isLight={isLight}
-          />
-
-          <StatCard
-            number="98%"
-            label="Retention Rate"
-            speed={22}
-            isLight={isLight}
-          />
-
-          <StatCard
-            number="$12M+"
-            label="Revenue Generated"
-            speed={80}
-            isLight={isLight}
-          />
         </div>
       </div>
     </section>
-  );
-}
-
-function AnimatedNumber({ value, speed = 45 }) {
-  const [displayValue, setDisplayValue] = useState(() => {
-    const numericMatch = value.match(/[\d.]+/);
-
-    if (!numericMatch) {
-      return value;
-    }
-
-    const prefix = value.startsWith("$") ? "$" : "";
-    const suffix = value.replace(/^\$?[\d.]+/, "");
-
-    return `${prefix}1${suffix}`;
-  });
-
-  useEffect(() => {
-    const numericMatch = value.match(/[\d.]+/);
-
-    if (!numericMatch) {
-      return;
-    }
-
-    const finalNumber = parseFloat(numericMatch[0]);
-    const prefix = value.startsWith("$") ? "$" : "";
-    const suffix = value.replace(/^\$?[\d.]+/, "");
-
-    let currentNumber = 1;
-
-    const interval = setInterval(() => {
-      currentNumber += 1;
-
-      if (currentNumber >= finalNumber) {
-        clearInterval(interval);
-        setDisplayValue(value);
-      } else {
-        setDisplayValue(`${prefix}${currentNumber}${suffix}`);
-      }
-    }, speed);
-
-    return () => clearInterval(interval);
-  }, [value, speed]);
-
-  return <>{displayValue}</>;
-}
-
-function StatCard({ number, label, speed, isLight }) {
-  return (
-    <div
-      className={`flex h-[108px] flex-col items-center justify-center rounded-[10px] border ${
-        isLight
-          ? "border-white/55 bg-white/30 shadow-[0_4px_10px_rgba(0,74,79,0.22)] backdrop-blur-[2px]"
-          : "border-[#11818D]/35 bg-[#0B3D41]/90"
-      }`}
-    >
-      <strong
-        className={`font-['Manrope'] text-[36px] font-bold leading-none tracking-[-1px] ${
-          isLight ? "text-[#092D30]" : "text-[#F5F8F8]"
-        }`}
-      >
-        <AnimatedNumber value={number} speed={speed} />
-      </strong>
-
-      <span
-        className={`mt-[12px] font-['Inter'] text-[13px] font-normal leading-none ${
-          isLight ? "text-[#183E41]" : "text-[#A9BCBD]"
-        }`}
-      >
-        {label}
-      </span>
-    </div>
   );
 }
 
