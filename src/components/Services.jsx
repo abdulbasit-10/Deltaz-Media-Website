@@ -1,281 +1,420 @@
-import seoImage from "../assets/Seo Optimization.png";
-import socialMediaImage from "../assets/Social Media Marketing.png";
-import contentMarketingImage from "../assets/Content Marketing.png";
+import seoImage from "../assets/SEO.png";
+import socialImage from "../assets/Social Media Marketing.png";
+import contentImage from "../assets/Content Marketing.png";
 
 import seoIcon from "../assets/Seo optimization icon.png";
-import socialMediaIcon from "../assets/Social Media Icon.png";
-import contentMarketingIcon from "../assets/Content Marketing icon.png";
+import socialIcon from "../assets/Social Media Icon.png";
+import contentIcon from "../assets/Content Marketing icon.png";
 
-import darkCardArrow from "../assets/Icon to attach with images.svg";
-import whiteArrow from "../assets/meteor-icons_arrow-up-right.png";
+import whiteArrow from "../assets/meteor-icons_arrow-up-right (white).png";
 import blackArrow from "../assets/meteor-icons arrow-up-right (black).png";
-import exploreArrowWhite from "../assets/meteor-icons_arrow-up-right (white).png";
-
-import servicesWaves from "../assets/Waves for Our services.png";
-import { useTheme } from "../context/useTheme";
 
 const services = [
   {
-    title: "SEO Optimization",
+    title: "SEO & Organic Growth",
     description:
-      "Data-driven SEO strategies that improve search visibility, attract qualified traffic, and drive long-term growth.",
+      "Your potential customers are already searching for solutions. The question is whether they find your business or your competitors.",
     image: seoImage,
     icon: seoIcon,
+    href: "/services/seo",
   },
   {
     title: "Social Media Marketing",
     description:
-      "Build a stronger social presence with creative campaigns that engage your audience and grow your brand.",
-    image: socialMediaImage,
-    icon: socialMediaIcon,
+      "Social media shouldn’t exist just to keep your content calendar full. The right strategy can help your business stay visible, build relationships, and grow.",
+    image: socialImage,
+    icon: socialIcon,
+    href: "/services/social-media-marketing",
   },
   {
     title: "Content Marketing",
     description:
-      "Create valuable content that builds trust, connects with your audience, and turns attention into action.",
-    image: contentMarketingImage,
-    icon: contentMarketingIcon,
+      "People don’t just buy products or services. They buy confidence and trust. We help businesses, founders, and industry experts turn their expertise into content that connects.",
+    image: contentImage,
+    icon: contentIcon,
+    href: "/services/content-marketing",
   },
 ];
 
 function Services() {
-  const { theme } = useTheme();
-  const isLight = theme === "light";
-
   return (
     <section
       id="services"
-      className={`relative min-h-[650px] w-full overflow-hidden px-[24px] py-[48px] transition-colors duration-300 sm:px-[32px] ${
-        isLight ? "bg-[#EEF8F8]" : "bg-[#08272A]"
-      }`}
+      aria-labelledby="services-heading"
+      className="
+        relative isolate w-full overflow-hidden
+        bg-[#EFF7F8]
+        px-5 py-12
+        font-['Plus_Jakarta_Sans']
+        sm:px-8 sm:py-[56px]
+        lg:px-10 lg:py-[60px]
+      "
     >
-      {isLight && (
-        <>
-          <div className="pointer-events-none absolute -left-[120px] -top-[85px] h-[340px] w-[390px] rounded-full bg-[#4FB8BB]/58 blur-[72px]" />
-          <div className="pointer-events-none absolute left-[20%] top-[235px] h-[180px] w-[300px] rounded-full bg-[#8DCDD0]/28 blur-[92px]" />
-          <div className="pointer-events-none absolute -bottom-[125px] left-[35px] h-[300px] w-[380px] rounded-full bg-[#249FA7]/43 blur-[78px]" />
-          <div className="pointer-events-none absolute -bottom-[150px] -right-[85px] h-[340px] w-[455px] rounded-full bg-[#43B6BC]/48 blur-[86px]" />
-          <div className="pointer-events-none absolute right-[10%] top-[92px] h-[160px] w-[220px] rounded-full bg-white/35 blur-[68px]" />
-        </>
-      )}
-
-      <img
-        src={servicesWaves}
-        alt=""
+      {/* Background glow */}
+      <div
         aria-hidden="true"
-        className={`pointer-events-none absolute bottom-0 right-0 z-[1] h-auto w-[1010px] max-w-none object-contain ${
-          isLight ? "opacity-24" : "opacity-65"
-        }`}
+        className="
+          pointer-events-none absolute
+          -left-[200px] -top-[120px] -z-10
+          h-[450px] w-[450px]
+          rounded-full
+          bg-[#83E5DB]/35
+          blur-[100px]
+        "
+      />
+
+      <div
+        aria-hidden="true"
+        className="
+          pointer-events-none absolute
+          -bottom-[230px] -right-[180px] -z-10
+          h-[450px] w-[450px]
+          rounded-full
+          bg-[#83E5DB]/35
+          blur-[100px]
+        "
+      />
+
+      {/* Fine curved background lines */}
+      <div
+        aria-hidden="true"
+        className="
+          pointer-events-none absolute
+          -right-[440px] top-[70px] -z-10
+          h-[700px] w-[620px]
+          rotate-[28deg]
+          rounded-[50%]
+          border border-[#BCE6E8]/45
+        "
+      >
+        {[24, 48, 72, 96].map((inset) => (
+          <span
+            key={inset}
+            className="
+              absolute rounded-[50%]
+              border border-[#BCE6E8]/45
+            "
+            style={{
+              inset: `${inset}px`,
+            }}
+          />
+        ))}
+      </div>
+
+      {/* Decorative circles */}
+      <span
+        aria-hidden="true"
+        className="
+          pointer-events-none absolute
+          right-[14%] top-[85px] -z-10
+          h-[13px] w-[13px]
+          rounded-full bg-[#85B5BA]/65
+        "
       />
 
       <span
         aria-hidden="true"
-        className={`pointer-events-none absolute left-[66px] top-[112px] z-[2] h-[14px] w-[14px] rounded-full blur-[3px] ${
-          isLight ? "bg-white opacity-80" : "bg-[#D7E0E0] opacity-55"
-        }`}
+        className="
+          pointer-events-none absolute
+          bottom-[80px] left-[14%] -z-10
+          h-[13px] w-[13px]
+          rounded-full bg-[#39858C]/70
+        "
       />
 
-      <span
-        aria-hidden="true"
-        className={`pointer-events-none absolute right-[130px] top-[90px] z-[2] h-[13px] w-[13px] rounded-full ${
-          isLight ? "bg-[#77ADB1] opacity-65" : "bg-[#08737D] opacity-75"
-        }`}
-      />
-
-      <span
-        aria-hidden="true"
-        className={`pointer-events-none absolute bottom-[65px] left-[135px] z-[2] h-[13px] w-[13px] rounded-full ${
-          isLight ? "bg-[#3D969C] opacity-70" : "bg-[#08737D] opacity-65"
-        }`}
-      />
-
-      <div className="relative z-10 mx-auto flex w-full flex-col items-center">
+      <div
+        className="mx-auto w-full max-w-[1120px]"
+      >
+        {/* Section heading */}
         <div
-          className={`font-['Inter'] text-[11px] font-medium leading-none ${
-            isLight ? "text-[#00737C]" : "text-[#C1CDCE]"
-          }`}
+          className="flex flex-col items-center text-center"
         >
-          Our Services
+          <div
+            className="
+              flex items-center justify-center gap-[7px]
+              text-[11px] font-medium
+              text-[#007D87]
+            "
+          >
+            <span
+              aria-hidden="true"
+              className="h-px w-[16px] bg-[#0AA5B3]"
+            />
+
+            <span>Our Services</span>
+
+            <span
+              aria-hidden="true"
+              className="h-px w-[16px] bg-[#0AA5B3]"
+            />
+          </div>
+
+          <h2
+            id="services-heading"
+            className="
+              mt-[18px] max-w-[720px]
+              font-['Manrope']
+              text-[27px] font-extrabold
+              uppercase leading-[1.3]
+              tracking-[-0.035em]
+              text-[#252729]
+              sm:text-[32px]
+              lg:text-[36px]
+            "
+          >
+            What Does Your Business
+            <br
+              className="hidden sm:block"
+            />{" "}
+            Need{" "}
+            <span
+              className="
+                bg-[linear-gradient(100deg,#084C56_0%,#0066AF_100%)]
+                bg-clip-text text-transparent
+              "
+            >
+              Right Now?
+            </span>
+          </h2>
+
+          <p
+            className="
+              mt-[16px] max-w-[780px]
+              text-[12px] leading-[1.5]
+              text-[#193237]
+            "
+          >
+            We combine strategy, creativity, and digital expertise to help
+            businesses attract the right audience, build influence, and turn
+            attention into growth.
+          </p>
         </div>
 
-        <h2
-          className={`mt-[21px] max-w-[850px] text-center font-['Plus_Jakarta_Sans'] text-[38px] font-extrabold leading-[1.08] tracking-[-1.5px] sm:text-[42px] lg:text-[44px] ${
-            isLight ? "text-[#25282B]" : "text-[#F4F8F8]"
-          }`}
+        {/* Service cards */}
+        <div
+          className="
+            mt-9 grid grid-cols-1
+            gap-5
+            md:mt-12 md:grid-cols-3 md:gap-4
+            lg:gap-5
+          "
         >
-          Marketing Solutions That Drive
-          <br />
-          Real Business{" "}
-          <span className={isLight ? "text-[#005D85]" : "text-[#18D0E4]"}>
-            &amp; Growth
-          </span>
-        </h2>
-
-        <p
-          className={`mt-[18px] max-w-[760px] text-center font-['Inter'] text-[12px] font-normal leading-[1.4] sm:text-[11px] ${
-            isLight ? "text-[#34494B]" : "text-[#91A9AA]"
-          }`}
-        >
-          We combine strategy, creativity, and digital expertise to help
-          businesses attract the right audience, build influence, and turn
-          attention into growth.
-        </p>
-
-        <div className="mt-[40px] flex w-full items-stretch justify-center gap-[14px] overflow-x-auto pb-[2px]">
           {services.map((service) => (
             <ServiceCard
               key={service.title}
               service={service}
-              isLight={isLight}
             />
           ))}
         </div>
 
-        <a
-          href="#services"
-          className={`group mt-[44px] inline-flex h-[34px] items-center justify-center gap-[8px] rounded-full border px-[19px] font-['Inter'] text-[11px] font-bold leading-none transition-all duration-200 ${
-            isLight
-              ? "border-[#007881] bg-[#007881] text-white shadow-[0_3px_9px_rgba(0,91,98,0.18)] hover:border-[#152B2D] hover:bg-transparent hover:text-[#152B2D]"
-              : "border-[#18D0E4] bg-transparent text-white hover:border-[#18D0E4] hover:bg-[#18D0E4]"
-          }`}
+        {/* All services button */}
+        <div
+          className="mt-9 flex justify-center sm:mt-11"
         >
-          <span className={isLight ? "text-white group-hover:text-[#152B2D]" : ""}>
-            Explore All Services
-          </span>
+          <a
+            href="/services"
+            className="
+              group inline-flex min-h-[40px]
+              items-center justify-center gap-2
+              rounded-full
+              border border-[#00757D]
+              bg-[#00757D]
+              px-[18px] py-[10px]
+              font-['Inter']
+              text-[11px] font-medium text-white
+              transition-all duration-200
+              hover:border-[#10899A]
+              hover:bg-[#10899A]
+              focus-visible:outline-2
+              focus-visible:outline-offset-4
+              focus-visible:outline-[#00757D]
+            "
+          >
+            <span>Explore All Services</span>
 
-          {isLight ? (
-            <>
-              <img
-                src={whiteArrow}
-                alt=""
-                aria-hidden="true"
-                className="h-[14px] w-[14px] object-contain group-hover:hidden"
-              />
-              <img
-                src={blackArrow}
-                alt=""
-                aria-hidden="true"
-                className="hidden h-[14px] w-[14px] object-contain group-hover:block"
-              />
-            </>
-          ) : (
             <img
-              src={exploreArrowWhite}
+              src={whiteArrow}
               alt=""
               aria-hidden="true"
-              className="h-[14px] w-[14px] object-contain"
+              className="
+                h-[14px] w-[14px]
+                object-contain
+                transition-transform duration-200
+                group-hover:translate-x-[2px]
+                group-hover:-translate-y-[2px]
+              "
             />
-          )}
-        </a>
+          </a>
+        </div>
       </div>
     </section>
   );
 }
 
-function ServiceCard({ service, isLight }) {
+function ServiceCard({ service }) {
   return (
-    <article
-      className={`group relative flex h-[370px] w-[390px] shrink-0 flex-col overflow-hidden rounded-[9px] border p-[10px] transition-all duration-300 ${
-        isLight
-          ? "border-[#E0EEEE] bg-[#FCFEFE] shadow-[0_4px_12px_rgba(7,72,77,0.09)] hover:border-[#008E98] hover:bg-[linear-gradient(135deg,#00B9C6_0%,#008E98_100%)] hover:shadow-[0_10px_22px_rgba(0,101,108,0.28)]"
-          : "border-[#1A6267]/75 bg-[#0D393D] hover:border-[#18C9D8] hover:bg-[#128995]"
-      }`}
+    <a
+      href={service.href}
+      className="
+        group relative flex min-w-0 flex-col
+        rounded-[10px]
+        border border-[#D2ECEF]
+        bg-[#F8FEFF]
+        p-[6px]
+        transition-all duration-300 ease-out
+        hover:-translate-y-2
+        hover:border-[#008C98]
+        hover:bg-[#008C98]
+        hover:shadow-[0_12px_22px_rgba(0,77,84,0.20)]
+        focus-visible:-translate-y-2
+        focus-visible:border-[#008C98]
+        focus-visible:bg-[#008C98]
+        focus-visible:outline-2
+        focus-visible:outline-offset-4
+        focus-visible:outline-[#00757D]
+        motion-reduce:transform-none
+        motion-reduce:transition-none
+      "
     >
+      {/* Icon and description */}
       <div
-        className={`flex h-[34px] w-[34px] shrink-0 items-center justify-center rounded-[7px] transition-colors duration-300 ${
-          isLight
-            ? "bg-[#EAF6F6] group-hover:bg-[#12C8D5]"
-            : "bg-[#092F33] group-hover:bg-[#0C7079]"
-        }`}
+        className="px-[6px] pb-[10px] pt-[9px]"
       >
-        {isLight ? (
+        {/* Icon background */}
+        <div
+          className="
+            flex h-[36px] w-[36px]
+            items-center justify-center
+            rounded-[7px]
+            bg-[#E5F3F5]
+            transition-colors duration-300
+            group-hover:bg-[#05D5EB]
+            group-focus-visible:bg-[#05D5EB]
+          "
+        >
+          {/* Teal icon using an image mask */}
           <span
             aria-hidden="true"
-            className="h-[17px] w-[17px] bg-[#007B84] transition-colors duration-300 group-hover:bg-white"
+            className="
+              block h-[19px] w-[19px]
+              bg-[#007D87]
+            "
             style={{
               WebkitMaskImage: `url("${service.icon}")`,
-              WebkitMaskPosition: "center",
               WebkitMaskRepeat: "no-repeat",
+              WebkitMaskPosition: "center",
               WebkitMaskSize: "contain",
               maskImage: `url("${service.icon}")`,
-              maskPosition: "center",
               maskRepeat: "no-repeat",
+              maskPosition: "center",
               maskSize: "contain",
             }}
           />
-        ) : (
-          <img
-            src={service.icon}
-            alt=""
-            aria-hidden="true"
-            className="h-[17px] w-[17px] object-contain"
-          />
-        )}
+        </div>
+
+        <h3
+          className="
+            mt-[12px]
+            text-[13px] font-bold leading-[1.4]
+            text-[#152334]
+            transition-colors duration-300
+            group-hover:text-white
+            group-focus-visible:text-white
+          "
+        >
+          {service.title}
+        </h3>
+
+        <p
+          className="
+            mt-[6px] line-clamp-3
+            min-h-[51px]
+            text-[11px] leading-[17px]
+            text-[#73899E]
+            transition-colors duration-300
+            group-hover:text-[#D0ECEE]
+            group-focus-visible:text-[#D0ECEE]
+          "
+        >
+          {service.description}
+        </p>
       </div>
 
-      <h3
-        className={`mt-[12px] font-['Inter'] text-[14px] font-semibold leading-[1.2] transition-colors duration-300 ${
-          isLight
-            ? "text-[#1F3032] group-hover:text-white"
-            : "text-[#EDF5F5]"
-        }`}
+      {/* Service image */}
+      <div
+        className="relative mt-auto"
       >
-        {service.title}
-      </h3>
-
-      <p
-        className={`mt-[7px] min-h-[43px] max-w-[370px] font-['Inter'] text-[10px] font-normal leading-[1.45] transition-colors duration-300 ${
-          isLight
-            ? "text-[#71888A] group-hover:text-[#E2F9FA]"
-            : "text-[#9EB4B5] group-hover:text-[#D8EEEE]"
-        }`}
-      >
-        {service.description}
-      </p>
-
-      <div className="relative mt-auto h-[220px] w-full shrink-0 overflow-hidden rounded-[6px]">
         <img
           src={service.image}
-          alt={service.title}
-          className="block h-full w-full object-cover"
+          alt=""
+          loading="lazy"
+          className="
+            block aspect-[1.9] w-full
+            rounded-[6px]
+            object-cover object-center
+          "
         />
 
-        {isLight ? (
-<a
-  href="#project"
-  aria-label={`View ${service.title}`}
-  className="absolute bottom-4 right-0 z-10 flex h-[46.5px] w-[46.5px] items-center justify-center rounded-full bg-[radial-gradient(circle_at_35%_28%,#34E2E7_0%,#08C3CE_38%,#008D97_100%)] transition-all duration-200 hover:scale-105 group-hover:bg-[radial-gradient(circle_at_35%_28%,#72F5F7_0%,#24DDE4_42%,#00AAB5_100%)]"
->
-  <img
-    src={whiteArrow}
-    alt=""
-    aria-hidden="true"
-    className="block h-[22px] w-[22px] object-contain group-hover:hidden"
-  />
-
-  <img
-    src={blackArrow}
-    alt=""
-    aria-hidden="true"
-    className="hidden h-[22px] w-[22px] object-contain group-hover:block"
-  />
-</a>
-        ) : (
-          <a
-            href="#project"
-            aria-label={`View ${service.title}`}
-            className="absolute bottom-4 right-0 z-10 transition-transform duration-200 hover:scale-105"
+        {/* Circular arrow */}
+        <span
+          className="
+            absolute -bottom-[6px] -right-[6px]
+            flex h-[56px] w-[56px]
+            items-center justify-center
+            rounded-tl-[28px]
+            bg-[#F8FEFF]
+            pl-[5px] pt-[5px]
+            transition-colors duration-300
+            group-hover:bg-[#008C98]
+            group-focus-visible:bg-[#008C98]
+          "
+        >
+          <span
+            className="
+              relative flex h-[46px] w-[46px]
+              items-center justify-center
+              rounded-full
+              bg-[linear-gradient(135deg,#12D5DA_0%,#00747F_100%)]
+              transition-colors duration-300
+              group-hover:bg-none
+              group-hover:bg-[#05D5EB]
+              group-focus-visible:bg-none
+              group-focus-visible:bg-[#05D5EB]
+            "
           >
             <img
-              src={darkCardArrow}
+              src={whiteArrow}
               alt=""
               aria-hidden="true"
-              className="block h-[45px] w-[45px] object-contain"
+              className="
+                absolute left-1/2 top-1/2
+                h-[20px] w-[20px]
+                -translate-x-1/2 -translate-y-1/2
+                object-contain
+                transition-opacity duration-200
+                group-hover:opacity-0
+                group-focus-visible:opacity-0
+              "
             />
-          </a>
-        )}
+
+            <img
+              src={blackArrow}
+              alt=""
+              aria-hidden="true"
+              className="
+                absolute left-1/2 top-1/2
+                h-[20px] w-[20px]
+                -translate-x-1/2 -translate-y-1/2
+                object-contain opacity-0
+                transition-opacity duration-200
+                group-hover:opacity-100
+                group-focus-visible:opacity-100
+              "
+            />
+          </span>
+        </span>
       </div>
-    </article>
+    </a>
   );
 }
 

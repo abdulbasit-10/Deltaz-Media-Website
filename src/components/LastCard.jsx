@@ -3,11 +3,10 @@ import greenArrowIcon from "../assets/meteor-icons arrow-up-right (green).png";
 import blackArrowIcon from "../assets/meteor-icons arrow-up-right (black).png";
 import whiteArrowIcon from "../assets/meteor-icons_arrow-up-right (white).png";
 
-import { useTheme } from "../context/useTheme";
 
 const LastCard = () => {
-  const { theme } = useTheme();
-  const isLight = theme === "light";
+  // Fixed section appearance; no theme switching.
+  const isLight = true;
 
   return (
     <section

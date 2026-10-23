@@ -10,7 +10,6 @@ import mailIcon from "../assets/MailIcon.png";
 import phoneIcon from "../assets/Phone Icon.png";
 import locationIcon from "../assets/Location icon.png";
 
-import { useTheme } from "../context/useTheme";
 
 const socialLinks = [
   { label: "LinkedIn", icon: linkedinIcon },
@@ -110,8 +109,8 @@ function ContactIcon({ src, isLight }) {
 }
 
 const Footer = () => {
-  const { theme } = useTheme();
-  const isLight = theme === "light";
+  // Fixed section appearance; no theme switching.
+  const isLight = false;
 
   const headingColor = isLight ? "text-[#06383B]" : "text-[#F4F8F8]";
   const bodyColor = isLight ? "text-[#34494B]" : "text-[#A9BABC]";
