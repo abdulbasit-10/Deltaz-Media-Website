@@ -3,9 +3,16 @@ import Footer from "./components/home/Footer";
 
 import Home from "./pages/Home";
 import About from "./pages/About";
+import Services from "./pages/Services";
 
 function App() {
   const pathname = window.location.pathname.replace(/\/+$/, "") || "/";
+  const pages = {
+    "/": Home,
+    "/about": About,
+    "/services": Services,
+  };
+  const Page = pages[pathname] || Home;
 
   return (
     <div
@@ -20,7 +27,7 @@ function App() {
       <main
         className="pt-[69px]"
       >
-        {pathname === "/about" ? <About /> : <Home />}
+        <Page />
       </main>
 
       <Footer />

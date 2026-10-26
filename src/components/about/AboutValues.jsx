@@ -1,4 +1,7 @@
-import rocketIcon from "../../assets/Rocket shape icon.png";
+import startupIcon from "../../assets/Startup.png";
+import foundersIcon from "../../assets/Founders.png";
+import internationalIcon from "../../assets/International.png";
+
 
 const audiences = [
   {
@@ -155,76 +158,24 @@ function AboutValues() {
 }
 
 function AudienceIcon({ type }) {
-  if (type === "rocket") {
-    return (
-      <span
-        aria-hidden="true"
-        className="block h-[20px] w-[20px] bg-[#07515A]"
-        style={{
-          WebkitMaskImage: `url("${rocketIcon}")`,
-          WebkitMaskRepeat: "no-repeat",
-          WebkitMaskPosition: "center",
-          WebkitMaskSize: "contain",
-          maskImage: `url("${rocketIcon}")`,
-          maskRepeat: "no-repeat",
-          maskPosition: "center",
-          maskSize: "contain",
-        }}
-      />
-    );
-  }
+  const icons = { rocket: startupIcon, people: foundersIcon, globe: internationalIcon };
+  const src = icons[type];
 
   return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.8"
-      strokeLinecap="round"
-      strokeLinejoin="round"
+    <span
       aria-hidden="true"
-      className="h-[20px] w-[20px]"
-    >
-      {type === "people" && (
-        <>
-          <circle
-            cx="12"
-            cy="6"
-            r="3"
-          />
-
-          <path
-            d="M7 21v-4a5 5 0 0 1 10 0v4ZM3 20v-3a4 4 0 0 1 3-3.9M21 20v-3a4 4 0 0 0-3-3.9"
-          />
-
-          <path
-            d="M5 5a3 3 0 0 0 0 6M19 5a3 3 0 0 1 0 6"
-          />
-        </>
-      )}
-
-      {type === "globe" && (
-        <>
-          <circle
-            cx="12"
-            cy="12"
-            r="9"
-          />
-
-          <ellipse
-            cx="12"
-            cy="12"
-            rx="4"
-            ry="9"
-          />
-
-          <path
-            d="M3 12h18M5 6.5h14M5 17.5h14"
-          />
-        </>
-      )}
-    </svg>
+      className="block h-[20px] w-[20px] bg-[#07515A]"
+      style={{
+        WebkitMaskImage: `url("${src}" )`,
+        WebkitMaskRepeat: "no-repeat",
+        WebkitMaskPosition: "center",
+        WebkitMaskSize: "contain",
+        maskImage: `url("${src}" )`,
+        maskRepeat: "no-repeat",
+        maskPosition: "center",
+        maskSize: "contain",
+      }}
+    />
   );
 }
-
 export default AboutValues;
