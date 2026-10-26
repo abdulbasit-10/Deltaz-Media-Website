@@ -1,4 +1,4 @@
-import teamImage from "../assets/Image for why choose us.png";
+import teamImage from "../../assets/Image for why choose us.png";
 
 function OurProblem() {
   return (

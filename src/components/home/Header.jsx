@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-import logo from "../assets/Deltaz Logo.svg";
-import arrowIcon from "../assets/meteor-icons_arrow-up-right (white).png";
+import logo from "../../assets/Deltaz Logo.svg";
+import arrowIcon from "../../assets/meteor-icons_arrow-up-right (white).png";
 
 const navItems = [
   { label: "Home", href: "/" },
@@ -15,6 +15,14 @@ const navItems = [
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = window.location.pathname.replace(/\/+$/, "") || "/";
+
+  function isActivePage(href) {
+    // Section links do not represent separate pages.
+    if (href.includes("#")) return false;
+
+    return pathname === href || (href !== "/" && pathname.startsWith(`${href}/`));
+  }
 
   function closeMenuOnEscape(event) {
     if (event.key === "Escape") {
@@ -69,7 +77,7 @@ function Header() {
             <a
               key={item.label}
               href={item.href}
-              aria-current={item.href === "/" ? "page" : undefined}
+              aria-current={isActivePage(item.href) ? "page" : undefined}
               className={`
                 flex min-h-[34px] items-center justify-center
                 rounded-[6px]
@@ -81,7 +89,7 @@ function Header() {
                 xl:px-[14px]
                 xl:text-[13px]
                 ${
-                  item.href === "/"
+                  isActivePage(item.href)
                     ? "bg-[#078894] text-white"
                     : "text-[#B0C6C8] hover:bg-[#0B5055] hover:text-white"
                 }
@@ -195,7 +203,7 @@ function Header() {
             <a
               key={item.label}
               href={item.href}
-              aria-current={item.href === "/" ? "page" : undefined}
+              aria-current={isActivePage(item.href) ? "page" : undefined}
               onClick={() => setMenuOpen(false)}
               className={`
                 flex min-h-11 items-center
@@ -203,7 +211,7 @@ function Header() {
                 text-sm
                 transition-colors duration-200
                 ${
-                  item.href === "/"
+                  isActivePage(item.href)
                     ? "bg-[#078894] text-white"
                     : "text-[#B0C6C8] hover:bg-[#0B5055] hover:text-white"
                 }

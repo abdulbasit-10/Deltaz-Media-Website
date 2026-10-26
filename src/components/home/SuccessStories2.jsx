@@ -1,13 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 
-import strategyImage from "../assets/Image for strategy.png";
-import smallBoxWaves from "../assets/Waves for small box.png";
-import marketingWaves from "../assets/Waves for marketing box.png";
-import growthArrow from "../assets/Arrow with bar upward.png";
-import searchIcon from "../assets/Seo optimization icon.png";
+import strategyImage from "../../assets/Image for strategy.png";
+import smallBoxWaves from "../../assets/Waves for small box.png";
+import marketingWaves from "../../assets/Waves for marketing box.png";
+import growthArrow from "../../assets/Arrow with bar upward.png";
+import searchIcon from "../../assets/Seo optimization icon.png";
 
-import whiteArrow from "../assets/meteor-icons_arrow-up-right (white).png";
-import tealArrow from "../assets/meteor-icons arrow-up-right (green).png";
+import whiteArrow from "../../assets/meteor-icons_arrow-up-right (white).png";
+import tealArrow from "../../assets/meteor-icons arrow-up-right (green).png";
 
 function SuccessStories2() {
   return (

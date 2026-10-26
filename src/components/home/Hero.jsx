@@ -1,5 +1,5 @@
-import arrowIcon from "../assets/meteor-icons_arrow-up-right (white).png";
-import rocketIcon from "../assets/Rocket shape icon.png";
+import arrowIcon from "../../assets/meteor-icons_arrow-up-right (white).png";
+import rocketIcon from "../../assets/Rocket shape icon.png";
 
 function Hero() {
   return (

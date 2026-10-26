@@ -1,13 +1,13 @@
-import seoImage from "../assets/SEO.png";
-import socialImage from "../assets/Social Media Marketing.png";
-import contentImage from "../assets/Content Marketing.png";
+import seoImage from "../../assets/SEO.png";
+import socialImage from "../../assets/Social Media Marketing.png";
+import contentImage from "../../assets/Content Marketing.png";
 
-import seoIcon from "../assets/Seo optimization icon.png";
-import socialIcon from "../assets/Social Media Icon.png";
-import contentIcon from "../assets/Content Marketing icon.png";
+import seoIcon from "../../assets/Seo optimization icon.png";
+import socialIcon from "../../assets/Social Media Icon.png";
+import contentIcon from "../../assets/Content Marketing icon.png";
 
-import whiteArrow from "../assets/meteor-icons_arrow-up-right (white).png";
-import blackArrow from "../assets/meteor-icons arrow-up-right (black).png";
+import whiteArrow from "../../assets/meteor-icons_arrow-up-right (white).png";
+import blackArrow from "../../assets/meteor-icons arrow-up-right (black).png";
 
 const services = [
   {

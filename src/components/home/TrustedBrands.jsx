@@ -1,9 +1,9 @@
-import shahnoorLogo from "../assets/Shahnoor.png";
-import jarvisLogo from "../assets/jarvis.png";
-import makaanLogo from "../assets/makaan.png";
-import saConsultantsLogo from "../assets/SA Consultants.png";
-import adlyticXLogo from "../assets/Adlytic X.png";
-import drGloriaLogo from "../assets/dr.gloria.png";
+import shahnoorLogo from "../../assets/Shahnoor.png";
+import jarvisLogo from "../../assets/jarvis.png";
+import makaanLogo from "../../assets/makaan.png";
+import saConsultantsLogo from "../../assets/SA Consultants.png";
+import adlyticXLogo from "../../assets/Adlytic X.png";
+import drGloriaLogo from "../../assets/dr.gloria.png";
 
 
 const logos = [
