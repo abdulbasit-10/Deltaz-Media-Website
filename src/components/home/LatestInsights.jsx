@@ -1,9 +1,9 @@
-import seoImage from "../assets/SEO.png";
-import socialMediaImage from "../assets/Social Media.png";
-import contentMarketingImage from "../assets/Content Marketing (2) for insights.png";
-import readIcon from "../assets/Read icon.png";
-import blackArrowIcon from "../assets/meteor-icons arrow-up-right (black).png";
-import whiteArrowIcon from "../assets/meteor-icons_arrow-up-right (white).png";
+import seoImage from "../../assets/SEO.png";
+import socialMediaImage from "../../assets/Social Media.png";
+import contentMarketingImage from "../../assets/Content Marketing (2) for insights.png";
+import readIcon from "../../assets/Read icon.png";
+import blackArrowIcon from "../../assets/meteor-icons arrow-up-right (black).png";
+import whiteArrowIcon from "../../assets/meteor-icons_arrow-up-right (white).png";
 
 
 const articles = [

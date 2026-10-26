@@ -1,14 +1,14 @@
-import deltazLogo from "../assets/Deltaz Logo.svg";
-import deltazLogoLight from "../assets/Deltaz logo light.png";
+import deltazLogo from "../../assets/Deltaz Logo.svg";
+import deltazLogoLight from "../../assets/Deltaz logo light.png";
 
-import facebookIcon from "../assets/Facebook.png";
-import instagramIcon from "../assets/Instagram.png";
-import linkedinIcon from "../assets/Linked in.png";
-import twitterIcon from "../assets/Twitter.png";
+import facebookIcon from "../../assets/Facebook.png";
+import instagramIcon from "../../assets/Instagram.png";
+import linkedinIcon from "../../assets/Linked in.png";
+import twitterIcon from "../../assets/Twitter.png";
 
-import mailIcon from "../assets/MailIcon.png";
-import phoneIcon from "../assets/Phone Icon.png";
-import locationIcon from "../assets/Location icon.png";
+import mailIcon from "../../assets/MailIcon.png";
+import phoneIcon from "../../assets/Phone Icon.png";
+import locationIcon from "../../assets/Location icon.png";
 
 
 const socialLinks = [

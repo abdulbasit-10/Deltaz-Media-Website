@@ -1,5 +1,5 @@
-import successImage from "../assets/Success.png";
-import whiteArrow from "../assets/meteor-icons_arrow-up-right (white).png";
+import successImage from "../../assets/Success.png";
+import whiteArrow from "../../assets/meteor-icons_arrow-up-right (white).png";
 
 function SuccessStories1() {
   return (

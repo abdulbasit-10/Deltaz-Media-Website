@@ -1,13 +1,13 @@
-import Hero from "../components/Hero";
-import OurProblem from "../components/OurProblem";
-import OurSolution from "../components/OurSolution";
-import Services from "../components/Services";
-import HowWeWork from "../components/HowWeWork";
-import SuccessStories1 from "../components/SuccessStories1";
-import SuccessStories2 from "../components/SuccessStories2";
-import TrustedBrands from "../components/TrustedBrands";
-import LatestInsights from "../components/LatestInsights";
-import LastCard from "../components/LastCard";
+import Hero from "../components/home/Hero";
+import OurProblem from "../components/home/OurProblem";
+import OurSolution from "../components/home/OurSolution";
+import Services from "../components/home/Services";
+import HowWeWork from "../components/home/HowWeWork";
+import SuccessStories1 from "../components/home/SuccessStories1";
+import SuccessStories2 from "../components/home/SuccessStories2";
+import TrustedBrands from "../components/home/TrustedBrands";
+import LatestInsights from "../components/home/LatestInsights";
+import LastCard from "../components/home/LastCard";
 
 function Home() {
   return (

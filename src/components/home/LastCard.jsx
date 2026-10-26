@@ -1,7 +1,7 @@
-import lastCardWaves from "../assets/Waves for last card.png";
-import greenArrowIcon from "../assets/meteor-icons arrow-up-right (green).png";
-import blackArrowIcon from "../assets/meteor-icons arrow-up-right (black).png";
-import whiteArrowIcon from "../assets/meteor-icons_arrow-up-right (white).png";
+import lastCardWaves from "../../assets/Waves for last card.png";
+import greenArrowIcon from "../../assets/meteor-icons arrow-up-right (green).png";
+import blackArrowIcon from "../../assets/meteor-icons arrow-up-right (black).png";
+import whiteArrowIcon from "../../assets/meteor-icons_arrow-up-right (white).png";
 
 
 const LastCard = () => {
