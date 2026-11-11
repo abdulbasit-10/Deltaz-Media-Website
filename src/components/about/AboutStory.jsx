@@ -1,3 +1,6 @@
+import growthDevelopmentIcon from "../../assets/Growth Development.png";
+import transparentProcessIcon from "../../assets/Transparent Process.png";
+import clientCentricIcon from "../../assets/Client Centric Focus.png";
 import storyImage from "../../assets/Story image.png";
 import storyWaves from "../../assets/Waves for success stories.png";
 import goalIcon from "../../assets/Goal Oriented Approach.png";
@@ -268,72 +271,24 @@ function AboutStory() {
 }
 
 function ProcessIcon({ type }) {
-  if (type === "goal") {
-    return (
-      <img
-        src={goalIcon}
-        alt=""
-        aria-hidden="true"
-        className="h-[22px] w-[22px] object-contain"
-      />
-    );
-  }
+  const icons = { goal: goalIcon, shield: growthDevelopmentIcon, link: transparentProcessIcon, database: clientCentricIcon };
+  const src = icons[type];
 
   return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.6"
-      strokeLinecap="round"
-      strokeLinejoin="round"
+    <span
       aria-hidden="true"
-      className="h-[23px] w-[23px] text-white"
-    >
-      {type === "shield" && (
-        <>
-          <path
-            d="m12 3 8 4v5c0 5-8 9-8 9s-8-4-8-9V7Z"
-          />
-
-          <path
-            d="m8 12 3 3 5-6"
-          />
-        </>
-      )}
-
-      {type === "link" && (
-        <>
-          <path
-            d="M10 13a5 5 0 0 0 7.1 0l3-3a5 5 0 0 0-7.1-7.1l-1.7 1.7"
-          />
-
-          <path
-            d="M14 11a5 5 0 0 0-7.1 0l-3 3a5 5 0 0 0 7.1 7.1l1.7-1.7"
-          />
-        </>
-      )}
-
-      {type === "database" && (
-        <>
-          <ellipse
-            cx="12"
-            cy="5"
-            rx="8"
-            ry="3"
-          />
-
-          <path
-            d="M4 5v7c0 1.7 3.6 3 8 3s8-1.3 8-3V5"
-          />
-
-          <path
-            d="M4 12v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"
-          />
-        </>
-      )}
-    </svg>
+      className="block h-[23px] w-[23px] bg-white"
+      style={{
+        WebkitMaskImage: `url("${src}" )`,
+        WebkitMaskRepeat: "no-repeat",
+        WebkitMaskPosition: "center",
+        WebkitMaskSize: "contain",
+        maskImage: `url("${src}" )`,
+        maskRepeat: "no-repeat",
+        maskPosition: "center",
+        maskSize: "contain",
+      }}
+    />
   );
 }
-
 export default AboutStory;

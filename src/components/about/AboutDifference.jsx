@@ -1,3 +1,6 @@
+import strategyIcon from "../../assets/Strategy.png";
+import capabilitiesIcon from "../../assets/Capabilities.png";
+import growthIcon from "../../assets/Growth.png";
 const capabilities = [
   {
     title: "1. Strategy Before Activity",
@@ -178,80 +181,24 @@ function AboutDifference() {
 }
 
 function CapabilityIcon({ type }) {
+  const icons = { compass: strategyIcon, team: capabilitiesIcon, growth: growthIcon };
+  const src = icons[type];
+
   return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.8"
-      strokeLinecap="round"
-      strokeLinejoin="round"
+    <span
       aria-hidden="true"
-      className="h-[20px] w-[20px]"
-    >
-      {type === "compass" && (
-        <>
-          <circle
-            cx="12"
-            cy="12"
-            r="9"
-          />
-
-          <path
-            d="m16 8-2.5 5.5L8 16l2.5-5.5Z"
-            fill="currentColor"
-            stroke="none"
-          />
-        </>
-      )}
-
-      {type === "team" && (
-        <>
-          <circle
-            cx="12"
-            cy="6"
-            r="2.5"
-          />
-
-          <circle
-            cx="5"
-            cy="10"
-            r="2"
-          />
-
-          <circle
-            cx="19"
-            cy="10"
-            r="2"
-          />
-
-          <path
-            d="M8 21v-4a4 4 0 0 1 8 0v4ZM2 20v-3a3 3 0 0 1 4-2.8M22 20v-3a3 3 0 0 0-4-2.8"
-          />
-
-          <path
-            d="M10 2h4"
-          />
-        </>
-      )}
-
-      {type === "growth" && (
-        <>
-          <path
-            d="M4 4v16h16"
-          />
-
-          <path
-            d="m7 15 5-5 3 3 5-7"
-          />
-
-          <path
-            d="M16 6h4v4"
-          />
-        </>
-      )}
-    </svg>
+      className="block h-[20px] w-[20px] bg-[#00DDC5]"
+      style={{
+        WebkitMaskImage: `url("${src}" )`,
+        WebkitMaskRepeat: "no-repeat",
+        WebkitMaskPosition: "center",
+        WebkitMaskSize: "contain",
+        maskImage: `url("${src}" )`,
+        maskRepeat: "no-repeat",
+        maskPosition: "center",
+        maskSize: "contain",
+      }}
+    />
   );
 }
-
 export default AboutDifference;

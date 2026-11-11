@@ -50,7 +50,8 @@ function AboutHero() {
         px-5 pt-7
         font-['Outfit']
         text-white
-        sm:px-8 sm:pt-[38px]
+        sm:px-8 sm:pt-[36px]
+        lg:min-h-[560px]
       "
     >
       {/* Light background behind the bottom of the cards */}
@@ -126,7 +127,7 @@ function AboutHero() {
               text-[32px] font-extrabold
               leading-[1.15] tracking-[-0.04em]
               sm:text-[42px]
-              lg:text-[48px]
+              lg:text-[44px]
             "
           >
             Your Business Has Enough
@@ -141,7 +142,7 @@ function AboutHero() {
               mt-[20px] max-w-[560px]
               text-[13px] leading-[1.35]
               text-[#AFC6C8]
-              sm:text-[15px]
+              sm:text-[13px]
             "
           >
             Running a business already means making decisions about
@@ -160,7 +161,7 @@ function AboutHero() {
         <div
           className="
             mt-7 grid grid-cols-1 gap-5
-            sm:mt-[46px]
+            sm:mt-[34px]
             md:grid-cols-3 md:gap-[18px]
           "
         >
