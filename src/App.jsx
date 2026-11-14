@@ -9,6 +9,7 @@ import SocialMediaMarketing from "./pages/SocialMediaMarketing";
 import Branding from "./pages/Branding";
 import SEO from "./pages/SEO";
 import BeOurNext from "./pages/BeOurNext";
+import WhoWeHelp from "./pages/WhoWeHelp";
 
 function App() {
   const pathname = window.location.pathname.replace(/\/+$/, "") || "/";
@@ -21,6 +22,7 @@ function App() {
     "/services/branding": Branding,
     "/services/seo": SEO,
     "/be-our-next": BeOurNext,
+    "/who-we-help": WhoWeHelp,
   };
   const Page = pages[pathname] || Home;
 
